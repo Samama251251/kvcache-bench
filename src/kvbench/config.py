@@ -49,9 +49,31 @@ class GenerationConfig(BaseModel):
 
     max_new_tokens: int = 128
     samples_per_task: int = 50
+    # Prompts longer than this are truncated from the middle, keeping the head
+    # and the tail -- the same thing LongBench's own harness does, and the tail
+    # is where the question lives. None means never truncate.
+    max_context_tokens: int | None = None
     # Greedy by default: sampling noise would show up as quality variance we
     # cannot attribute to the compression method.
     do_sample: bool = False
+
+
+class EstimateConfig(BaseModel):
+    """Rough throughput assumptions, used only until real records exist.
+
+    These are declared guesses, not measurements -- `kvbench plan` says so in its
+    output, and switches to measured per-run times as soon as the store has any.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    prefill_tokens_per_s: float = 8000.0
+    decode_tokens_per_s: float = 40.0
+    # Used for suites whose prompt length is not known until the data is loaded.
+    assumed_prompt_tokens: int = 8000
+    # Fixed per-run cost: model already resident, but scoring and setup are not free.
+    fixed_overhead_s: float = 20.0
+    hourly_usd: float | None = None
 
 
 class MethodConfig(BaseModel):
@@ -89,6 +111,7 @@ class ExperimentConfig(BaseModel):
     benchmarks: list[BenchmarkConfig]
     runtime: RuntimeConfig = Field(default_factory=RuntimeConfig)
     generation: GenerationConfig = Field(default_factory=GenerationConfig)
+    estimate: EstimateConfig = Field(default_factory=EstimateConfig)
     # Cache retention ratios for eviction methods. 1.0 belongs to the baseline
     # and is not swept over.
     budgets: list[float] = Field(default_factory=lambda: [0.5, 0.25, 0.1])
@@ -141,6 +164,7 @@ class ExperimentConfig(BaseModel):
                                         context_length=ctx,
                                         repeat=repeat,
                                         max_new_tokens=self.generation.max_new_tokens,
+                                        max_context_tokens=self.generation.max_context_tokens,
                                         samples=self.generation.samples_per_task,
                                     )
                                 )
@@ -176,6 +200,7 @@ class RunSpec(BaseModel):
     context_length: int | None
     repeat: int
     max_new_tokens: int
+    max_context_tokens: int | None
     samples: int
 
     @property

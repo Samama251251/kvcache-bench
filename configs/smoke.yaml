@@ -1,0 +1,48 @@
+# The Phase 2 gate: the first thing to run on rented hardware, before the full
+# sweep. Deliberately small -- one task, few samples -- because its job is to
+# answer questions about the GPU, not to produce results.
+#
+# What it is checking:
+#   - NVML power sampling works and returns plausible watts
+#   - every configured press actually runs against the real model
+#   - a 32k RULER prompt does not OOM at this card's VRAM
+#   - repeats=3 on one cell exposes the energy noise floor. If J/token varies
+#     by double digits between identical runs, half the findings this project
+#     wants to report are not falsifiable, and we need to know that here rather
+#     than in the write-up.
+name: smoke
+
+model:
+  id: meta-llama/Llama-3.1-8B-Instruct
+  dtype: bfloat16
+  attn_implementation: flash_attention_2
+
+runtime:
+  device: cuda
+  hardware_backend: nvml
+  power_sample_hz: 10
+  warmup: true
+  # Fill in once the card is chosen; unlocked clocks make energy noisier.
+  lock_clocks_mhz: null
+
+generation:
+  max_new_tokens: 64
+  samples_per_task: 10
+  max_context_tokens: 32768
+
+methods:
+  - name: full_cache
+    kind: full_cache
+  - name: streaming_llm
+  - name: snapkv
+
+budgets: [0.5, 0.25]
+
+benchmarks:
+  - suite: longbench
+    tasks: [qasper]
+
+repeats: 3
+
+estimate:
+  hourly_usd: 0.40

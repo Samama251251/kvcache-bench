@@ -52,8 +52,14 @@ target-version = "py311"
 select = ["E", "F", "I", "UP", "B"]
 
 [tool.ruff.lint.per-file-ignores]
+# typer's whole API is function calls in argument defaults.
+"src/kvbench/cli.py" = ["B008"]
 # Vendored verbatim from NVIDIA/kvpress; keep it byte-identical to upstream.
 "src/kvbench/benchmarks/vendored/*" = ["ALL"]
+
+[tool.ruff.format]
+# Never reformat the vendored scorers; they must stay identical to upstream.
+exclude = ["src/kvbench/benchmarks/vendored/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

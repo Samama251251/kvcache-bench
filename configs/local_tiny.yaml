@@ -1,0 +1,47 @@
+# Runs on a laptop. Proves the harness end to end -- config, sweep, adapters,
+# metrics, scoring, record writing -- before any GPU is rented.
+#
+# Nothing here is a measurement. The model is far too small to say anything
+# about compression quality, and the energy numbers come from the fake backend.
+# Records from this config are marked hardware_backend=fake for that reason.
+name: local_tiny
+
+model:
+  # A tiny random Llama: a kvpress-supported architecture (GPT-2 is not), small
+  # enough to run on a laptop.
+  id: hf-internal-testing/tiny-random-LlamaForCausalLM
+  dtype: float32
+
+runtime:
+  device: cpu
+  hardware_backend: fake
+  power_sample_hz: 200
+  warmup: true
+  max_batch_tokens: 4096
+
+generation:
+  max_new_tokens: 32
+  # LongBench contexts are far longer than this model's position limit.
+  max_context_tokens: 512
+
+# Both passes, so the split itself is exercised locally rather than first on a
+# rented GPU.
+passes:
+  - mode: quality
+    samples_per_task: 4
+    batch_size: 2
+  - mode: performance
+    samples_per_task: 2
+    batch_size: 1
+
+methods:
+  - name: full_cache
+    kind: full_cache
+  - name: streaming_llm
+  - name: snapkv
+
+budgets: [0.5]
+
+benchmarks:
+  - suite: longbench
+    tasks: [qasper]

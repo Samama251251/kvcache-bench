@@ -1,0 +1,91 @@
+# The headline sweep. Every number in the report comes from one execution of
+# this config on one card -- energy and latency are not comparable across
+# hardware, so a second card means a second table, never a merged one.
+#
+# Single card, >=40GB VRAM. The exact card is chosen at rental time and nothing
+# here names one. Run
+#   kvbench plan configs/full_sweep.yaml --hourly-usd <price>
+# and check the estimate before starting.
+name: full_sweep
+
+model:
+  id: meta-llama/Llama-3.1-8B-Instruct
+  dtype: bfloat16
+  attn_implementation: flash_attention_2
+
+runtime:
+  device: cuda
+  hardware_backend: nvml
+  power_sample_hz: 10
+  warmup: true
+  # Runs are shuffled under this seed so thermal drift over a long session does
+  # not line up with method order.
+  shuffle_seed: 1234
+  lock_clocks_mhz: null
+  # Total prompt tokens per batch. Caps batch size as context grows: 8 at 8k,
+  # 4 at 16k, 2 at 32k. Sized for a single card with >=40GB, where the weights
+  # alone take 16.1GB and a 32k KV cache adds 4.3GB per sequence.
+  max_batch_tokens: 65536
+
+generation:
+  max_new_tokens: 128
+  max_context_tokens: 16384
+
+# Two passes over the same grid, because quality and performance want opposite
+# things from the same generation. See config.py for the reasoning.
+passes:
+  # Scores only, so prompts batch and the pass costs a fraction of batch-1.
+  - mode: quality
+    samples_per_task: 50
+    batch_size: 8
+    repeats: 1
+
+  # Energy and latency, at batch 1 and a controlled context length. Few samples,
+  # repeated, because the question is what a method costs per token rather than
+  # how well it answers. RULER only, and one task: performance depends on
+  # context length, not on what the needle says.
+  - mode: performance
+    samples_per_task: 5
+    batch_size: 1
+    repeats: 3
+    benchmarks:
+      - suite: ruler
+        tasks: [niah_single_1]
+        context_lengths: [4096, 16384, 32768]
+
+methods:
+  - name: full_cache
+    kind: full_cache
+  - name: streaming_llm
+  - name: h2o
+    # ObservedAttentionPress needs eager attention, whose score matrix is
+    # quadratic in context: ~17GB for one layer at 16k, ~69GB at 32k. The 32k
+    # cells are dropped rather than attempted -- no single card holds that.
+    max_context_tokens: 16384
+  - name: snapkv
+  - name: pyramidkv
+  - name: tova
+  - name: kv_quant
+    kind: quantization
+
+budgets: [0.5, 0.25, 0.1]
+quant_bits: [4, 2]
+
+benchmarks:
+  # Single-doc QA, multi-doc QA and summarisation.
+  - suite: longbench
+    tasks: [narrativeqa, qasper, hotpotqa, 2wikimqa, gov_report, triviaqa]
+    max_context_tokens: 16384
+  # Retrieval is where eviction methods break down most sharply.
+  - suite: ruler
+    tasks: [niah_single_1, niah_multikey_1]
+    context_lengths: [4096, 16384, 32768]
+
+estimate:
+  # A single >=40GB card running an 8B model in bf16. Replaced by measured
+  # numbers as soon as the smoke session writes records.
+  prefill_tokens_per_s: 9000
+  decode_tokens_per_s: 45
+  assumed_prompt_tokens: 12000
+  fixed_overhead_s: 15
+  hourly_usd: 0.80

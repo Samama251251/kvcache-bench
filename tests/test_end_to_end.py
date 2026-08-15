@@ -61,9 +61,7 @@ def offline_samples(monkeypatch):
     return samples
 
 
-def test_a_sweep_runs_end_to_end_and_writes_complete_records(
-    tmp_path, experiment, offline_samples
-):
+def test_a_sweep_runs_end_to_end_and_writes_complete_records(tmp_path, experiment, offline_samples):
     store = ResultStore(tmp_path)
     records = run_sweep(experiment, store, backend=FakeBackend(), resume=True)
 
@@ -92,9 +90,7 @@ def test_the_baseline_really_is_uncompressed(tmp_path, experiment, offline_sampl
 
 
 @pytest.mark.parametrize("method", ["snapkv", "streaming_llm"])
-def test_presses_actually_evict_to_the_requested_budget(
-    tmp_path, experiment, offline_samples, method
-):
+def test_presses_actually_evict_to_the_requested_budget(tmp_path, experiment, offline_samples, method):
     store = ResultStore(tmp_path)
     records = {r.method.name: r for r in run_sweep(experiment, store, backend=FakeBackend())}
 
@@ -103,9 +99,7 @@ def test_presses_actually_evict_to_the_requested_budget(
     assert records[method].memory.retained_tokens < records["full_cache"].memory.retained_tokens
 
 
-def test_every_run_lands_in_the_index_with_its_hardware_named(
-    tmp_path, experiment, offline_samples
-):
+def test_every_run_lands_in_the_index_with_its_hardware_named(tmp_path, experiment, offline_samples):
     store = ResultStore(tmp_path)
     run_sweep(experiment, store, backend=FakeBackend())
 

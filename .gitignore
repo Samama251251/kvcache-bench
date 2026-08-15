@@ -1,0 +1,12 @@
+idea.md
+CLAUDE.md
+
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# HuggingFace / dataset caches, never the results themselves.
+.cache/
+*.egg-info/

@@ -59,9 +59,7 @@ def test_repeats_produce_distinct_runs():
 
 def test_ruler_expands_over_context_lengths():
     specs = make_config(
-        benchmarks=[
-            {"suite": "ruler", "tasks": ["niah_single_1"], "context_lengths": [4096, 16384]}
-        ]
+        benchmarks=[{"suite": "ruler", "tasks": ["niah_single_1"], "context_lengths": [4096, 16384]}]
     ).expand()
     assert {s.context_length for s in specs} == {4096, 16384}
     assert "4k" in next(s for s in specs if s.context_length == 4096).slug

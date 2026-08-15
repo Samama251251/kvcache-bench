@@ -64,9 +64,7 @@ def test_ruler_scores_by_substring_match():
         sample(["7f3a"], task="niah_single_1"),
         sample(["9c1b"], task="niah_single_1"),
     ]
-    name, primary, scores = score(
-        "ruler", "niah_single_1", samples, ["the magic number is 7f3a", "no idea"]
-    )
+    name, primary, scores = score("ruler", "niah_single_1", samples, ["the magic number is 7f3a", "no idea"])
     assert name == "string_match"
     assert primary == pytest.approx(50.0)
     assert scores["niah_single_1"]["string_match"] == pytest.approx(50.0)

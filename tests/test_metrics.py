@@ -120,9 +120,7 @@ def test_sampler_collects_a_trace_and_reports_its_real_rate():
     # Never assert the achieved rate equals the requested one -- it is recorded
     # precisely because a loaded box will not hit it.
     assert 0 < trace.achieved_hz <= 200.0
-    assert integrate_joules(trace.seconds, trace.watts) == pytest.approx(
-        120.0 * trace.duration_s
-    )
+    assert integrate_joules(trace.seconds, trace.watts) == pytest.approx(120.0 * trace.duration_s)
 
 
 def test_failed_reads_are_counted_rather_than_killing_the_run():
@@ -164,9 +162,7 @@ class _Cfg:
 
 def test_kv_cache_size_follows_the_standard_formula():
     # 2 (K and V) * 32 layers * 8 kv heads * 128 head_dim * 1000 tokens * 2 bytes
-    got = kv_cache_bytes(
-        num_layers=32, num_kv_heads=8, head_dim=128, tokens=1000, dtype="bfloat16"
-    )
+    got = kv_cache_bytes(num_layers=32, num_kv_heads=8, head_dim=128, tokens=1000, dtype="bfloat16")
     assert got == 2 * 32 * 8 * 128 * 1000 * 2
 
 
@@ -198,7 +194,7 @@ def test_kv_saving_is_relative_to_the_uncompressed_cache():
         kv_cache_bytes=250,
         kv_cache_bytes_uncompressed=1000,
         retained_tokens=250,
-        total_tokens=1000,
+        prompt_tokens=1000,
     )
     assert m.kv_cache_saving == pytest.approx(0.75)
 

@@ -56,7 +56,7 @@ def record_factory():
                 kv_cache_bytes=500,
                 kv_cache_bytes_uncompressed=1000,
                 retained_tokens=500,
-                total_tokens=1000,
+                prompt_tokens=1000,
             ),
             latency=LatencyMetrics(
                 ttft_s=0.4,

@@ -17,7 +17,7 @@ import json
 import os
 import platform
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -85,6 +85,10 @@ class RunRecord(BaseModel):
     environment: Environment
     status: str
     error: str | None = None
+    # Things that make this run less trustworthy without making it a failure:
+    # too few power samples, a sampling rate far below what was asked for, NVML
+    # read errors. A run that is quietly degraded is worse than one that failed.
+    warnings: list[str] = Field(default_factory=list)
     started_at: str
     finished_at: str
 
@@ -109,6 +113,7 @@ class RunRecord(BaseModel):
             "context_length": self.spec.get("context_length"),
             "repeat": self.spec.get("repeat"),
             "status": self.status,
+            "warnings": "; ".join(self.warnings),
             "primary_metric": self.quality.primary_metric,
             "primary_score": self.quality.primary_score,
             "driver_peak_bytes": self.memory.driver_peak_bytes,
@@ -141,6 +146,7 @@ INDEX_COLUMNS = [
     "context_length",
     "repeat",
     "status",
+    "warnings",
     "primary_metric",
     "primary_score",
     "driver_peak_bytes",
@@ -277,4 +283,4 @@ def git_sha() -> str | None:
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+    return datetime.now(UTC).isoformat(timespec="seconds")

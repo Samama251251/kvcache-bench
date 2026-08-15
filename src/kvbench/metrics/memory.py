@@ -39,8 +39,10 @@ class MemoryMetrics(BaseModel):
     driver_peak_bytes: int | None
     kv_cache_bytes: int
     kv_cache_bytes_uncompressed: int
+    # A KV cache is a per-sequence object, so these describe one representative
+    # sequence (the last sample of the run), never a sum over the whole task.
     retained_tokens: int
-    total_tokens: int
+    prompt_tokens: int
 
     @property
     def kv_cache_saving(self) -> float:
@@ -85,7 +87,7 @@ def geometry_from_hf_config(config) -> dict:
             raise ValueError("cannot derive head_dim from model config")
         head_dim = hidden // num_attn_heads
     return {
-        "num_layers": getattr(config, "num_hidden_layers", None) or getattr(config, "n_layer"),
+        "num_layers": getattr(config, "num_hidden_layers", None) or config.n_layer,
         "num_kv_heads": num_kv_heads,
         "head_dim": head_dim,
     }

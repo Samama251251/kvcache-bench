@@ -39,12 +39,17 @@ class EnergyMetrics(BaseModel):
     ) -> EnergyMetrics:
         joules = integrate_joules(trace.seconds, trace.watts)
         duration = trace.duration_s
+        # Under two samples there is no observed interval. Reporting 0 J/token
+        # would read as "free", which is the opposite of what we know.
+        measured = duration > 0 and trace.sample_count >= 2
         net = None
         if idle_watts is not None and duration > 0:
             net = joules - idle_watts * duration
         return cls(
             total_joules=joules,
-            joules_per_generated_token=(joules / generated_tokens if generated_tokens > 0 else None),
+            joules_per_generated_token=(
+                joules / generated_tokens if measured and generated_tokens > 0 else None
+            ),
             mean_watts=(joules / duration if duration > 0 else 0.0),
             peak_watts=(max(trace.watts) if trace.watts else 0.0),
             idle_watts=idle_watts,

@@ -100,9 +100,7 @@ def build_method(config: MethodConfig, spec: RunSpec) -> Method:
 
     class_name = PRESS_CLASS_NAMES.get(config.name)
     if class_name is None:
-        raise KeyError(
-            f"unknown method '{config.name}'. Known presses: {sorted(PRESS_CLASS_NAMES)}"
-        )
+        raise KeyError(f"unknown method '{config.name}'. Known presses: {sorted(PRESS_CLASS_NAMES)}")
     cls = resolve_press_class(class_name)
     if cls is None:
         raise RuntimeError(

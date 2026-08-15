@@ -32,7 +32,7 @@ from .metrics.memory import (
     torch_peak_bytes,
 )
 from .metrics.sampler import DeviceSampler, DeviceTrace
-from .registry import build_method
+from .registry import PRESS_CLASS_NAMES, build_method
 from .results import (
     MethodInfo,
     QualityMetrics,
@@ -213,11 +213,7 @@ def run_one(
     clock_lock_applied: bool = False,
 ) -> RunRecord:
     started = utc_now()
-    method = build_method(method_config, spec)
-
-    attn = config.model.attn_implementation
-    if method.press_class in EAGER_ONLY_PRESSES:
-        attn = "eager"
+    method = None
 
     environment = collect_environment(
         device=config.runtime.device,
@@ -227,6 +223,14 @@ def run_one(
     )
 
     try:
+        # Inside the try: a method that will not even construct should cost its
+        # own cell, not the rest of the sweep.
+        method = build_method(method_config, spec)
+
+        attn = config.model.attn_implementation
+        if method.press_class in EAGER_ONLY_PRESSES:
+            attn = "eager"
+
         model, tokenizer = session.get(spec, attn)
         samples = loader.load_samples(
             spec.suite,
@@ -277,7 +281,7 @@ def run_one(
         slug=spec.slug,
         spec=spec.model_dump(mode="json"),
         method=MethodInfo(
-            **method.describe(),
+            **(method.describe() if method else _method_info_from_config(method_config, spec)),
             effective_compression_ratio=_effective_ratio(memory),
         ),
         environment=environment,
@@ -353,6 +357,18 @@ def _memory_metrics(
         retained_tokens=retained,
         prompt_tokens=total,
     )
+
+
+def _method_info_from_config(method_config: MethodConfig, spec: RunSpec) -> dict:
+    """Describe a method that never got built, so the failure still has a name."""
+    return {
+        "name": method_config.name,
+        "kind": method_config.kind,
+        "press_class": PRESS_CLASS_NAMES.get(method_config.name),
+        "requested_compression_ratio": spec.compression_ratio,
+        "quant_bits": spec.quant_bits,
+        "params": dict(method_config.params),
+    }
 
 
 def _effective_ratio(memory: MemoryMetrics) -> float | None:

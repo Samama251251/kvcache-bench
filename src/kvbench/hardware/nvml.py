@@ -18,9 +18,7 @@ class NvmlBackend(HardwareBackend):
         try:
             import pynvml
         except ImportError as exc:  # pragma: no cover - depends on host
-            raise RuntimeError(
-                "NVML backend requires the 'gpu' extra: uv sync --extra gpu"
-            ) from exc
+            raise RuntimeError("NVML backend requires the 'gpu' extra: uv sync --extra gpu") from exc
 
         self._nvml = pynvml
         self._nvml.nvmlInit()

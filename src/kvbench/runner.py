@@ -70,18 +70,30 @@ class ModelSession:
     attention and the other methods should not be forced to pay for it.
     """
 
-    def __init__(self, device: str) -> None:
+    def __init__(self, device: str, max_resident: int = 1) -> None:
         self.device = device
-        self._key: tuple | None = None
-        self.model = None
-        self.tokenizer = None
+        self.max_resident = max(1, max_resident)
+        self._loaded: dict[tuple, tuple] = {}
+        self.loads = 0
 
     def get(self, spec: RunSpec, attn_implementation: str | None):
         key = (spec.model_id, spec.dtype, attn_implementation)
-        if key != self._key:
-            self.model, self.tokenizer = self._load(spec, attn_implementation)
-            self._key = key
-        return self.model, self.tokenizer
+        if key not in self._loaded:
+            while len(self._loaded) >= self.max_resident:
+                self._evict_oldest()
+            self._loaded[key] = self._load(spec, attn_implementation)
+            self.loads += 1
+        return self._loaded[key]
+
+    def _evict_oldest(self) -> None:
+        import gc
+
+        import torch
+
+        self._loaded.pop(next(iter(self._loaded)))
+        gc.collect()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
 
     def _load(self, spec: RunSpec, attn_implementation: str | None):
         import torch
@@ -153,6 +165,7 @@ def generate_samples(
     spec: RunSpec,
     device: str,
     recorder: LatencyRecorder,
+    use_benchmark_lengths: bool = True,
 ) -> GenerationOutcome:
     import torch
 
@@ -165,11 +178,15 @@ def generate_samples(
         inputs = build_inputs(tokenizer, sample, device, spec.max_context_tokens)
         prompt_tokens = int(inputs["input_ids"].shape[-1])
 
+        new_tokens = spec.max_new_tokens
+        if use_benchmark_lengths and sample.max_new_tokens:
+            new_tokens = sample.max_new_tokens
+
         recorder.start_sample()
         with torch.no_grad(), method.apply(model):
             output = model.generate(
                 **inputs,
-                max_new_tokens=spec.max_new_tokens,
+                max_new_tokens=new_tokens,
                 do_sample=False,
                 logits_processor=[timer],
                 return_dict_in_generate=True,
@@ -254,6 +271,7 @@ def run_one(
                 spec=spec,
                 device=config.runtime.device,
                 recorder=recorder,
+                use_benchmark_lengths=config.generation.use_benchmark_max_new_tokens,
             )
         finally:
             trace = sampler.stop()
@@ -413,28 +431,24 @@ def run_sweep(
     resume: bool = True,
     limit: int | None = None,
     progress=None,
+    shard: tuple[int, int] = (0, 1),
+    after_record=None,
 ) -> list[RunRecord]:
-    specs = config.expand()
-    if resume:
-        specs = store.pending(specs)
-
-    # Shuffled, not grouped by method: a sweep that runs every SnapKV cell back
-    # to back would hand SnapKV whatever thermal state the previous method left
-    # behind, and that would look like a property of SnapKV.
-    random.Random(config.runtime.shuffle_seed).shuffle(specs)
-    if limit is not None:
-        specs = specs[:limit]
+    specs = plan_specs(config, store, resume=resume, limit=limit, shard=shard)
 
     methods = {m.name: m for m in config.methods}
-    session = ModelSession(config.runtime.device)
+    session = ModelSession(config.runtime.device, config.runtime.max_resident_models)
 
     clock_lock_applied = False
     if config.runtime.lock_clocks_mhz:
         clock_lock_applied = backend.lock_clocks(config.runtime.lock_clocks_mhz)
 
+    stopping = _install_stop_handler()
     records = []
     try:
         for index, spec in enumerate(specs, start=1):
+            if stopping.requested:
+                break
             if progress:
                 progress(index, len(specs), spec)
             record = run_one(
@@ -447,7 +461,84 @@ def run_sweep(
             )
             store.save(record)
             records.append(record)
+            if after_record:
+                after_record(record)
     finally:
+        stopping.restore()
         if clock_lock_applied:
             backend.reset_clocks()
     return records
+
+
+def plan_specs(
+    config: ExperimentConfig,
+    store: ResultStore,
+    *,
+    resume: bool = True,
+    limit: int | None = None,
+    shard: tuple[int, int] = (0, 1),
+) -> list[RunSpec]:
+    """The exact list of cells this worker will run, in order.
+
+    Shuffle first, then shard. Shuffling before sharding is what makes multi-GPU
+    safe: every worker gets an interleaved mix of methods, so if one card in a
+    multi-GPU box runs hotter than its neighbours, that shows up as noise spread
+    across all methods rather than as a bias attached to whichever method
+    happened to land on it. Every record carries its device index, so a
+    per-card effect can be checked for afterwards rather than assumed absent.
+    """
+    index, count = shard
+    if count < 1 or not 0 <= index < count:
+        raise ValueError(f"invalid shard {index}/{count}")
+
+    specs = config.expand()
+    if resume:
+        specs = store.pending(specs)
+
+    # Shuffled, not grouped by method: a sweep that runs every SnapKV cell back
+    # to back would hand SnapKV whatever thermal state the previous method left
+    # behind, and that would look like a property of SnapKV.
+    random.Random(config.runtime.shuffle_seed).shuffle(specs)
+    specs = specs[index::count]
+    if limit is not None:
+        specs = specs[:limit]
+    return specs
+
+
+class _StopRequest:
+    """Turns SIGTERM/SIGINT into 'stop after this run', not 'die mid-generation'.
+
+    Preemption on a rented box arrives as SIGTERM. Without this, the run in
+    flight is lost and, worse, the process dies between generating and writing,
+    so the GPU time is spent and nothing is recorded.
+    """
+
+    def __init__(self) -> None:
+        self.requested = False
+        self._previous: dict = {}
+
+    def restore(self) -> None:
+        import signal
+
+        for sig, handler in self._previous.items():
+            signal.signal(sig, handler)
+        self._previous.clear()
+
+
+def _install_stop_handler() -> _StopRequest:
+    import signal
+    import threading
+
+    request = _StopRequest()
+    if threading.current_thread() is not threading.main_thread():
+        return request
+
+    def handle(signum, frame):
+        request.requested = True
+
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        try:
+            request._previous[sig] = signal.signal(sig, handle)
+        except (ValueError, OSError):  # pragma: no cover - platform dependent
+            pass
+    return request

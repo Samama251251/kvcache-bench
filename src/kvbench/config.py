@@ -33,6 +33,11 @@ class RuntimeConfig(BaseModel):
 
     device: str = "cuda"
     hardware_backend: Literal["nvml", "fake"] = "nvml"
+    # How many loaded models to keep resident. H2O forces eager attention while
+    # everything else uses flash, and with shuffled ordering a single slot means
+    # reloading the model dozens of times across a sweep. Two slots costs ~16 GB
+    # of VRAM per extra model and removes the reloads entirely.
+    max_resident_models: int = 1
     device_index: int = 0
     power_sample_hz: float = 10.0
     warmup: bool = True
@@ -53,6 +58,9 @@ class GenerationConfig(BaseModel):
     # and the tail -- the same thing LongBench's own harness does, and the tail
     # is where the question lives. None means never truncate.
     max_context_tokens: int | None = None
+    # Prefer each example's own max_new_tokens over the flat value above.
+    # On by default: it is the benchmark's protocol, not ours.
+    use_benchmark_max_new_tokens: bool = True
     # Greedy by default: sampling noise would show up as quality variance we
     # cannot attribute to the compression method.
     do_sample: bool = False
@@ -83,6 +91,12 @@ class MethodConfig(BaseModel):
     kind: MethodKind = "eviction"
     # Extra kwargs forwarded to the kvpress press constructor.
     params: dict = Field(default_factory=dict)
+    # The longest context this method can physically run. ObservedAttentionPress
+    # (H2O) needs eager attention, which materialises a [heads, q, k] tensor --
+    # about 17 GB at 16k and 69 GB at 32k for an 8B model, so it OOMs on any card
+    # past a point. Cells above this are excluded from the sweep and reported as
+    # excluded, rather than discovered as an OOM twenty hours in.
+    max_context_tokens: int | None = None
 
 
 class BenchmarkConfig(BaseModel):
@@ -148,6 +162,8 @@ class ExperimentConfig(BaseModel):
                 for bench in self.benchmarks:
                     for task in bench.tasks:
                         for ctx in bench.context_lengths or [None]:
+                            if self.exclusion_reason(method, bench, ctx):
+                                continue
                             for repeat in range(self.repeats):
                                 specs.append(
                                     RunSpec(
@@ -169,6 +185,44 @@ class ExperimentConfig(BaseModel):
                                     )
                                 )
         return specs
+
+    def exclusion_reason(
+        self, method: MethodConfig, bench: BenchmarkConfig, context_length: int | None
+    ) -> str | None:
+        """Why this method cannot be run on this benchmark cell, if it cannot.
+
+        A method with a context ceiling is dropped from cells above it rather
+        than run on shortened prompts: shortening them would mean this method
+        answered different questions from every other method, and the whole
+        point of the harness is that they do not.
+        """
+        cap = method.max_context_tokens
+        if cap is None:
+            return None
+        if context_length is not None and context_length > cap:
+            return f"{context_length} exceeds the {cap}-token ceiling for {method.name}"
+
+        prompt_cap = self.generation.max_context_tokens
+        if context_length is None and (prompt_cap is None or prompt_cap > cap):
+            shown = prompt_cap if prompt_cap is not None else "untruncated"
+            return (
+                f"{bench.suite} prompts run at {shown} tokens, over the {cap}-token "
+                f"ceiling for {method.name}; running it on shorter prompts would make "
+                "its scores incomparable to the other methods"
+            )
+        return None
+
+    def exclusions(self) -> list[tuple[str, str, str | None]]:
+        """Every (method, cell, reason) the sweep leaves out, for reporting."""
+        found = []
+        for method in self.methods:
+            for bench in self.benchmarks:
+                for ctx in bench.context_lengths or [None]:
+                    reason = self.exclusion_reason(method, bench, ctx)
+                    if reason:
+                        cell = bench.suite + (f"@{ctx}" if ctx else "")
+                        found.append((method.name, cell, reason))
+        return found
 
 
 def _axis_values(

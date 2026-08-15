@@ -41,6 +41,11 @@ class Sample:
     answer_prefix: str
     answers: list[str]
     task: str
+    # The benchmark's own generation budget for this example. LongBench and
+    # RULER both ship it per row, and using it rather than one flat number is
+    # what makes our scores comparable to published ones -- gov_report wants 512
+    # tokens where hotpotqa wants 32.
+    max_new_tokens: int | None = None
     extra: dict = field(default_factory=dict)
 
     def prompt(self) -> str:
@@ -99,12 +104,14 @@ def _to_sample(row, suite: str, task: str) -> Sample:
     for column in ("all_classes", "length", "task"):
         if column in row.index:
             extra[column] = row[column]
+    declared = row.get("max_new_tokens")
     return Sample(
         context=str(row["context"]),
         question=str(row.get("question", "") or ""),
         answer_prefix=str(row.get("answer_prefix", "") or ""),
         answers=[str(a) for a in _as_list(answers)],
         task=str(row.get("task", task)),
+        max_new_tokens=int(declared) if declared is not None else None,
         extra=extra,
     )
 

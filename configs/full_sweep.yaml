@@ -15,6 +15,10 @@ model:
 runtime:
   device: cuda
   hardware_backend: nvml
+  # Two slots: H2O needs eager attention while everything else uses flash, and
+  # with shuffled ordering one slot means reloading the model dozens of times.
+  # Costs ~16 GB VRAM; drop to 1 on a 24 GB card.
+  max_resident_models: 2
   power_sample_hz: 10
   warmup: true
   # Runs are shuffled under this seed so thermal drift over a long session does
@@ -31,7 +35,12 @@ methods:
   - name: full_cache
     kind: full_cache
   - name: streaming_llm
-  - name: h2o          # ObservedAttentionPress; forces eager attention
+  - name: h2o
+    # ObservedAttentionPress forces eager attention, which materialises a
+    # [heads, q, k] tensor: ~17 GB at 16k and ~69 GB at 32k for an 8B model.
+    # It is excluded above this ceiling rather than run on shortened prompts,
+    # which would make its scores incomparable to every other method.
+    max_context_tokens: 16384
   - name: snapkv
   - name: pyramidkv
   - name: tova

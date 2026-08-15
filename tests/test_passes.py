@@ -201,3 +201,19 @@ def test_ordering_survives_an_unknown_method():
 
 def test_method_config_defaults_to_no_context_limit():
     assert MethodConfig(name="snapkv").max_context_tokens is None
+
+
+def test_the_benchmarks_budget_wins_but_the_config_caps_it():
+    from kvbench.benchmarks.loader import Sample
+    from kvbench.runner import _new_tokens_for
+
+    spec = make_config().expand()[0]  # config allows 128
+    short = [Sample("c", "q", "a", ["x"], "hotpotqa", max_new_tokens=32)]
+    long = [Sample("c", "q", "a", ["x"], "gov_report", max_new_tokens=512)]
+    silent = [Sample("c", "q", "a", ["x"], "qasper")]
+
+    assert _new_tokens_for(short, spec) == 32
+    # Capped: the config is the ceiling, so one verbose task cannot blow up a
+    # sweep's cost estimate.
+    assert _new_tokens_for(long, spec) == spec.max_new_tokens
+    assert _new_tokens_for(silent, spec) == spec.max_new_tokens

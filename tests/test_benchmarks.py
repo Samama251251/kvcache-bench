@@ -86,3 +86,11 @@ def test_scoring_nothing_yields_a_null_score_not_a_crash():
 def test_a_prediction_count_mismatch_is_rejected():
     with pytest.raises(ValueError, match="one prediction per sample"):
         score("longbench", "qasper", [sample(["x"]), sample(["y"])], ["only one"])
+
+
+def test_a_benchmarks_own_generation_budget_is_carried_on_the_sample():
+    # LongBench ships a per-task budget: gov_report wants 512 tokens where
+    # hotpotqa wants 32. Using it is what keeps scores comparable to published
+    # numbers.
+    assert Sample("c", "q", "a", ["x"], "qasper").max_new_tokens is None
+    assert Sample("c", "q", "a", ["x"], "gov_report", max_new_tokens=512).max_new_tokens == 512

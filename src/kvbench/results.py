@@ -130,6 +130,9 @@ class RunRecord(BaseModel):
             "mean_watts": self.energy.mean_watts,
             "peak_watts": self.energy.peak_watts,
             "gpu": self.environment.device_info.get("name"),
+            # Which physical card. Kept even on a single-card run so a per-card
+            # effect can be tested for afterwards rather than assumed away.
+            "device_index": self.environment.device_info.get("index"),
             "hardware_backend": self.environment.device_info.get("backend"),
         }
 
@@ -165,6 +168,7 @@ INDEX_COLUMNS = [
     "mean_watts",
     "peak_watts",
     "gpu",
+    "device_index",
     "hardware_backend",
 ]
 

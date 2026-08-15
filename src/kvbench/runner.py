@@ -209,7 +209,7 @@ def generate_samples(
         with torch.no_grad(), method.apply(model):
             output = model.generate(
                 **inputs,
-                max_new_tokens=spec.max_new_tokens,
+                max_new_tokens=_new_tokens_for(chunk, spec),
                 do_sample=False,
                 logits_processor=processors,
                 return_dict_in_generate=True,
@@ -225,6 +225,20 @@ def generate_samples(
         retained_tokens = _retained_tokens(output, int(generated.shape[-1]))
 
     return GenerationOutcome(predictions, prompt_tokens, retained_tokens, generated_tokens)
+
+
+def _new_tokens_for(chunk: list[loader.Sample], spec: RunSpec) -> int:
+    """The benchmark's own generation budget, capped by the config.
+
+    LongBench ships a per-task budget -- gov_report wants 512 tokens where
+    hotpotqa wants 32 -- and using it rather than one flat number is what keeps
+    our scores comparable to published ones. Samples in a chunk come from one
+    task, so they agree; max() is just defensive.
+    """
+    declared = [s.max_new_tokens for s in chunk if s.max_new_tokens]
+    if not declared:
+        return spec.max_new_tokens
+    return min(spec.max_new_tokens, max(declared))
 
 
 def _retained_tokens(output, generated: int) -> int | None:

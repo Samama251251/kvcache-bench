@@ -1,173 +1,192 @@
 # Runbook: one trip to the GPU
 
-Written to be followed literally on the rented box. The aim is that the session
-discovers facts about the GPU and nothing else.
+For a single rented card with **≥40GB VRAM**. Take the code there once, run
+everything, bring the results back.
 
-## 0. Before you rent
+The order matters. The smoke session exists so that the long sweep discovers
+facts about the GPU rather than bugs, and so that you find out about a bad
+measurement in an hour instead of after twenty.
+
+---
+
+## Before you rent
+
+On your own machine, confirm the sweep is the size you think it is:
 
 ```sh
-uv run kvbench validate configs/full_sweep.yaml   # cell count + excluded cells
+uv run kvbench validate configs/full_sweep.yaml
 uv run kvbench plan configs/full_sweep.yaml --hourly-usd <price>
 ```
 
-Pick the instance from that number. Prefer **several identical cards in one box**
-over one card: the sweep shards across them at the same total GPU-hours and a
-fraction of the wall-clock. Never two different card models — energy and latency
-are not comparable across hardware, and the headline table must come from one
-card type.
+`validate` prints the per-pass breakdown and, at the bottom, any cells dropped
+by a method's context limit. Those are documented decisions — if something you
+expected to see is missing, deal with it now.
 
-## 1. Set up the box
+Push everything to a remote you can pull from on the box, and make sure you can
+push *back* from it. That is what protects the results.
+
+---
+
+## 1. Set up the box (~1 hour)
 
 ```sh
-git clone <your remote> kvcache-bench && cd kvcache-bench
+git clone <your-remote> kvcache-bench && cd kvcache-bench
 curl -LsSf https://astral.sh/uv/install.sh | sh
 uv sync --extra gpu
-uv run kvbench doctor --config configs/full_sweep.yaml   # must print no DROP
-nvidia-smi --query-gpu=index,name,memory.total,power.limit --format=csv
 ```
 
-All cards must report the **same name**. If they do not, stop — that box cannot
-produce one comparable table.
-
-Pre-download the weights and data once, so 4 workers do not race the hub:
+Flash attention is not in the lockfile because it builds from source and takes
+20–40 minutes. Install it separately, and if it fails, set
+`model.attn_implementation: sdpa` in the configs rather than losing the session
+to a compiler error:
 
 ```sh
-export HF_TOKEN=<token>          # Llama-3.1 is gated
-uv run python -c "
-from transformers import AutoModelForCausalLM, AutoTokenizer
-m='meta-llama/Llama-3.1-8B-Instruct'
-AutoTokenizer.from_pretrained(m); AutoModelForCausalLM.from_pretrained(m)"
-uv run python -c "
-from datasets import load_dataset
-for t in ['narrativeqa','qasper','hotpotqa','2wikimqa','gov_report','triviaqa']:
-    load_dataset('Xnhyacinth/LongBench', data_dir=t, split='test')
-for c in ['4096','16384','32768']:
-    load_dataset('simonjegou/ruler', data_dir=c, split='test')"
+uv pip install flash-attn --no-build-isolation
 ```
 
-## 2. Lock the clocks
-
-Unlocked clocks let the card boost differently from run to run, which lands
-directly in the energy numbers. Pick a value at or below the card's base clock
-and put it in the config's `runtime.lock_clocks_mhz`:
+Authenticate for the model download (Llama-3.1 is gated) and pre-fetch, so a
+download failure happens now rather than at run 40:
 
 ```sh
-sudo nvidia-smi -pm 1
-nvidia-smi --query-gpu=clocks.max.sm --format=csv
+export HF_TOKEN=<your token>
+uv run huggingface-cli download meta-llama/Llama-3.1-8B-Instruct
 ```
 
-If locking is refused (it needs privileges a rented box may not grant), the run
-still proceeds and every record says `clock_lock_applied: false`. That is a
-limitation to state in the write-up, not a reason to stop.
-
-## 3. Set up off-box sync
-
-**The single biggest risk in this whole plan is that the instance disappears
-with the results on it.** On-box atomic writes do not help when the box is what
-you lose. Point `--sync-cmd` at something that pushes each record off the
-machine as it lands:
+Confirm the harness agrees with the machine:
 
 ```sh
-git config user.email you@example.com && git config user.name "you"
-export SYNC='git add results && git commit -q -m "results: $(date -u +%FT%TZ)" || true; git push -q origin HEAD || true'
+uv run kvbench doctor --config configs/full_sweep.yaml
+nvidia-smi
 ```
 
-Anything that copies off-box works — `rclone`, `aws s3 sync`, `rsync` to your
-laptop. A failing sync prints a warning and never kills the sweep.
-
-## 4. Smoke session first
-
-Do not start the full sweep. This is ~20 minutes and it is what stops you
-finding out at hour 18 that something was wrong the whole time.
+Set up git so the box can push results back:
 
 ```sh
-uv run kvbench run configs/smoke.yaml --sync-cmd "$SYNC"
+git config user.name "<you>" && git config user.email "<you>"
+git checkout -b results/<card>-<date>
 ```
 
-Then read the records before going further:
+---
+
+## 2. Smoke session (~1 hour)
+
+```sh
+tmux new -s smoke
+uv run kvbench run configs/smoke.yaml --sync
+```
+
+Then **read the results before going further**. Four questions, in order of how
+badly a wrong answer would hurt:
+
+**Is energy measurable at all?** Every record should have a `sample_count` in
+the hundreds and no `power samples` warning. If NVML is not reporting, the
+project's headline metric does not exist on this box and nothing else matters.
 
 ```sh
 uv run python -c "
-import pandas as pd; d = pd.read_csv('results/index.csv')
-print(d[['method','retention','primary_score','joules_per_generated_token','ttft_s','driver_peak_bytes','warnings']])
-g = d[d.status=='ok'].groupby(['method','retention'])['joules_per_generated_token']
-print((g.std()/g.mean()*100).rename('J/token spread %'))"
+import csv; rows=list(csv.DictReader(open('results/index.csv')))
+for r in rows:
+    if r['mode']=='performance':
+        print(r['method'], r['context_length'], r['total_joules'], r['warnings'][:60])
+"
 ```
 
-Four things to check, in order of how badly they matter:
+**What is the energy noise floor?** The performance pass runs `repeats: 3`.
+Compare J/token across the three identical runs of the same cell. If they vary
+by more than a few percent, the differences this project wants to report between
+methods are not falsifiable — say so in the write-up, and consider raising
+repeats before the full sweep rather than after.
 
-1. **`hardware_backend` is `nvml`, not `fake`.** If it says fake, nothing you
-   are about to run is a measurement.
-2. **The J/token spread across the 3 repeats.** This is the noise floor. Under
-   ~5% is good. If it is 15%+, differences smaller than that are not findings,
-   and you should raise `repeats` or lock clocks before spending 20 hours.
-3. **`warnings` is empty.** Thin power traces or degraded sample rates here mean
-   the energy numbers will be soft everywhere.
-4. **Peak memory at your longest context.** If 32k is near the card's limit,
-   the full sweep will OOM on exactly the cells you care about most.
+**Does 32k fit?** The smoke config runs RULER at 32768 deliberately. If it OOMs,
+drop 32k from `full_sweep.yaml` now and run at 4k/8k/16k. Better a narrower
+claim than a hole in the table.
 
-Then re-plan — the estimate switches from guessed to measured once records exist:
+**Can the model still do the task uncompressed at 16k?** Check the `full_cache`
+RULER score. If the *uncompressed* baseline is already poor, compression-induced
+degradation is floor-limited and unmeasurable — the headline result would be
+meaningless. This is the check most worth not skipping.
+
+Re-plan with real numbers before committing to the long run:
 
 ```sh
 uv run kvbench plan configs/full_sweep.yaml --hourly-usd <price>
 ```
 
-## 5. The full sweep
+It switches from `declared` to `measured` once records exist. Trust that number,
+not the pre-trip estimate.
 
-Under tmux, so an SSH drop does not end a 20-hour run. One worker per GPU:
+---
+
+## 3. Full sweep (~10–16 hours)
+
+Detached, so an SSH drop does not end it:
 
 ```sh
 tmux new -s sweep
-for i in 0 1 2 3; do
-  CUDA_VISIBLE_DEVICES=$i uv run kvbench run configs/full_sweep.yaml \
-    --shard $i/4 --device-index $i --sync-cmd "$SYNC" \
-    > logs/worker$i.log 2>&1 &
-done
-wait
+uv run kvbench run configs/full_sweep.yaml --sync 2>&1 | tee sweep.log
 ```
 
-Workers shard a shuffled list, so each gets an interleaved mix of methods. That
-matters: if one card in the box runs hotter than its neighbours, it shows up as
-noise spread across all methods rather than as a bias attached to whichever
-method happened to land on it. Every record stores its `device_index` so you can
-test for a per-card effect afterwards instead of assuming there is none.
+Detach with `Ctrl-b d`, reattach with `tmux attach -t sweep`.
 
-Detach with `Ctrl-B D`. Check in with:
+`--sync` commits and pushes each record as it lands. That is the real protection:
+atomic per-run writes survive the *process* dying, but only pushing survives the
+*machine* dying, which on a preemptible box is the likelier of the two.
+
+**If it stops for any reason**, the same command resumes it. Completed cells are
+skipped, failed ones are retried:
 
 ```sh
-tail -f logs/worker0.log
-uv run kvbench plan configs/full_sweep.yaml   # cells done vs pending
+uv run kvbench run configs/full_sweep.yaml --sync
 ```
 
-## 6. If something goes wrong
+SIGTERM (preemption, `docker stop`, `kill`) finishes the run in flight, saves it,
+syncs, and exits cleanly. Pressing Ctrl-C twice stops immediately.
 
-Everything is resumable, and the mechanism is the same in every case:
+---
+
+## 4. Before you release the box
 
 ```sh
-uv run kvbench run configs/full_sweep.yaml --shard $i/4 --device-index $i --sync-cmd "$SYNC"
+uv run kvbench plan configs/full_sweep.yaml     # expect 0 pending
+git add results && git commit -m "Add full sweep results" && git push
 ```
 
-Completed cells are skipped, failed cells are retried. Specifically:
-
-- **Instance preempted / SIGTERM.** The worker finishes the run in flight,
-  writes it, syncs, and exits. Nothing in flight is lost.
-- **A cell OOMs.** It is recorded with `status: failed` and the sweep continues.
-  Retry it alone with `--limit`, or accept it and document it.
-- **The box dies entirely.** Rent another of the **same card model**, clone,
-  `uv sync --extra gpu`, and resume. The records you synced are already safe.
-  Never finish a sweep on a different card model — start over or report two
-  separate tables.
-
-## 7. Before you release the box
+Then verify from **your own machine**, not the rented one, that the results
+actually arrived:
 
 ```sh
-uv run kvbench plan configs/full_sweep.yaml   # must read 0 pending
+git pull && ls results/runs | wc -l
 uv run python -c "
-import pandas as pd; d = pd.read_csv('results/index.csv')
-print(d.status.value_counts()); print('GPUs:', d.gpu.unique())
-print('warned runs:', (d.warnings.notna() & (d.warnings != '')).sum())"
-git add results && git commit -m "results: full sweep" && git push
+import csv; rows=list(csv.DictReader(open('results/index.csv')))
+print(len(rows), 'runs')
+print('failed:', sum(1 for r in rows if r['status']!='ok'))
+print('with warnings:', sum(1 for r in rows if r['warnings']))
+print('cards:', {r['gpu'] for r in rows})
+"
 ```
 
-`d.gpu.unique()` must be a single value. Then pull the results down and check
-they are really on your machine before you destroy the instance.
+`cards` must be a single entry. Energy and latency are not comparable across
+hardware, so two entries means two tables in the report, never one merged plot.
+
+Only after that has succeeded, destroy the instance.
+
+---
+
+## What to do when things break
+
+**CUDA OOM on one cell.** It fails that cell and the sweep continues. Check
+which cells failed at the end; if it is the 32k ones, lower `max_batch_tokens`
+or drop 32k and re-run — resume will only redo the failures.
+
+**Flash attention will not install.** Set `attn_implementation: sdpa`. Slower,
+but correct, and it applies equally to every method so the comparison holds.
+
+**A press errors on every cell.** Stop, run `kvbench doctor`, and drop the
+method from the config. A dropped method documented in the report beats a
+half-populated column.
+
+**Sync failures piling up.** The summary line at the end reports them. Records
+are still on disk — commit and push manually before releasing the box.
+
+**The run looks stuck.** 32k prefill on a batch is genuinely slow. Check
+`nvidia-smi` for utilisation before assuming a hang.

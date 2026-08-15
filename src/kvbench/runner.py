@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import random
 import traceback
+from contextlib import contextmanager
 from dataclasses import dataclass
 
 from .benchmarks import loader, scoring
@@ -60,6 +61,10 @@ class GenerationOutcome:
     # than any cache that ever existed.
     prompt_tokens: int
     retained_tokens: int | None
+    # Counted for every run, including batched ones where the latency recorder
+    # is deliberately not fed. The count is a fact about the run; only the
+    # per-token *timings* are meaningless under batching.
+    generated_tokens: int = 0
 
 
 class ModelSession:
@@ -70,30 +75,18 @@ class ModelSession:
     attention and the other methods should not be forced to pay for it.
     """
 
-    def __init__(self, device: str, max_resident: int = 1) -> None:
+    def __init__(self, device: str) -> None:
         self.device = device
-        self.max_resident = max(1, max_resident)
-        self._loaded: dict[tuple, tuple] = {}
-        self.loads = 0
+        self._key: tuple | None = None
+        self.model = None
+        self.tokenizer = None
 
     def get(self, spec: RunSpec, attn_implementation: str | None):
         key = (spec.model_id, spec.dtype, attn_implementation)
-        if key not in self._loaded:
-            while len(self._loaded) >= self.max_resident:
-                self._evict_oldest()
-            self._loaded[key] = self._load(spec, attn_implementation)
-            self.loads += 1
-        return self._loaded[key]
-
-    def _evict_oldest(self) -> None:
-        import gc
-
-        import torch
-
-        self._loaded.pop(next(iter(self._loaded)))
-        gc.collect()
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+        if key != self._key:
+            self.model, self.tokenizer = self._load(spec, attn_implementation)
+            self._key = key
+        return self.model, self.tokenizer
 
     def _load(self, spec: RunSpec, attn_implementation: str | None):
         import torch
@@ -135,8 +128,8 @@ class _TokenTimer:
         return scores
 
 
-def build_inputs(tokenizer, sample: loader.Sample, device: str, max_context_tokens: int | None):
-    """Tokenise one prompt, middle-truncating if it is over budget.
+def truncate_ids(ids, max_context_tokens: int | None):
+    """Middle-truncate one token sequence if it is over budget.
 
     Head and tail are kept and the middle dropped, which is what LongBench's own
     harness does -- the tail holds the question, and cutting it would change the
@@ -144,16 +137,38 @@ def build_inputs(tokenizer, sample: loader.Sample, device: str, max_context_toke
     """
     import torch
 
-    encoded = tokenizer(sample.prompt(), return_tensors="pt")
-    ids = encoded["input_ids"][0]
+    if max_context_tokens is None or ids.shape[0] <= max_context_tokens:
+        return ids
+    head = max_context_tokens // 2
+    tail = max_context_tokens - head
+    return torch.cat([ids[:head], ids[-tail:]])
 
-    if max_context_tokens is not None and ids.shape[0] > max_context_tokens:
-        head = max_context_tokens // 2
-        tail = max_context_tokens - head
-        ids = torch.cat([ids[:head], ids[-tail:]])
 
-    ids = ids.unsqueeze(0).to(device)
-    return {"input_ids": ids, "attention_mask": torch.ones_like(ids)}
+def build_batch(tokenizer, samples: list[loader.Sample], device: str, max_context_tokens: int | None):
+    """Tokenise a batch, left-padded.
+
+    Left padding, not right: a decoder-only model continues from the last
+    position, so right padding would have it generating from pad tokens.
+    """
+    import torch
+
+    sequences = [
+        truncate_ids(tokenizer(s.prompt(), return_tensors="pt")["input_ids"][0], max_context_tokens)
+        for s in samples
+    ]
+    width = max(int(s.shape[0]) for s in sequences)
+    pad_id = tokenizer.pad_token_id
+
+    input_ids = torch.full((len(sequences), width), pad_id, dtype=torch.long)
+    attention_mask = torch.zeros((len(sequences), width), dtype=torch.long)
+    for row, seq in enumerate(sequences):
+        input_ids[row, width - seq.shape[0] :] = seq
+        attention_mask[row, width - seq.shape[0] :] = 1
+
+    return {
+        "input_ids": input_ids.to(device),
+        "attention_mask": attention_mask.to(device),
+    }, [int(s.shape[0]) for s in sequences]
 
 
 def generate_samples(
@@ -165,41 +180,51 @@ def generate_samples(
     spec: RunSpec,
     device: str,
     recorder: LatencyRecorder,
-    use_benchmark_lengths: bool = True,
 ) -> GenerationOutcome:
+    """Generate for every sample, in batches of `spec.batch_size`.
+
+    The latency recorder is only fed on batch-1 runs. On a batched run a "token"
+    is one step for the whole batch, so per-token timings would be a different
+    quantity wearing the same name.
+    """
     import torch
 
     predictions: list[str] = []
     prompt_tokens = 0
+    generated_tokens = 0
     retained_tokens: int | None = None
-    timer = _TokenTimer(recorder, device)
+    timing = spec.batch_size == 1
+    processors = [_TokenTimer(recorder, device)] if timing else []
 
-    for sample in samples:
-        inputs = build_inputs(tokenizer, sample, device, spec.max_context_tokens)
-        prompt_tokens = int(inputs["input_ids"].shape[-1])
+    for start in range(0, len(samples), spec.batch_size):
+        chunk = samples[start : start + spec.batch_size]
+        inputs, _ = build_batch(tokenizer, chunk, device, spec.max_context_tokens)
+        # The padded width, not the unpadded length: the cache holds this many
+        # positions, so it is what the retained count has to be compared against.
+        width = int(inputs["input_ids"].shape[-1])
+        prompt_tokens = width
 
-        new_tokens = spec.max_new_tokens
-        if use_benchmark_lengths and sample.max_new_tokens:
-            new_tokens = sample.max_new_tokens
-
-        recorder.start_sample()
+        if timing:
+            recorder.start_sample()
         with torch.no_grad(), method.apply(model):
             output = model.generate(
                 **inputs,
-                max_new_tokens=new_tokens,
+                max_new_tokens=spec.max_new_tokens,
                 do_sample=False,
-                logits_processor=[timer],
+                logits_processor=processors,
                 return_dict_in_generate=True,
                 pad_token_id=tokenizer.pad_token_id,
                 **method.generate_kwargs(),
             )
-        recorder.end_sample()
+        if timing:
+            recorder.end_sample()
 
-        generated = output.sequences[0][inputs["input_ids"].shape[-1] :]
-        predictions.append(tokenizer.decode(generated, skip_special_tokens=True))
-        retained_tokens = _retained_tokens(output, len(generated))
+        generated = output.sequences[:, width:]
+        generated_tokens += int(generated.shape[0] * generated.shape[-1])
+        predictions.extend(tokenizer.batch_decode(generated, skip_special_tokens=True))
+        retained_tokens = _retained_tokens(output, int(generated.shape[-1]))
 
-    return GenerationOutcome(predictions, prompt_tokens, retained_tokens)
+    return GenerationOutcome(predictions, prompt_tokens, retained_tokens, generated_tokens)
 
 
 def _retained_tokens(output, generated: int) -> int | None:
@@ -271,13 +296,12 @@ def run_one(
                 spec=spec,
                 device=config.runtime.device,
                 recorder=recorder,
-                use_benchmark_lengths=config.generation.use_benchmark_max_new_tokens,
             )
         finally:
             trace = sampler.stop()
 
         latency = recorder.metrics()
-        energy = EnergyMetrics.from_trace(trace, latency.generated_tokens, idle_watts)
+        energy = EnergyMetrics.from_trace(trace, outcome.generated_tokens, idle_watts)
         memory = _memory_metrics(model, spec, outcome, trace, config.runtime.device)
         metric, primary, scores = scoring.score(spec.suite, spec.task, samples, outcome.predictions)
         quality = QualityMetrics(
@@ -287,11 +311,11 @@ def run_one(
             samples_scored=len(samples),
         )
         status, error = "ok", None
-        warnings = audit_measurement(trace, latency.generated_tokens)
+        warnings = audit_measurement(trace, outcome.generated_tokens, spec)
     except Exception as exc:  # noqa: BLE001 - one bad cell must not end the sweep
         status, error = "failed", f"{type(exc).__name__}: {exc}\n{traceback.format_exc()}"
         latency, energy, memory, quality = _empty_metrics(spec)
-        outcome = GenerationOutcome([], 0, None)
+        outcome = GenerationOutcome([], 0, None, 0)
         warnings = []
 
     return RunRecord(
@@ -315,13 +339,18 @@ def run_one(
     )
 
 
-def audit_measurement(trace: DeviceTrace, generated_tokens: int) -> list[str]:
+def audit_measurement(trace: DeviceTrace, generated_tokens: int, spec: RunSpec) -> list[str]:
     """Flag a run whose instrumentation underperformed, without failing it.
 
     A run that quietly produced a bad energy number is more dangerous than one
     that crashed: it looks like data.
     """
     warnings = []
+    if not spec.measures_performance:
+        warnings.append(
+            f"{spec.mode} pass at batch size {spec.batch_size}; latency and energy here are "
+            "not comparable to batch-1 measurements and belong in no performance plot"
+        )
     if trace.sample_count < MIN_POWER_SAMPLES:
         warnings.append(
             f"only {trace.sample_count} power samples over {trace.duration_s:.3f}s; "
@@ -342,7 +371,7 @@ def _warmup(model, tokenizer, method, sample, spec: RunSpec, device: str) -> Non
     """One unmeasured generation, so the first measured run is not the cold one."""
     import torch
 
-    inputs = build_inputs(tokenizer, sample, device, spec.max_context_tokens)
+    inputs, _ = build_batch(tokenizer, [sample], device, spec.max_context_tokens)
     with torch.no_grad(), method.apply(model):
         model.generate(
             **inputs,
@@ -431,114 +460,108 @@ def run_sweep(
     resume: bool = True,
     limit: int | None = None,
     progress=None,
-    shard: tuple[int, int] = (0, 1),
-    after_record=None,
+    on_record=None,
 ) -> list[RunRecord]:
-    specs = plan_specs(config, store, resume=resume, limit=limit, shard=shard)
-
     methods = {m.name: m for m in config.methods}
-    session = ModelSession(config.runtime.device, config.runtime.max_resident_models)
+    specs = config.expand()
+    if resume:
+        specs = store.pending(specs)
+
+    specs = order_runs(specs, methods, config.runtime.shuffle_seed)
+    if limit is not None:
+        specs = specs[:limit]
+
+    session = ModelSession(config.runtime.device)
 
     clock_lock_applied = False
     if config.runtime.lock_clocks_mhz:
         clock_lock_applied = backend.lock_clocks(config.runtime.lock_clocks_mhz)
 
-    stopping = _install_stop_handler()
+    stop = _StopRequest()
     records = []
     try:
-        for index, spec in enumerate(specs, start=1):
-            if stopping.requested:
-                break
-            if progress:
-                progress(index, len(specs), spec)
-            record = run_one(
-                spec,
-                methods[spec.method],
-                session=session,
-                backend=backend,
-                config=config,
-                clock_lock_applied=clock_lock_applied,
-            )
-            store.save(record)
-            records.append(record)
-            if after_record:
-                after_record(record)
+        with stop.installed():
+            for index, spec in enumerate(specs, start=1):
+                if stop.requested:
+                    break
+                if progress:
+                    progress(index, len(specs), spec)
+                record = run_one(
+                    spec,
+                    methods[spec.method],
+                    session=session,
+                    backend=backend,
+                    config=config,
+                    clock_lock_applied=clock_lock_applied,
+                )
+                store.save(record)
+                records.append(record)
+                if on_record:
+                    on_record(record)
     finally:
-        stopping.restore()
         if clock_lock_applied:
             backend.reset_clocks()
     return records
 
 
-def plan_specs(
-    config: ExperimentConfig,
-    store: ResultStore,
-    *,
-    resume: bool = True,
-    limit: int | None = None,
-    shard: tuple[int, int] = (0, 1),
-) -> list[RunSpec]:
-    """The exact list of cells this worker will run, in order.
+def order_runs(specs: list[RunSpec], methods: dict, seed: int) -> list[RunSpec]:
+    """Shuffle within attention-implementation groups, not across them.
 
-    Shuffle first, then shard. Shuffling before sharding is what makes multi-GPU
-    safe: every worker gets an interleaved mix of methods, so if one card in a
-    multi-GPU box runs hotter than its neighbours, that shows up as noise spread
-    across all methods rather than as a bias attached to whichever method
-    happened to land on it. Every record carries its device index, so a
-    per-card effect can be checked for afterwards rather than assumed absent.
+    Two competing concerns. Shuffling matters: a sweep that runs every SnapKV
+    cell back to back hands SnapKV whatever thermal state the previous method
+    left behind, and that reads as a property of SnapKV. But observed-attention
+    forces eager attention, and interleaving it with the rest would reload the
+    model on almost every cell -- tens of minutes of a long sweep spent loading
+    weights. Grouping by attention implementation and shuffling inside each
+    group keeps the ordering protection where it can actually apply.
     """
-    index, count = shard
-    if count < 1 or not 0 <= index < count:
-        raise ValueError(f"invalid shard {index}/{count}")
+    groups: dict[str | None, list[RunSpec]] = {}
+    for spec in specs:
+        method = methods.get(spec.method)
+        eager = method is not None and PRESS_CLASS_NAMES.get(method.name) in EAGER_ONLY_PRESSES
+        groups.setdefault("eager" if eager else None, []).append(spec)
 
-    specs = config.expand()
-    if resume:
-        specs = store.pending(specs)
-
-    # Shuffled, not grouped by method: a sweep that runs every SnapKV cell back
-    # to back would hand SnapKV whatever thermal state the previous method left
-    # behind, and that would look like a property of SnapKV.
-    random.Random(config.runtime.shuffle_seed).shuffle(specs)
-    specs = specs[index::count]
-    if limit is not None:
-        specs = specs[:limit]
-    return specs
+    rng = random.Random(seed)
+    ordered: list[RunSpec] = []
+    for key in sorted(groups, key=lambda k: (k is not None, k or "")):
+        group = groups[key]
+        rng.shuffle(group)
+        ordered.extend(group)
+    return ordered
 
 
 class _StopRequest:
-    """Turns SIGTERM/SIGINT into 'stop after this run', not 'die mid-generation'.
+    """Turns SIGTERM/SIGINT into 'stop after this run' instead of 'die now'.
 
-    Preemption on a rented box arrives as SIGTERM. Without this, the run in
-    flight is lost and, worse, the process dies between generating and writing,
-    so the GPU time is spent and nothing is recorded.
+    Preemption on a rented box arrives as SIGTERM. Without this it lands
+    mid-generation and that cell's record is never written; with it the run in
+    flight finishes, gets saved and synced, and the sweep exits clean for
+    --resume to pick up.
     """
 
     def __init__(self) -> None:
         self.requested = False
         self._previous: dict = {}
 
-    def restore(self) -> None:
+    def _handle(self, signum, frame) -> None:
+        if self.requested:
+            # Asked twice: the operator means it.
+            raise KeyboardInterrupt("second interrupt; stopping immediately")
+        self.requested = True
+        print(f"\nsignal {signum} received; finishing the current run, then stopping", flush=True)
+
+    @contextmanager
+    def installed(self):
         import signal
 
-        for sig, handler in self._previous.items():
-            signal.signal(sig, handler)
-        self._previous.clear()
-
-
-def _install_stop_handler() -> _StopRequest:
-    import signal
-    import threading
-
-    request = _StopRequest()
-    if threading.current_thread() is not threading.main_thread():
-        return request
-
-    def handle(signum, frame):
-        request.requested = True
-
-    for sig in (signal.SIGTERM, signal.SIGINT):
+        for sig in (signal.SIGTERM, signal.SIGINT):
+            try:
+                self._previous[sig] = signal.signal(sig, self._handle)
+            except ValueError:
+                # Not on the main thread; nothing to install.
+                pass
         try:
-            request._previous[sig] = signal.signal(sig, handle)
-        except (ValueError, OSError):  # pragma: no cover - platform dependent
-            pass
-    return request
+            yield self
+        finally:
+            for sig, handler in self._previous.items():
+                signal.signal(sig, handler)

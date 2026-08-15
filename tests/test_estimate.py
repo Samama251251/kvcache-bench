@@ -13,7 +13,8 @@ def make_config(**overrides) -> ExperimentConfig:
         ],
         "benchmarks": [{"suite": "longbench", "tasks": ["qasper"]}],
         "budgets": [0.5, 0.25],
-        "generation": {"max_new_tokens": 100, "samples_per_task": 10},
+        "generation": {"max_new_tokens": 100},
+        "passes": [{"mode": "quality", "samples_per_task": 10, "batch_size": 1}],
         "estimate": {
             "prefill_tokens_per_s": 8000,
             "decode_tokens_per_s": 40,

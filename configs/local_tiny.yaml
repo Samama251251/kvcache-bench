@@ -7,6 +7,8 @@
 name: local_tiny
 
 model:
+  # A tiny random Llama: a kvpress-supported architecture (GPT-2 is not), small
+  # enough to run on a laptop.
   id: hf-internal-testing/tiny-random-LlamaForCausalLM
   dtype: float32
 
@@ -15,13 +17,22 @@ runtime:
   hardware_backend: fake
   power_sample_hz: 200
   warmup: true
+  max_batch_tokens: 4096
 
 generation:
   max_new_tokens: 32
-  samples_per_task: 2
-  # A tiny random Llama: a kvpress-supported architecture (GPT-2 is not), small
-  # enough to run on a laptop. LongBench contexts are far longer than it takes.
+  # LongBench contexts are far longer than this model's position limit.
   max_context_tokens: 512
+
+# Both passes, so the split itself is exercised locally rather than first on a
+# rented GPU.
+passes:
+  - mode: quality
+    samples_per_task: 4
+    batch_size: 2
+  - mode: performance
+    samples_per_task: 2
+    batch_size: 1
 
 methods:
   - name: full_cache

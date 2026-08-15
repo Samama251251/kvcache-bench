@@ -105,6 +105,7 @@ def test_pending_skips_finished_cells_and_keeps_failed_ones(tmp_path, record_fac
             ],
             "benchmarks": [{"suite": "longbench", "tasks": ["qasper"]}],
             "budgets": [0.5],
+            "passes": [{"mode": "quality", "samples_per_task": 5}],
         }
     )
     specs = config.expand()

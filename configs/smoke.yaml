@@ -1,15 +1,18 @@
 # The Phase 2 gate: the first thing to run on rented hardware, before the full
-# sweep. Deliberately small -- one task, few samples -- because its job is to
-# answer questions about the GPU, not to produce results.
+# sweep. Deliberately small -- its job is to answer questions about the GPU, not
+# to produce results.
 #
 # What it is checking:
 #   - NVML power sampling works and returns plausible watts
-#   - every configured press actually runs against the real model
-#   - a 32k RULER prompt does not OOM at this card's VRAM
-#   - repeats=3 on one cell exposes the energy noise floor. If J/token varies
-#     by double digits between identical runs, half the findings this project
-#     wants to report are not falsifiable, and we need to know that here rather
-#     than in the write-up.
+#   - every configured press runs against the real model
+#   - a 32k prompt does not OOM this card, at batch 1 and batched
+#   - the baseline can still do the task at 16k. If uncompressed RULER accuracy
+#     is already poor, compression-induced degradation is unmeasurable and the
+#     headline result of the whole project is floor-limited. Better to find that
+#     out in an hour than after the sweep.
+#   - repeats=3 on the performance pass exposes the energy noise floor. If
+#     J/token varies by double digits between identical runs, half the findings
+#     this project wants to report are not falsifiable.
 name: smoke
 
 model:
@@ -22,18 +25,29 @@ runtime:
   hardware_backend: nvml
   power_sample_hz: 10
   warmup: true
-  # Fill in once the card is chosen; unlocked clocks make energy noisier.
+  # Fill in once the card is known; unlocked clocks make energy noisier.
   lock_clocks_mhz: null
+  max_batch_tokens: 65536
 
 generation:
   max_new_tokens: 64
-  samples_per_task: 10
-  max_context_tokens: 32768
+  max_context_tokens: 16384
+
+passes:
+  - mode: quality
+    samples_per_task: 10
+    batch_size: 8
+  - mode: performance
+    samples_per_task: 3
+    batch_size: 1
+    repeats: 3
 
 methods:
   - name: full_cache
     kind: full_cache
   - name: streaming_llm
+  - name: h2o
+    max_context_tokens: 16384
   - name: snapkv
 
 budgets: [0.5, 0.25]
@@ -41,8 +55,15 @@ budgets: [0.5, 0.25]
 benchmarks:
   - suite: longbench
     tasks: [qasper]
-
-repeats: 3
+    max_context_tokens: 16384
+  # Both the OOM check and the baseline-competence check.
+  - suite: ruler
+    tasks: [niah_single_1]
+    context_lengths: [16384, 32768]
 
 estimate:
-  hourly_usd: 0.40
+  prefill_tokens_per_s: 9000
+  decode_tokens_per_s: 45
+  assumed_prompt_tokens: 12000
+  fixed_overhead_s: 15
+  hourly_usd: 0.80

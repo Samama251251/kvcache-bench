@@ -19,6 +19,7 @@ def specs_for(method: str, kind: str = "eviction", **cfg):
         ],
         "benchmarks": [{"suite": "longbench", "tasks": ["qasper"]}],
         "budgets": [0.25],
+        "passes": [{"mode": "quality", "samples_per_task": 5}],
     }
     payload.update(cfg)
     config = ExperimentConfig.model_validate(payload)

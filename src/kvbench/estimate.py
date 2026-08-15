@@ -11,6 +11,7 @@ observed wall-clock times. Never presented as more certain than it is.
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from datetime import datetime
 
@@ -96,16 +97,27 @@ def _record_duration_s(record: RunRecord) -> float | None:
 
 
 def _declared_seconds_per_run(config: ExperimentConfig, specs: list[RunSpec]) -> float:
-    e = config.estimate
-    prompt_tokens = [spec.context_length or e.assumed_prompt_tokens for spec in specs] or [
-        e.assumed_prompt_tokens
-    ]
-    mean_prompt = sum(prompt_tokens) / len(prompt_tokens)
+    """Mean estimated seconds per cell, averaged over the cells given."""
+    if not specs:
+        return config.estimate.fixed_overhead_s
+    return sum(_declared_seconds_for(config, spec) for spec in specs) / len(specs)
 
-    per_sample = mean_prompt / e.prefill_tokens_per_s + (
-        config.generation.max_new_tokens / e.decode_tokens_per_s
-    )
-    return per_sample * config.generation.samples_per_task + e.fixed_overhead_s
+
+def _declared_seconds_for(config: ExperimentConfig, spec: RunSpec) -> float:
+    """One cell's cost.
+
+    Prefill is compute-bound and scales with total tokens, so batching does not
+    help it. Decode is bound by reading the weights, so a batch of N costs about
+    the same as a batch of one -- which is the entire reason quality passes are
+    batched and performance passes are not.
+    """
+    e = config.estimate
+    prompt = spec.context_length or spec.max_context_tokens or e.assumed_prompt_tokens
+    batches = math.ceil(spec.samples / max(1, spec.batch_size))
+
+    prefill_s = spec.samples * prompt / e.prefill_tokens_per_s
+    decode_s = batches * spec.max_new_tokens / e.decode_tokens_per_s
+    return prefill_s + decode_s + e.fixed_overhead_s
 
 
 def format_estimate(estimate: SweepEstimate) -> str:

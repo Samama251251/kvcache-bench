@@ -14,6 +14,7 @@ def make_config(**overrides) -> ExperimentConfig:
         ],
         "benchmarks": [{"suite": "longbench", "tasks": ["qasper", "hotpotqa"]}],
         "budgets": [0.5, 0.25],
+        "passes": [{"mode": "quality", "samples_per_task": 10}],
     }
     base.update(overrides)
     return ExperimentConfig.model_validate(base)
@@ -52,7 +53,7 @@ def test_run_id_changes_with_the_model():
 
 
 def test_repeats_produce_distinct_runs():
-    specs = make_config(repeats=3).expand()
+    specs = make_config(passes=[{"mode": "quality", "samples_per_task": 10, "repeats": 3}]).expand()
     assert len(specs) == 18
     assert len(set(s.run_id for s in specs)) == 18
 

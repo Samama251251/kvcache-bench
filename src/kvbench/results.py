@@ -112,6 +112,8 @@ class RunRecord(BaseModel):
             "task": self.spec.get("task"),
             "context_length": self.spec.get("context_length"),
             "repeat": self.spec.get("repeat"),
+            "mode": self.spec.get("mode"),
+            "batch_size": self.spec.get("batch_size"),
             "status": self.status,
             "warnings": "; ".join(self.warnings),
             "primary_metric": self.quality.primary_metric,
@@ -128,9 +130,6 @@ class RunRecord(BaseModel):
             "mean_watts": self.energy.mean_watts,
             "peak_watts": self.energy.peak_watts,
             "gpu": self.environment.device_info.get("name"),
-            # Which physical card in a multi-GPU box. Kept so a per-card effect
-            # can be tested for afterwards rather than assumed away.
-            "device_index": self.environment.device_info.get("index"),
             "hardware_backend": self.environment.device_info.get("backend"),
         }
 
@@ -148,6 +147,8 @@ INDEX_COLUMNS = [
     "task",
     "context_length",
     "repeat",
+    "mode",
+    "batch_size",
     "status",
     "warnings",
     "primary_metric",
@@ -164,7 +165,6 @@ INDEX_COLUMNS = [
     "mean_watts",
     "peak_watts",
     "gpu",
-    "device_index",
     "hardware_backend",
 ]
 

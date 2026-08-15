@@ -18,6 +18,8 @@ def record_factory():
                 "experiment": "unit",
                 "model_id": "sshleifer/tiny-gpt2",
                 "method": "snapkv",
+                "mode": "quality",
+                "batch_size": 1,
                 "retention": 0.5,
                 "suite": "longbench",
                 "task": "qasper",

@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.99998410623668,
+    "duration_s": 114.30018166600348,
+    "idle_watts": null,
+    "joules_per_generated_token": 30.486832060388654,
+    "mean_watts": 254.18989305239185,
+    "net_joules_above_idle": null,
+    "peak_watts": 289.18,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1144,
+    "total_joules": 29053.950953550386
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "038781d77fc448d8a0a9a15884cf36feeccf6d44",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T22:01:21+00:00",
+  "latency": {
+    "generated_tokens": 953,
+    "itl_mean_s": 0.04638905751495281,
+    "itl_p50_s": 0.046436725999228656,
+    "itl_p95_s": 0.0491467960018781,
+    "throughput_tokens_per_s": 8.416386297119404,
+    "ttft_s": 1.425882271159935,
+    "wall_s": 113.23149465301685
+  },
+  "memory": {
+    "driver_peak_bytes": 41325101056,
+    "kv_cache_bytes": 125829120,
+    "kv_cache_bytes_uncompressed": 503971840,
+    "prompt_tokens": 3845,
+    "retained_tokens": 960,
+    "torch_peak_bytes": 21308116480
+  },
+  "method": {
+    "effective_compression_ratio": 0.750325,
+    "kind": "eviction",
+    "name": "h2o",
+    "params": {},
+    "press_class": "ObservedAttentionPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 9375710",
+      ": 770",
+      ": 3684052",
+      ": 67019",
+      ": 278, but actually it is 278 is not mentioned in the text, the correct answer is 278 is not present in the text but 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer is 278 is not the answer, the correct answer",
+      " 989,785.",
+      ": 8973915.",
+      ": 437, but that is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is not correct, the correct answer is: 437 is",
+      ": 469, but it is not mentioned in the text. However, the text does mention the number 469 is not the correct answer. The correct answer is 469 is not mentioned in the text, but the text does mention the number 469 is not the correct answer.",
+      ": 5672073",
+      ": 262144",
+      " 4078547.",
+      ": 264759",
+      ": 8634773",
+      ": 1981986",
+      ": 2149597",
+      ": 537492.",
+      ": 630,000",
+      ": 364, which is not present in the text, however, 364 is not the number I found. The number I found is: 364 is not present, however, 364 is not the number I found. The number I found is: 364 is not present, however, 364 is not the number I found. The number I found is: 364 is not present, however, 364 is not the number I found. The number I found is: 364 is not present, however, 364 is not the number I found. The number I found is: 364 is not present, however",
+      ": 453637",
+      ": 6593651",
+      ": 1604451",
+      ": 7117837",
+      ": 790917",
+      ": 6868",
+      ": 6891749",
+      " 6263200",
+      ": 4189000",
+      ": 6031",
+      " 7361002.",
+      ": 6400000",
+      ": 2424242",
+      ": 795,776",
+      ": 1093026",
+      ": 6323376",
+      ": 5652512",
+      ": 5555555",
+      ": 8048838.",
+      ": 4700250",
+      " 7523941.",
+      ": 7363633",
+      " 807, but no, it is actually 807 is not mentioned, the correct answer is 807 is not there but 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not the answer, the correct answer is 807 is not",
+      ": 3117636",
+      ": 621, 621 is not mentioned in the text but 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is not the answer to the question. The correct answer is 621 is",
+      ": 1689025",
+      ": 7076500",
+      ": 5112928",
+      ": 6452632",
+      ": 5041506",
+      ": 7788"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 30.0,
+    "references": [
+      [
+        "9375710"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "3684052"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9897858"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "5672073"
+      ],
+      [
+        "2626229"
+      ],
+      [
+        "4078418"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "8633773"
+      ],
+      [
+        "1981186"
+      ],
+      [
+        "2149597"
+      ],
+      [
+        "5374922"
+      ],
+      [
+        "6304573"
+      ],
+      [
+        "3646552"
+      ],
+      [
+        "4533779"
+      ],
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 30.0
+      }
+    }
+  },
+  "run_id": "qual-h2o-r025-ruler-niah_multikey_1-4k-rep0-3f739050c3",
+  "schema_version": 1,
+  "slug": "qual-h2o-r025-ruler-niah_multikey_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "h2o",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T21:59:24+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999951555058145,
+    "duration_s": 39.4001908739956,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.278947139730795,
+    "mean_watts": 248.1847410511304,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.378,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 395,
+    "total_joules": 9778.526169427709
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "35ebe4f90b4c20239a85ee1a4b2b984f2b46eeb4",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T17:00:05+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03861634373228528,
+    "itl_p50_s": 0.03840177600068273,
+    "itl_p95_s": 0.040219492999312934,
+    "throughput_tokens_per_s": 16.290131839846644,
+    "ttft_s": 2.952482632000465,
+    "wall_s": 39.28758872500475
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 205651968,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 1569,
+    "torch_peak_bytes": 18373127168
+  },
+  "method": {
+    "effective_compression_ratio": 0.900127,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 770. However, I noticed that the text actually mentions the number 770 multiple times, but it's not explicitly stated as the \"special magic number\" for solid-few. It seems that the text is repeating the number 770 multiple times, possibly as a form of emphasis or to create a sense of rhythm. If you could provide more context or clarify what you mean by \"special magic number,\" I'd be happy to try and assist you further. \n\nHowever, I did notice that the text also mentions the number 770 in the context of \"The grass is green. The sky is blue. The sun is yellow",
+      ": 954. However, I noticed that the number 954 is not explicitly mentioned in the text. Instead, the text contains a sequence of numbers that appear to be a series of random numbers. The number 954 is not present in the text. \n\nHowever, I did notice that the text contains the number 954 is not present, but the number 954 is not present in the text, but the number 954 is not present, but the number 954 is not present, but the number 954 is not present, but the number 954 is not present, but the number 954 is not present, but the",
+      ": 283. However, I must note that the text does not explicitly state that this is the special magic number for annoying-decimal. It simply appears as a number in the text, and I inferred that it might be the answer to the question based on the context. If you could provide more information or clarify the context, I would be happy to try and assist you further. \n\nHowever, I did notice that the text contains a lot of repetitive phrases and sentences, which might be intended to be annoying. If that's the case, the \"magic number\" could be a reference to the number of times the text repeats itself,",
+      ": 8082668. However, I noticed that the text contains multiple instances of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" which seems to be a repetition. \n\nIf we count the number of times this phrase appears, we get a total of 30 instances. If we multiply this number by the number of characters in the phrase (excluding the last two words), we get a different number: 30 * 43 = 1290. \n\nHowever, if we look at the provided text, we can see that the number 808266",
+      ": 7402509. However, I would like to note that the text appears to be a repetition of the same sentence, and the number 7402509 is not actually mentioned in the text. It seems that the number was provided as a separate statement. If you could provide more context or clarify the question, I'll be happy to help. \n\nHowever, if you are looking for a magic number from the text, I can try to find one. After re-reading the text, I found that the number 9 is repeated multiple times in the text. Could this be the magic number you are looking for? \n\nPlease"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 40.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 40.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r010-ruler-niah_single_1-16k-rep2-62335ee90c",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r010-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T16:59:21+00:00",
+  "status": "ok",
+  "warnings": []
+}

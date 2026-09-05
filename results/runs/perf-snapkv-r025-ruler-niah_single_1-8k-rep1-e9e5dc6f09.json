@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.99996122725379,
+    "duration_s": 32.100124460997904,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.4890160200811,
+    "mean_watts": 229.06360571236618,
+    "net_joules_above_idle": null,
+    "peak_watts": 300.748,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 322,
+    "total_joules": 7352.970252851905
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "bc7ba4804e76baee176b1e2e33d98ba6b199d2e3",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:46:34+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03974308228503714,
+    "itl_p50_s": 0.03880010200009565,
+    "itl_p95_s": 0.042680695001763524,
+    "throughput_tokens_per_s": 19.977235158924685,
+    "ttft_s": 1.3589144934012438,
+    "wall_s": 32.036465252003836
+  },
+  "memory": {
+    "driver_peak_bytes": 23920836608,
+    "kv_cache_bytes": 259129344,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 1977,
+    "torch_peak_bytes": 17548647424
+  },
+  "method": {
+    "effective_compression_ratio": 0.750158,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. I'm ready for your quiz. Please go ahead and ask your questions. I'll do my best to answer them correctly. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a deliberate attempt to make the text longer and more tedious, but it doesn't seem to be related to the magic number. If you have any questions or need further clarification, feel free to ask. I'm here",
+      ": 2338687. I have memorized it for the quiz. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text contains a repetitive phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" repeated multiple times. However, this phrase does not seem to be related to the special magic number. It's just a repetitive phrase used to fill the text. \n\nIf you have any questions about the number or the text, feel free to ask. I'll do my best",
+      ": 5663623. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and the number 5663623 is mentioned at the end of the text. It's not clear if this number is actually related to the text or if it's just a random number. If you could provide more context or clarify the purpose of the text, I would be happy to help further. \n\nAlso, I would like to note that the term \"lovely-terror",
+      ": 7210606. I have memorized it for the quiz. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not provide any context or explanation about the discreet-barometer or the special magic number. It appears to be a deliberate attempt to create a long and repetitive text to confuse or distract from the actual question. \n\nIf you have any further questions or clarification about the discreet-barometer or the special magic number, I would be happy to try and assist you. \n\nBut based on the provided text, the answer to the question is: 721",
+      ": 5479144. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not seem to be related to the number 5479144. The number is mentioned in a separate sentence, which seems to be an unrelated statement. If you could provide more context or clarify the relationship between the text and the number, I would be happy to help further. \n\nAlso, I would like to note that the text"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r025-ruler-niah_single_1-8k-rep1-e9e5dc6f09",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r025-ruler-niah_single_1-8k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T14:46:00+00:00",
+  "status": "ok",
+  "warnings": []
+}

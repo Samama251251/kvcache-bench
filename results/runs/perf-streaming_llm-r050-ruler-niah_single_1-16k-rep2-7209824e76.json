@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999974477842603,
+    "duration_s": 45.00011485000141,
+    "idle_watts": null,
+    "joules_per_generated_token": 16.61282052220023,
+    "mean_watts": 236.27062218948572,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.36,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 451,
+    "total_joules": 10632.205134208149
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "fc4b15ab78ab928f323c3542211ff625f32811dc",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T13:44:31+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.0474644942472434,
+    "itl_p50_s": 0.048467284002981614,
+    "itl_p95_s": 0.05045088700353517,
+    "throughput_tokens_per_s": 14.26136576776152,
+    "ttft_s": 2.9463562582001033,
+    "wall_s": 44.876487316996645
+  },
+  "memory": {
+    "driver_peak_bytes": 21418934272,
+    "kv_cache_bytes": 1029439488,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 7854,
+    "torch_peak_bytes": 20020964352
+  },
+  "method": {
+    "effective_compression_ratio": 0.500064,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. However, I noticed that the text contains a lot of repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" This repetition seems to be a deliberate attempt to make the text appear longer than it actually is, possibly to distract from the fact that the special magic number is not actually related to the content of the text. In reality, the text does not provide any context or explanation for the number 7700828, and it is not clear what \"solid-few\" refers to. Therefore, I would say that the",
+      ": 9548432. However, it's worth noting that the text appears to be a repetition of the same phrase, and the number 9548432 is only mentioned once at the beginning of the text. The rest of the text seems to be a copy-paste of the same phrase, with no additional information or context. If you're looking for a specific magic number, you may want to rephrase your question or provide more context. \n\nHowever, if you're asking about the number 9548432, I can tell you that it's a large number that doesn't seem to have any particular significance or meaning. It",
+      ": 283. \n\nThis number is not explicitly mentioned in the text, but it is the number of times the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated in the provided text. \n\nHowever, the text does mention the number 283 as the special magic number for annoying-decimal. \n\n283 is the number of times the phrase is repeated in the text. \n\nThe text also mentions the number 283 as the special magic number for annoying-decimal. \n\nThe number 283 is the special magic number for annoying-decimal mentioned in the",
+      ": 8082668. \n\nHowever, I noticed that the text contains a lot of repetition of the same phrases, and it seems like the number 8082668 is not actually hidden within the text. It's possible that the text was generated randomly or artificially to include this number. If you could provide more context or information about the origin of this text, I may be able to help you better. \n\nIf you're looking for a different special magic number, please let me know and I'll do my best to help you find it. \n\nAlso, I noticed that the text mentions \"used-commotion\" which seems like a",
+      ": 7402509. \n\nHowever, I must note that the provided text seems to be a repetition of the same sentence, and it's unclear what the context or relevance of the number 7402509 is. If you could provide more information or clarify the context, I'd be happy to help further. \n\nAlso, I'd like to mention that the number 7402509 seems to be a random number and not a magic number in the classical sense. If you're looking for a specific type of magic number, such as a prime number, a perfect number, or a number with a specific property, please let me know"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 80.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 80.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r050-ruler-niah_single_1-16k-rep2-7209824e76",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r050-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T13:43:42+00:00",
+  "status": "ok",
+  "warnings": []
+}

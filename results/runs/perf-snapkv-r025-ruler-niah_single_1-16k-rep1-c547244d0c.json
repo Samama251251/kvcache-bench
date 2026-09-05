@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 9.998826499971441,
+    "duration_s": 9.801150164999854,
+    "idle_watts": null,
+    "joules_per_generated_token": 135.8930419328239,
+    "mean_watts": 291.16520332278213,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.555,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 99,
+    "total_joules": 2853.7538805893023
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d4311d7016efa44ae3fd555834773b037d8e5dba",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:41:01+00:00",
+  "latency": {
+    "generated_tokens": 21,
+    "itl_mean_s": 0.03830146944447835,
+    "itl_p50_s": 0.037863641999138054,
+    "itl_p95_s": 0.0407061080004496,
+    "throughput_tokens_per_s": 2.1497374798849926,
+    "ttft_s": 3.0256989883322,
+    "wall_s": 9.768634633994225
+  },
+  "memory": {
+    "driver_peak_bytes": 41469804544,
+    "kv_cache_bytes": 514588672,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 3926,
+    "torch_peak_bytes": 18979694592
+  },
+  "method": {
+    "effective_compression_ratio": 0.750095,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "samples_scored": 3,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r025-ruler-niah_single_1-16k-rep1-c547244d0c",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r025-ruler-niah_single_1-16k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.25,
+    "samples": 3,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T12:40:47+00:00",
+  "status": "ok",
+  "warnings": []
+}

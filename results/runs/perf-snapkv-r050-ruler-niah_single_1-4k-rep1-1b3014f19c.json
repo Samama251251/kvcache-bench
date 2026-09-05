@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.99993778430241,
+    "duration_s": 28.60017793800216,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.778683618317313,
+    "mean_watts": 218.82232793409855,
+    "net_joules_above_idle": null,
+    "peak_watts": 283.176,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 287,
+    "total_joules": 6258.35751572308
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "02993caa35d6570ef186d003032f754d8d3e4780",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T16:34:07+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04010720630552194,
+    "itl_p50_s": 0.03851181200298015,
+    "itl_p95_s": 0.04307779800001299,
+    "throughput_tokens_per_s": 22.385148595669396,
+    "ttft_s": 0.6235818585992092,
+    "wall_s": 28.590384256989637
+  },
+  "memory": {
+    "driver_peak_bytes": 23937613824,
+    "kv_cache_bytes": 243138560,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 1855,
+    "torch_peak_bytes": 17015389696
+  },
+  "method": {
+    "effective_compression_ratio": 0.500404,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a deliberate attempt to make the text appear longer and more complex, but it doesn't actually contain any meaningful information. The magic number is the only relevant piece of information in the text. \n\nIf you have any questions about the number or its",
+      ": 4612365. I have memorized it. Please proceed with your quiz. I'm ready to answer your questions. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not contain any other special magic number. The number 4612365 is the only one mentioned in the text. If you have any further questions or if you'd like to clarify anything, please let me know. I'm here to help. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky",
+      ": 7374122. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not seem to be related to the number 7374122. The number 7374122 is actually mentioned separately in the text, and it is not hidden within the repeated phrases. \n\nIf you are looking for a number hidden within the text, I would be happy to try and find it for you. However, I would need a different approach, as the current text does not seem to contain any hidden numbers. \n\nPlease let me know if",
+      ": 5437923. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and the number 5437923 is mentioned only once, at the beginning of the text. The rest of the text appears to be a distraction. Nevertheless, I have successfully memorized the number as requested. \n\nIf you would like to ask a question about the number or its significance, I would be happy to try and assist you. Otherwise, I am ready to move on to the next task. \n\nPlease let me know how I can assist you further.",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not contain any other special magic number related to romantic-subsidy. The number 3094235 is the only one mentioned in the text. \n\nIf you would like to quiz me about the number, I'm ready. Please go ahead and ask your questions. I'll do my best to answer them. \n\nAlso, I would like to note that the number 3094235 seems to be a random number and I couldn't find any information"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r050-ruler-niah_single_1-4k-rep1-1b3014f19c",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r050-ruler-niah_single_1-4k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T16:33:36+00:00",
+  "status": "ok",
+  "warnings": []
+}

@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999954904096365,
+    "duration_s": 41.10018534499977,
+    "idle_watts": null,
+    "joules_per_generated_token": 16.323696456211398,
+    "mean_watts": 254.18780096198012,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.475,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 412,
+    "total_joules": 10447.165731975294
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "a59670e453803bf845a9bb4d4ab4d01cc30c2d37",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T18:36:54+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04051175696850254,
+    "itl_p50_s": 0.04022659499605652,
+    "itl_p95_s": 0.042581285000778735,
+    "throughput_tokens_per_s": 15.629477041566984,
+    "ttft_s": 3.0439386901984107,
+    "wall_s": 40.94826706599997
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 2007498752,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 15316,
+    "torch_peak_bytes": 20020964352
+  },
+  "method": {
+    "effective_compression_ratio": 0.02508,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. \n\nHowever, I noticed that the text you provided is a repetition of the same phrases, and it seems like it's not actually related to the number 7700828. The number 7700828 seems to be an unrelated piece of information. \n\nIf you could provide more context or clarify what you mean by \"solid-few\" and how the number 7700828 is related to it, I would be happy to try and help you further. \n\nAlso, I noticed that the text you provided is a repetition of the same phrases, and it seems like it's not actually a meaningful or coherent",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text seems to be a repetition of the same phrase, \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" It seems to be a deliberate attempt to make the text appear longer than it actually is, in order to hide the magic number. Am I correct? \n\nPlease let me know if I'm right or not. I'm curious to know the reasoning",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it's designed to be annoying or tedious to read. The name \"annoying-decimal\" also suggests that the number might be related to a decimal representation of a large number, which could be used to describe the repetition of the phrase. Am I correct in assuming that the text is intentionally designed to be annoying? \n\nPlease let me know if I'm on",
+      ": 8082668. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the number 8082668 is repeated 100 times in the provided text. However, the number itself is only mentioned once. The repetition of the text is likely used to create a sense of monotony or to make the text more noticeable. \n\nI am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nAlso, I would like to note that the text seems to be",
+      ": 7402509. I have memorized it. I am ready to be quizzed about it. Please go ahead and ask your questions. I will do my best to answer them correctly. \n\nPlease note that the provided text is a repetition of the same phrase 100 times. The number 7402509 is mentioned in the middle of the text. It is not a number that can be derived from the text in any way, but rather a number that is explicitly mentioned. \n\nIf you have any questions about the number, its properties, or anything else, I am here to help. Just let me know! \n\n"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r050-ruler-niah_single_1-16k-rep1-0d132b7c38",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r050-ruler-niah_single_1-16k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T18:36:08+00:00",
+  "status": "ok",
+  "warnings": []
+}

@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 9.99990929542991,
+    "duration_s": 20.40018503900137,
+    "idle_watts": null,
+    "joules_per_generated_token": 8.417750863847997,
+    "mean_watts": 264.08390622747214,
+    "net_joules_above_idle": null,
+    "peak_watts": 293.691,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 205,
+    "total_joules": 5387.360552862719
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "027c6134ed7b52c207ef471ba577c8e98bfeb0d1",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:05:59+00:00",
+  "latency": {
+    "generated_tokens": 0,
+    "itl_mean_s": null,
+    "itl_p50_s": null,
+    "itl_p95_s": null,
+    "throughput_tokens_per_s": null,
+    "ttft_s": null,
+    "wall_s": 0.0
+  },
+  "memory": {
+    "driver_peak_bytes": 28001894400,
+    "kv_cache_bytes": 174194688,
+    "kv_cache_bytes_uncompressed": 697565184,
+    "prompt_tokens": 5322,
+    "retained_tokens": 1329,
+    "torch_peak_bytes": 20797190144
+  },
+  "method": {
+    "effective_compression_ratio": 0.750282,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "primary_metric": "qa_f1",
+    "primary_score": 6.29,
+    "samples_scored": 10,
+    "scores": {
+      "qa_f1": 6.29
+    }
+  },
+  "run_id": "qual-snapkv-r025-longbench-qasper-rep0-f4a21a82c7",
+  "schema_version": 1,
+  "slug": "qual-snapkv-r025-longbench-qasper-rep0",
+  "spec": {
+    "batch_size": 4,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 10,
+    "suite": "longbench",
+    "task": "qasper"
+  },
+  "started_at": "2026-09-05T12:05:34+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 4; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

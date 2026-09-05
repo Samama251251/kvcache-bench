@@ -1,0 +1,95 @@
+{
+  "energy": {
+    "achieved_hz": 9.999797784323107,
+    "duration_s": 8.60017390899884,
+    "idle_watts": null,
+    "joules_per_generated_token": 10.895445819514322,
+    "mean_watts": 243.24224364321884,
+    "net_joules_above_idle": null,
+    "peak_watts": 284.902,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 87,
+    "total_joules": 2091.92559734675
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "027c6134ed7b52c207ef471ba577c8e98bfeb0d1",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:13:08+00:00",
+  "latency": {
+    "generated_tokens": 192,
+    "itl_mean_s": 0.03566309540210617,
+    "itl_p50_s": 0.03485787300087395,
+    "itl_p95_s": 0.038969768000242766,
+    "throughput_tokens_per_s": 22.21571002880665,
+    "ttft_s": 0.6335405976666758,
+    "wall_s": 8.642532682999445
+  },
+  "memory": {
+    "driver_peak_bytes": 38584123392,
+    "kv_cache_bytes": 571473920,
+    "kv_cache_bytes_uncompressed": 571604992,
+    "prompt_tokens": 4361,
+    "retained_tokens": 4360,
+    "torch_peak_bytes": 17608515584
+  },
+  "method": {
+    "effective_compression_ratio": 0.000229,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "primary_metric": "qa_f1",
+    "primary_score": 15.69,
+    "samples_scored": 3,
+    "scores": {
+      "qa_f1": 15.69
+    }
+  },
+  "run_id": "perf-full_cache-r100-longbench-qasper-rep1-4c127b4dac",
+  "schema_version": 1,
+  "slug": "perf-full_cache-r100-longbench-qasper-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 1.0,
+    "samples": 3,
+    "suite": "longbench",
+    "task": "qasper"
+  },
+  "started_at": "2026-09-05T12:12:57+00:00",
+  "status": "ok",
+  "warnings": []
+}

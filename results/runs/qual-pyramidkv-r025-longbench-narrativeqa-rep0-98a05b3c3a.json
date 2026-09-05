@@ -1,0 +1,301 @@
+{
+  "energy": {
+    "achieved_hz": 9.999988008843228,
+    "duration_s": 159.70019149900327,
+    "idle_watts": null,
+    "joules_per_generated_token": 113.62543543808694,
+    "mean_watts": 286.0198514313994,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.311,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1598,
+    "total_joules": 45677.42504611095
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "2ede5d9d2442c4bccc2a84069e5c6c26f93bcb8d",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T17:04:59+00:00",
+  "latency": {
+    "generated_tokens": 402,
+    "itl_mean_s": 0.040003030133654895,
+    "itl_p50_s": 0.03962868199596414,
+    "itl_p95_s": 0.04272840500198072,
+    "throughput_tokens_per_s": 2.584277477381565,
+    "ttft_s": 2.8286813646591327,
+    "wall_s": 155.55605135997757
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 1046740992,
+    "kv_cache_bytes_uncompressed": 2147483648,
+    "prompt_tokens": 16384,
+    "retained_tokens": 7986,
+    "torch_peak_bytes": 19100347904
+  },
+  "method": {
+    "effective_compression_ratio": 0.512573,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      " He is living with the Kent Mulvilles at their home in Wimbledon.",
+      " Her heart is entirely engrossed by one object.",
+      " On Atlas' mountain.",
+      " To persuade Socrates to escape from prison.",
+      " He wanted to make an example of him.",
+      " At least six hours.",
+      " No one.",
+      " Dana Barrett",
+      " American.",
+      " The lying scribe.",
+      " His knowledge of the 20th century and its customs.",
+      " A Utopian society with people in sanitary uniforms.",
+      " Fifty years.",
+      " Their daughter Virginie.",
+      " Pierre Grassou.",
+      " Through the baby's toys.",
+      " Baptist folks lying.",
+      " His knowledge of the 20th century and its customs.",
+      " A blank expression.",
+      " At least seven.",
+      " Over a family quarrel about money.",
+      " 2419 A.D.",
+      " To escape the city and find work as a harvest hand.",
+      " A slave.",
+      " Ruth Anvoy's aunt.",
+      " News reporter.",
+      " He believes he has made an implicit contract with the laws of Athens.",
+      " Shot by Drexl himself.",
+      " She never received it.",
+      " Twisted into insane rictus of fear.",
+      " He feels Beerbohm has been shallow and dismissive of his artistic value.",
+      " One week.",
+      " The child.",
+      " She read sentimental novels.",
+      " The prospect of killing the chlorophage.",
+      " He feared she was pregnant.",
+      " He was shot by Benson.",
+      " To rest and recover from Holmes's overwork.",
+      " Vigo the Carpathian.",
+      " As a mere machine, with superficial accomplishments.",
+      " East 77th Street.",
+      " Sadako's father, Professor Ikuma.",
+      " The Prison of Socrates.",
+      " She drowned in the well.",
+      " There is no Bennett Landsmann or Seth Lazurus in the story.",
+      " He wore the same outfit everywhere.",
+      " Baron Henry of Trutz-Drachen.",
+      " As a mere machine, with superficial accomplishments.",
+      " Methodism",
+      " Her family and friends in England."
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 21.5,
+    "references": [
+      [
+        "He is a guest in the home of the Mulvilles."
+      ],
+      [
+        "Because she is in unrequited love with someone else"
+      ],
+      [
+        "The Atlas Mountains"
+      ],
+      [
+        "To smuggle Socrates out of prison and into a life of exile."
+      ],
+      [
+        "Otto was so young."
+      ],
+      [
+        "Six hours."
+      ],
+      [
+        "Lisa, the blacksmith's wife."
+      ],
+      [
+        "Dr. Janosz Poha"
+      ],
+      [
+        "She is an American."
+      ],
+      [
+        "The scribe."
+      ],
+      [
+        "Because he fought in the first world war."
+      ],
+      [
+        "ones that are vague"
+      ],
+      [
+        "50 years"
+      ],
+      [
+        "Their daughter, Virgine. "
+      ],
+      [
+        "Grassou"
+      ],
+      [
+        "The slime gets into Dana's apartment from the bathtub."
+      ],
+      [
+        "That a mule bone is very powerful and can be a weapon."
+      ],
+      [
+        "Anthony Rogers has previous wartime and combatant experience."
+      ],
+      [
+        "Her face is blurry"
+      ],
+      [
+        "Two"
+      ],
+      [
+        "because of the division of proceeds from selling the family business."
+      ],
+      [
+        "2419."
+      ],
+      [
+        "he murdered someone"
+      ],
+      [
+        "Your parents"
+      ],
+      [
+        "Lady Coxon is Ruth's aunt."
+      ],
+      [
+        "Reiko is a reporter."
+      ],
+      [
+        "Because it violates his belief in the  laws of society."
+      ],
+      [
+        "he is shot"
+      ],
+      [
+        "She declined to read it."
+      ],
+      [
+        "Twisted in fear"
+      ],
+      [
+        "Beerbohm wrote a fictional story about Soames."
+      ],
+      [
+        "Seven days"
+      ],
+      [
+        "all but Jof and the Juggler"
+      ],
+      [
+        "she was obsessed with novels."
+      ],
+      [
+        "HER BEAUTY"
+      ],
+      [
+        "Her husband abused her"
+      ],
+      [
+        "He is killed by police."
+      ],
+      [
+        "For Holmes' health."
+      ],
+      [
+        "Vigo"
+      ],
+      [
+        "Nature and books"
+      ],
+      [
+        "museum"
+      ],
+      [
+        "Sadako Yamamura made the tape psionically."
+      ],
+      [
+        "In Socrates Cell?"
+      ],
+      [
+        "She committed suicide."
+      ],
+      [
+        "because he's a lawyer"
+      ],
+      [
+        "always wore a grey waterproof cape and a soft black hat"
+      ],
+      [
+        "Baron Frederick"
+      ],
+      [
+        "She educates herself using books and the natural world."
+      ],
+      [
+        "The Baptist's supported Dave. "
+      ],
+      [
+        "Louis Leverett"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 21.5
+    }
+  },
+  "run_id": "qual-pyramidkv-r025-longbench-narrativeqa-rep0-98a05b3c3a",
+  "schema_version": 1,
+  "slug": "qual-pyramidkv-r025-longbench-narrativeqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "narrativeqa"
+  },
+  "started_at": "2026-09-05T17:02:15+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

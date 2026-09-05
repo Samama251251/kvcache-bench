@@ -1,0 +1,336 @@
+{
+  "energy": {
+    "achieved_hz": 9.999977819895182,
+    "duration_s": 90.7002011739969,
+    "idle_watts": null,
+    "joules_per_generated_token": 21.362666218240207,
+    "mean_watts": 257.67039698093873,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.379,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 908,
+    "total_joules": 23370.75684275479
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "9cca6a73839f59c0ecfcafe52d9fea6d5c9b48fa",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:15:22+00:00",
+  "latency": {
+    "generated_tokens": 1094,
+    "itl_mean_s": 0.03980139616857996,
+    "itl_p50_s": 0.03893811600210029,
+    "itl_p95_s": 0.04806104299859726,
+    "throughput_tokens_per_s": 12.1750482265882,
+    "ttft_s": 0.965331023799954,
+    "wall_s": 89.8559069039984
+  },
+  "memory": {
+    "driver_peak_bytes": 21439905792,
+    "kv_cache_bytes": 183631872,
+    "kv_cache_bytes_uncompressed": 735313920,
+    "prompt_tokens": 5610,
+    "retained_tokens": 1401,
+    "torch_peak_bytes": 18985454080
+  },
+  "method": {
+    "effective_compression_ratio": 0.750267,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      " The ground truth for fake news is established through manual annotation by a single expert.",
+      " An extension of the NetVLAD approach that adds Ghost clusters to improve feature representation.",
+      " 68.8% to 71.8%.",
+      " Context tweets, character-level features, and latent attributes of context tweets are proposed.",
+      " FoxNews, CNN, ESPN, New York Times, Time magazine, Huffington Post, The Guardian, The New York Times, The Guardian, The Washington Post, The Wall Street Journal, The Times of London, The Daily Mail, The Telegraph, The Independent, The Sun, The Mirror, The Express, The Daily Star, The Daily Record, The Daily Mail, The Daily Mirror, The Daily Express, The Daily Star, The Daily Record, The Daily Mail, The Daily Mirror, The Daily Express, The Daily Star, The Daily Record, The Daily Mail, The Daily Mirror, The Daily Express, The Daily Star, The Daily Record",
+      " yes",
+      " Extrinsic evaluation, specifically using summary evaluation.",
+      " The CNN/DailyMail news highlights dataset, the New York Times Annotated Corpus (NYT), and the XSum dataset.",
+      " The proposed approach achieves better correlation than existing approaches for various metrics on benchmark word similarity and entailment datasets.",
+      " The ensemble method works by selecting the best performing model according to validation performance and then gradually adding the best performing models to the ensemble.",
+      " The Friends dataset comes from the scripts of the Friends TV sitcom, while the EmotionPush dataset is made up of Facebook messenger chats.",
+      " English.",
+      " The IMDb dataset of movie reviews.",
+      " The proposed system (ALCrowd) achieves the best performance, significantly better than all other models, with a p-value below 10^-5 by using t-test.",
+      " yes",
+      " The Switchboard dataset and the Dialog State Tracking Challenge (DSTC) dataset are mentioned, but the main dataset used is a collection of 246,945 documents, including 184,001 Twitter posts and 62,949 news articles, all related to finance.",
+      " The Energy sector achieved the best performance with an R^2 score of 0.44.",
+      " RNN-based NMT and Transformer-NMT.",
+      " A regularization term associated with neutral features, the maximum entropy of class distribution regularization term, and the KL divergence between reference and predicted class distributions.",
+      " 1) SVM with unigram, bigram, and trigram features, 2) SVM with average word embeddings, 3) SVM with average word embeddings of comments, 4) CNN, 5) CNN with comments, 6) UTCNN without user information, 7) UTCNN without comments, 8) UTCNN without user information.",
+      " Several points, as shown by the improvement in INLINE1 scores.",
+      " It allows for crisper attention head behaviors and facilitates the identification of head specializations.",
+      " The baseline model was a context-agnostic Transformer model.",
+      " Labeled Attachment Score (LAS), Labeled Attachment Score (LAS) for zero-shot dependency parsing, and Labeled Attachment Score (LAS) for supervised dependency parsing.",
+      " The attention module of the ST model is pre-trained on the MT task.",
+      " Emoticons, laughter expressions, and hashtags.",
+      " A forward LSTM and a backward LSTM.",
+      " Yes.",
+      " unanswerable",
+      " 22,880 users.",
+      " BPE perplexity, BLEU-1/4, ROUGE-L, Distinct-1, Distinct-2, User Matching Accuracy (UMA), Mean Reciprocal Rank (MRR), and recipe-level coherence.",
+      " Five attributes (time, location, etc.) and 11 labels (open-ended inquiry, detailed inquiry, etc.) are defined to characterize the answer types of the dialogue comprehension task.",
+      " unanswerable",
+      " Neural machine translation.",
+      " The results are not directly comparable due to differences in NER datasets, but ELMo embeddings show significant improvements over fastText embeddings for Estonian.",
+      " The authors have a diversity of disciplinary backgrounds and research practices.",
+      " no",
+      " The Nguni languages (zul, xho, ssw) and the Sotho languages (nbl, nso, ssw) are similar to each other.",
+      " unidirectional LSTM, bidirectional LSTM, conventional RNNs, and attention-based neural networks.",
+      " The Wikipedia dataset consists of around 29,794 articles, and the arXiv dataset consists of three subsets with a total of 1,500 papers.",
+      " A group of 50 native speakers of Tamil and English were used as annotators for the evaluation.",
+      " Yes.",
+      " The models are evaluated by the retention rate of tokens (efficiency) and the exact match of the target sentence (accuracy).",
+      " Accuracy, precision, recall, F-measure, and ROUGE unigram score.",
+      " The source domain is an existing domain with sufficient labeled data, and the target domain is a new domain with very few or no labeled data.",
+      " LSTMs and state-of-the-art methods such as RAN, QRNN, and NAS.",
+      " Embedding Layer, RNN, CNN, Transformer, Highway Network, and various attention mechanisms, including Linear Attention, Multi-Head Attention, and more.",
+      " The Carnegie Mellon Pronouncing Dictionary and the multilingual pronunciation corpus collected by deri2016grapheme.",
+      " unanswerable",
+      " English, Spanish, Finnish, and 11 other languages."
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 45.04,
+    "references": [
+      [
+        "Ground truth is not established in the paper"
+      ],
+      [
+        "extension of the NetVLAD, adds Ghost clusters along with the NetVLAD clusters",
+        "An extension of NetVLAD which replaces hard assignment-based clustering with soft assignment-based clustering with the additon o fusing Ghost clusters to deal with noisy content."
+      ],
+      [
+        "the attention model, MDREA, also outperforms the best existing research results (WAP 0.690 to 0.688)"
+      ],
+      [
+        "using tweets that one has replied or quoted to as contextual information",
+        "text sequences of context tweets"
+      ],
+      [
+        "FoxNews, CNN, ESPN, New York Times, Time magazine, Huffington Post Weird News, The Guardian, Cartoon Network, Cooking Light, Home Cooking Adventure, Justin Bieber, Nickelodeon, Spongebob, Disney",
+        "FoxNews, CNN, ESPN, New York Times, Time magazine, Huffington Post Weird News, The Guardian, Cartoon Network, Cooking Light, Home Cooking Adventure, Justin Bieber, Nickelodeon, Spongebob, Disney."
+      ],
+      [
+        "Yes",
+        "Yes"
+      ],
+      [
+        "Answer with content missing: (Evaluation Metrics section) Precision, Recall, F1-scores, Strict match, METEOR, ROUGE-2"
+      ],
+      [
+        "CNN/DailyMail news highlights, New York Times Annotated Corpus, XSum",
+        "the CNN/DailyMail news highlights dataset BIBREF24, the New York Times Annotated Corpus (NYT; BIBREF25), XSum BIBREF22"
+      ],
+      [
+        "GM$\\_$KL achieves better correlation than existing approaches for various metrics on SCWS dataset."
+      ],
+      [
+        "simply averaging the predictions from the constituent single models"
+      ],
+      [
+        "Friends TV sitcom, Facebook messenger chats"
+      ],
+      [
+        "English",
+        "Simple English"
+      ],
+      [
+        "IMDb dataset of movie reviews",
+        "IMDb"
+      ],
+      [
+        "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+        "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+      ],
+      [
+        "No"
+      ],
+      [
+        "Custom dataset with user questions; set of documents, twitter posts and news articles, all related to finance.",
+        "a self-collected financial intents dataset in Portuguese"
+      ],
+      [
+        "Energy with accuracy of 0.538",
+        "Energy"
+      ],
+      [
+        "RNN-based NMT model, Transformer-NMT"
+      ],
+      [
+        "a regularization term associated with neutral features, the maximum entropy of class distribution regularization term, the KL divergence between reference and predicted class distribution",
+        "a regularization term associated with neutral features,  the maximum entropy of class distribution, KL divergence between reference and predicted class distribution"
+      ],
+      [
+        "SVM with unigram, bigram, and trigram features, SVM with average word embedding, SVM with average transformed word embeddings, CNN, ecurrent Convolutional Neural Networks, SVM and deep learning models with comment information",
+        "SVM with unigram, bigram, trigram features, with average word embedding, with average transformed word embeddings, CNN and RCNN, SVM, CNN, RCNN with comment information"
+      ],
+      [
+        "They decrease MAE in 0.34"
+      ],
+      [
+        "the attention heads in the proposed adaptively sparse Transformer can specialize more and with higher confidence",
+        "We introduce sparse attention into the Transformer architecture"
+      ],
+      [
+        " MT system on the data released by BIBREF11",
+        "Transformer base, two-pass CADec model"
+      ],
+      [
+        "translation probabilities, Labeled Attachment Scores (LAS)",
+        "accuracy, Labeled Attachment Scores (LAS)"
+      ],
+      [
+        "the model is pre-trained on CTC-based ASR task and MT task in the pre-training stage."
+      ],
+      [
+        "Unanswerable"
+      ],
+      [
+        "LSTM",
+        "LSTM"
+      ],
+      [
+        "Unanswerable",
+        "Yes"
+      ],
+      [
+        "Unanswerable",
+        "LF-MMI Attention\nSeq2Seq \nRNN-T \nChar E2E LF-MMI \nPhone E2E LF-MMI \nCTC + Gram-CTC"
+      ],
+      [
+        "22,880 users",
+        "20,000"
+      ],
+      [
+        "Byte-Pair Encoding perplexity  (BPE PPL),\nBLEU-1,\nBLEU-4,\nROUGE-L,\npercentage of distinct unigram (D-1),\npercentage of distinct bigrams(D-2),\nuser matching accuracy(UMA),\nMean Reciprocal Rank(MRR)\nPairwise preference over baseline(PP)",
+        "BLEU-1/4 and ROUGE-L, likelihood of generated recipes using identical input specifications but conditioned on ten different user profiles, user matching accuracy (UMA), Mean Reciprocal Rank (MRR), neural scoring model from BIBREF33 to measure recipe-level coherence",
+        " Distinct-1/2, UMA = User Matching Accuracy, MRR\n= Mean Reciprocal Rank, PP = Pairwise preference over baseline (evaluated for 310 recipe pairs per model)"
+      ],
+      [
+        "(1) the time the patient has been experiencing the symptom, (2) activities that trigger the symptom (to occur or worsen), (3) the extent of seriousness, (4) the frequency occurrence of the symptom, and (5) the location of symptom, No Answer",
+        "the time the patient has been experiencing the symptom, activities that trigger the symptom, the extent of seriousness, the frequency occurrence of the symptom, the location of symptom, 9 symptoms"
+      ],
+      [
+        "57,505 sentences",
+        "57,505 sentences"
+      ],
+      [
+        "four machine translation tasks: German -> English, Japanese -> English, Romanian -> English, English -> German",
+        " four machine translation tasks, IWSLT 2017 German $\\rightarrow $ English BIBREF27, KFTT Japanese $\\rightarrow $ English BIBREF28, WMT 2016 Romanian $\\rightarrow $ English BIBREF29, WMT 2014 English $\\rightarrow $ German BIBREF30"
+      ],
+      [
+        "5 percent points.",
+        "0.05 F1"
+      ],
+      [
+        "Unanswerable"
+      ],
+      [
+        "No",
+        "No"
+      ],
+      [
+        "Nguni languages (zul, xho, nbl, ssw), Sotho languages (nso, sot, tsn)",
+        "The Nguni languages are similar to each other, The same is true of the Sotho languages"
+      ],
+      [
+        "Unidirectional LSTM networks with 2, 6, 7, 8, and  9 layers."
+      ],
+      [
+        "a sample of  29,794 wikipedia articles and 2,794 arXiv papers "
+      ],
+      [
+        "50 human annotators ranked a random sample of 100 translations by Adequacy, Fluency and overall ranking on a 5-point scale.",
+        "adequacy, precision and ranking values"
+      ],
+      [
+        "Yes",
+        "Yes"
+      ],
+      [
+        "by training an autocomplete system on 500K randomly sampled sentences from Yelp reviews",
+        "efficiency of a communication scheme $(q_{\\alpha },p_{\\beta })$ by the retention rate of tokens, which is measured as the fraction of tokens that are kept in the keywords, accuracy of a scheme is measured as the fraction of sentences generated by greedily decoding the model that exactly matches the target sentence"
+      ],
+      [
+        "Precision, Recall, F-measure, accuracy",
+        "Precision, Recall and F-measure"
+      ],
+      [
+        "Book, electronics, beauty, music, IMDB, Yelp, cell phone, baby, DVDs, kitchen",
+        "we use set 1 of the source domain as the only source with sentiment label information during training, and we evaluate the trained model on set 1 of the target domain, Book (BK), Electronics (E), Beauty (BT), and Music (M)"
+      ],
+      [
+        "Variational LSTM, CharCNN, Pointer Sentinel-LSTM, RHN, NAS Cell, SRU, QRNN, RAN, 4-layer skip-connection LSTM, AWD-LSTM, Quantized LSTM"
+      ],
+      [
+        "Embedding Layer, Neural Network Layers, Loss Function, Metrics",
+        "Embedding Layer, Neural Network Layers, Loss Function, Metrics"
+      ],
+      [
+        "the Carnegie Mellon Pronouncing Dictionary BIBREF12, the multilingual pronunciation corpus collected by deri2016grapheme , ranscriptions extracted from Wiktionary",
+        "multilingual pronunciation corpus collected by deri2016grapheme"
+      ],
+      [
+        "varied from Maximum Entropy Classifiers (BIBREF4) to Support Vector Machines (BIBREF5,BIBREF6,BIBREF7,BIBREF8), Recursive Neural Networks (BIBREF9,BIBREF10), Convolutional Neural Networks (BIBREF11) and most recently transfer learning-based architectures like Bidirectional Encoder Representation from Transformers (BERT) (BIBREF12)"
+      ],
+      [
+        "English\nFrench\nSpanish\nGerman\nGreek\nBulgarian\nRussian\nTurkish\nArabic\nVietnamese\nThai\nChinese\nHindi\nSwahili\nUrdu\nFinnish",
+        "English, Spanish, Finnish"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 45.04
+    }
+  },
+  "run_id": "qual-snapkv-r025-longbench-qasper-rep0-9a39095e85",
+  "schema_version": 1,
+  "slug": "qual-snapkv-r025-longbench-qasper-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "qasper"
+  },
+  "started_at": "2026-09-05T14:13:50+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

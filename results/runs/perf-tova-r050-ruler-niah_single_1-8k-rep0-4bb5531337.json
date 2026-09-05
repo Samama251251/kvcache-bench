@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.99994474237887,
+    "duration_s": 32.80018124599883,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.576291955015465,
+    "mean_watts": 225.8776192620482,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.503,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 329,
+    "total_joules": 7408.8268512098975
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "7f7c91f295d7c2a4f8eaa2a899a8a47745a22c31",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:46:42+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04120161372437885,
+    "itl_p50_s": 0.03859384999668691,
+    "itl_p95_s": 0.04205736999574583,
+    "throughput_tokens_per_s": 19.535855654287456,
+    "ttft_s": 1.3184564524010056,
+    "wall_s": 32.76027481599158
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 518389760,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 3955,
+    "torch_peak_bytes": 18067168256
+  },
+  "method": {
+    "effective_compression_ratio": 0.50019,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. I'm ready for your quiz. Please go ahead and ask your questions. I'll do my best to answer them. \n\nHowever, I noticed that the provided text is a repetition of the same phrase many times. It seems like the repetition is not necessary for the purpose of the question. If you'd like, I can try to help you identify the actual purpose of the repetition or provide any insights related to the text. Just let me know. \n\nAlso, I'm assuming that the question is about the number 2166941, and not about the text itself. If",
+      ": 2338687. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and the number 2338687 is mentioned only once, at the beginning of the text. It is not clear how this number is related to the rest of the text or how it is supposed to be used for \"harmonious-reduction\". If you could provide more context or information about what you mean by \"harmonious",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text seems to be a repetition of the same phrase many times, and the number 5663623 is mentioned at the end of the text. It is not clear how this number is related to the rest of the text, but it is mentioned as a special magic number for lovely-terrorist. \n\nIf you have any questions or need further clarification, please let me know. I am here to help. \n\nPlease go ahead",
+      ": 7210606. I have memorized it. Please proceed with your quiz. I am ready to answer your questions. \n\nPlease go ahead and ask your questions about the number. I'll do my best to provide accurate and helpful responses. \n\nAlso, I noticed that the provided text is repetitive and contains the same phrases and sentences multiple times. It seems like the text is designed to be a distraction or a red herring, and the actual magic number is hidden within it. If you'd like, I can try to analyze the text further to see if I can find any other clues or patterns that might be related to the",
+      ": 5479144. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the number 5479144. The number is mentioned in a separate sentence, and it seems to be an isolated piece of information. If you have any further context or clarification about the text and the number, I would be happy to try to help you understand it better. \n\nPlease go"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r050-ruler-niah_single_1-8k-rep0-4bb5531337",
+  "schema_version": 1,
+  "slug": "perf-tova-r050-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:46:06+00:00",
+  "status": "ok",
+  "warnings": []
+}

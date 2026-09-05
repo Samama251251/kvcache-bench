@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 9.999898495822146,
+    "duration_s": 19.200194889999693,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.34553438084331,
+    "mean_watts": 289.32432601288906,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.494,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 193,
+    "total_joules": 5555.083445865278
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d66e3674a0b40f65d522b4e8acef87955cfef240",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:49:44+00:00",
+  "latency": {
+    "generated_tokens": 0,
+    "itl_mean_s": null,
+    "itl_p50_s": null,
+    "itl_p95_s": null,
+    "throughput_tokens_per_s": null,
+    "ttft_s": null,
+    "wall_s": 0.0
+  },
+  "memory": {
+    "driver_peak_bytes": 48684007424,
+    "kv_cache_bytes": 701890560,
+    "kv_cache_bytes_uncompressed": 702021632,
+    "prompt_tokens": 5356,
+    "retained_tokens": 5355,
+    "torch_peak_bytes": 25102544896
+  },
+  "method": {
+    "effective_compression_ratio": 0.000187,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "primary_metric": "qa_f1",
+    "primary_score": 50.59,
+    "samples_scored": 10,
+    "scores": {
+      "qa_f1": 50.59
+    }
+  },
+  "run_id": "qual-full_cache-r100-longbench-qasper-rep0-574a8f5151",
+  "schema_version": 1,
+  "slug": "qual-full_cache-r100-longbench-qasper-rep0",
+  "spec": {
+    "batch_size": 4,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 1.0,
+    "samples": 10,
+    "suite": "longbench",
+    "task": "qasper"
+  },
+  "started_at": "2026-09-05T12:49:23+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 4; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

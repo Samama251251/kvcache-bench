@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.999968406528943,
+    "duration_s": 45.10014248700463,
+    "idle_watts": null,
+    "joules_per_generated_token": 39.56401384938023,
+    "mean_watts": 268.43791549879916,
+    "net_joules_above_idle": null,
+    "peak_watts": 296.47,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 452,
+    "total_joules": 12106.588237910351
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "ea8215c40c6ef9b3c4600f640576d3a843adae0f",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T21:08:03+00:00",
+  "latency": {
+    "generated_tokens": 306,
+    "itl_mean_s": 0.04845144205870611,
+    "itl_p50_s": 0.03952035900147166,
+    "itl_p95_s": 0.0964301490021171,
+    "throughput_tokens_per_s": 6.8882276041164205,
+    "ttft_s": 0.6396270127197203,
+    "wall_s": 44.423619193003105
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 50200576,
+    "kv_cache_bytes_uncompressed": 503971840,
+    "prompt_tokens": 3845,
+    "retained_tokens": 383,
+    "torch_peak_bytes": 16637498368
+  },
+  "method": {
+    "effective_compression_ratio": 0.90039,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 937",
+      " 770.",
+      ": 3684052.",
+      ": 670",
+      ": 278",
+      ": 9897858.",
+      ": 9153566",
+      ": 437",
+      ": 469",
+      ": 5678",
+      ": 262,144",
+      " 407, but it is not explicitly mentioned. However, the text actually mentions the number 407 as a phone number for Y Combinator, but it is not related to nappy-limestone. \n\nThe correct answer is that the special magic number for nappy-limestone is not explicitly mentioned in the provided text.",
+      ": 264",
+      ": 7358113",
+      ": 198",
+      ": 2149597.",
+      ": 537",
+      ": 630",
+      ": 7199635",
+      ": 453",
+      ": 659",
+      ": 1604451.",
+      ": 711",
+      ": 790",
+      ": 686",
+      ": 689",
+      " 5453786.",
+      ": 418",
+      ": 603",
+      " 7361002.",
+      ": 640.",
+      ": 242",
+      ": 1409790",
+      ": 1098576",
+      ": 8658158",
+      ": 565656",
+      ": 555",
+      ": 8048838.",
+      ": 470",
+      " 7523941.",
+      ": 736",
+      " 807.",
+      ": 3117",
+      ": 621",
+      ": 168",
+      ": 707",
+      " 511.",
+      ": 64536",
+      ": 5049",
+      ":  785,431"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 14.0,
+    "references": [
+      [
+        "9375710"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "3684052"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9897858"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "5672073"
+      ],
+      [
+        "2626229"
+      ],
+      [
+        "4078418"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "8633773"
+      ],
+      [
+        "1981186"
+      ],
+      [
+        "2149597"
+      ],
+      [
+        "5374922"
+      ],
+      [
+        "6304573"
+      ],
+      [
+        "3646552"
+      ],
+      [
+        "4533779"
+      ],
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 14.0
+      }
+    }
+  },
+  "run_id": "qual-streaming_llm-r010-ruler-niah_multikey_1-4k-rep0-03c79355e4",
+  "schema_version": 1,
+  "slug": "qual-streaming_llm-r010-ruler-niah_multikey_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T21:07:17+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

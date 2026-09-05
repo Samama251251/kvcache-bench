@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 0.0,
+    "duration_s": 0.0,
+    "idle_watts": null,
+    "joules_per_generated_token": null,
+    "mean_watts": 0.0,
+    "net_joules_above_idle": null,
+    "peak_watts": 0.0,
+    "read_errors": 0,
+    "requested_hz": 0.0,
+    "sample_count": 0,
+    "total_joules": 0.0
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "37055204505af258ebdf5ab8443a1984cb50b612",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": "ImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\nTraceback (most recent call last):\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 322, in run_one\n    _warmup(model, tokenizer, method, samples[0], spec, config.runtime.device)\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 416, in _warmup\n    model.generate(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2631, in generate\n    self._prepare_cache_for_generation(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2034, in _prepare_cache_for_generation\n    model_kwargs[\"past_key_values\"] = QuantizedCache(backend=backend, **cache_config)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1143, in __init__\n    layers = [\n             ^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1144, in <listcomp>\n    layer_class(nbits, axis_key, axis_value, q_group_size, residual_length)\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 589, in __init__\n    raise ImportError(\nImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\n",
+  "finished_at": "2026-09-05T13:27:32+00:00",
+  "latency": {
+    "generated_tokens": 0,
+    "itl_mean_s": null,
+    "itl_p50_s": null,
+    "itl_p95_s": null,
+    "throughput_tokens_per_s": null,
+    "ttft_s": null,
+    "wall_s": 0.0
+  },
+  "memory": {
+    "driver_peak_bytes": null,
+    "kv_cache_bytes": 0,
+    "kv_cache_bytes_uncompressed": 0,
+    "prompt_tokens": 0,
+    "retained_tokens": 0,
+    "torch_peak_bytes": null
+  },
+  "method": {
+    "effective_compression_ratio": null,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [],
+    "primary_metric": "string_match",
+    "primary_score": null,
+    "references": [],
+    "samples_scored": 0,
+    "scores": {}
+  },
+  "run_id": "perf-kv_quant-2bit-ruler-niah_single_1-16k-rep0-81a6390533",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-2bit-ruler-niah_single_1-16k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 0,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T13:27:30+00:00",
+  "status": "failed",
+  "warnings": []
+}

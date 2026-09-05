@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999931964907317,
+    "duration_s": 31.500214312000026,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.88199131466256,
+    "mean_watts": 241.41024458005384,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.949,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 316,
+    "total_joules": 7604.474441384039
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "a40a33d455e53522f91c70bb031dabe367b771e6",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T15:37:04+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03873027364881966,
+    "itl_p50_s": 0.03843427899846574,
+    "itl_p95_s": 0.040725170001678634,
+    "throughput_tokens_per_s": 20.346089089496303,
+    "ttft_s": 1.3716879038001935,
+    "wall_s": 31.455676675002906
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 1011089408,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 7714,
+    "torch_peak_bytes": 18067299328
+  },
+  "method": {
+    "effective_compression_ratio": 0.025148,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. Please proceed with your quiz. I'm ready to answer your questions. \n\nPlease go ahead and ask your questions about the number. I'll do my best to answer them. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a deliberate attempt to make the text longer and more tedious, but it doesn't seem to be related to the magic number itself. If you have any questions about the",
+      ": 2338687. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrase many times, and the number 2338687 is mentioned only once, at the beginning of the text. It's not clear how this number is related to the rest of the text or how it's supposed to be used for \"harmonious-reduction.\" If you could provide more context or information about what you're looking for, I'd be happy to try and help. \n\nAlso,",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text seems to be a repetition of the same phrase, which might be a red herring to distract from the actual question. However, I have still managed to identify the special magic number as requested. \n\nPlease proceed with your quiz. I am ready. \n\nAlso, I would like to clarify that the term \"lovely-terrorist\" seems to be a fictional or humorous term and not a real entity. If you could",
+      ": 7210606. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it's not clear how this relates to the magic number. If you could provide more context or clarify the connection between the text and the magic number, I would be happy to help. \n\nAlso, I would like to note that the magic number 7210606 seems to be a random number and not a magic number in the classical sense. If you could provide",
+      ": 5479144. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the number 5479144. The number is mentioned in a separate sentence at the end of the text. If you have any further questions or context about the text, I would be happy to try and help. \n\nAlso, I would like to clarify that I'm assuming \"uncovered-hypothesis\" is a typo"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r050-ruler-niah_single_1-8k-rep0-2515d42a5e",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r050-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T15:36:29+00:00",
+  "status": "ok",
+  "warnings": []
+}

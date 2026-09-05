@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999903679339331,
+    "duration_s": 40.300388176001434,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.485559639334799,
+    "mean_watts": 245.92215156567772,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.104,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 404,
+    "total_joules": 9910.75816917427
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "50140db5904e1ae2e230d30c0437ce245ae18e33",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T19:01:22+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03930964689448799,
+    "itl_p50_s": 0.03887971299991477,
+    "itl_p95_s": 0.04225358700205106,
+    "throughput_tokens_per_s": 15.932631866262458,
+    "ttft_s": 3.0408133104021546,
+    "wall_s": 40.16913246801414
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 401342464,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 3062,
+    "torch_peak_bytes": 18373336064
+  },
+  "method": {
+    "effective_compression_ratio": 0.805092,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. However, I noticed that the text contains multiple instances of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" This phrase seems to be repeated multiple times, but it does not appear to be related to the special magic number. \n\nIf you are looking for a different special magic number, please let me know and I will do my best to help. \n\nHowever, I did notice that the number 7 appears multiple times in the text, and the number 8 also appears multiple times. This could be a coincidence, or it",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text is repetitive and contains the same phrases multiple times. It seems like the text is designed to help me memorize the special magic number. Am I correct? \n\nIf you have any other questions or if you would like to provide more context about the special magic number, please let me know. I'm here to help. \n\nAlso, I would like to ask, is there a specific reason why the special magic number is",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same lines. It seems like it's designed to be annoying or distracting. The mention of \"annoying-decimal\" in the text suggests that the number 2839607 might be related to a decimal representation or a pattern that is intentionally annoying or difficult to read. If you'd like to provide more context or clarify the purpose of the text, I'd be happy to try and help further.",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same sentence multiple times. It seems like you might have been trying to create a pattern or a loop, but I'm not sure what the purpose of it is. If you could provide more context or information about the text, I'd be happy to help you understand it better. \n\nPlease go ahead and ask your questions about the number 8082668. I'm ready to help. \n\nIs there",
+      ": 7402509. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I would like to note that the provided text seems to be a repetition of the same sentence, which might be a red herring to distract from the actual task of finding the special magic number. However, I was able to identify the number as requested. \n\nIf you have any other questions or tasks, feel free to ask! \n\nAlso, I would like to ask if you would like me to generate a new special magic number for you to memor"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r010-ruler-niah_single_1-16k-rep1-a6f51572d9",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r010-ruler-niah_single_1-16k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T19:00:37+00:00",
+  "status": "ok",
+  "warnings": []
+}

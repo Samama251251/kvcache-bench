@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999970206871561,
+    "duration_s": 39.80011857700447,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.703545741783643,
+    "mean_watts": 252.51857617701495,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.068,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 399,
+    "total_joules": 10050.269274741531
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "2f3b10469c4dcc86628b29a3d8158b994a3ac0d1",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T17:02:13+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03899041274172899,
+    "itl_p50_s": 0.03862576100073056,
+    "itl_p95_s": 0.04157140500319656,
+    "throughput_tokens_per_s": 16.16317099499173,
+    "ttft_s": 2.966706692399748,
+    "wall_s": 39.596190636002575
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 1029439488,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 7854,
+    "torch_peak_bytes": 20020964352
+  },
+  "method": {
+    "effective_compression_ratio": 0.500064,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text is a repetition of the same phrases. It seems like it's a way to encode the number 7700828. The number is hidden in the text by repeating the phrases 77 times, then 0, then 8 times, then 2, then 8 times, and finally 8. This is a clever way to encode the number. \n\nPlease let me know if you have any questions about the number or the",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text seems to be a repetition of the same phrases, which might be a clever way to hide the magic number. Am I correct? \n\nPlease let me know if I'm right or not. I'm excited to learn more about the context and the purpose of the magic number. \n\nAlso, I'd like to ask, is there a specific context or theme related to the magic number, or is it just a random number",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrases many times. It seems like it's a way to create a long text with a specific number of repetitions. Is that correct? \n\nIf you'd like, I can try to help you understand the pattern or the reasoning behind the repetition. Just let me know! \n\nPlease go ahead and ask your questions about the number 2839607. I'll do my best to answer them. \n\n",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it's a clever way to hide the magic number within the text. Well done! \n\nPlease go ahead and ask your questions about the number. I'll do my best to answer them. \n\nIs there anything specific you'd like to know about the number 8082668? Its properties, its significance, or something else? \n\nLet me know, and I",
+      ": 7402509. I have memorized it. I am ready to be quizzed about it. Please go ahead and ask your questions. I will do my best to answer them correctly. \n\nPlease note that the provided text is a repetition of the same sentence 100 times. The number 7402509 is mentioned in the middle of the text. It is not a number that can be derived from the text, but rather a number that is explicitly mentioned. \n\nIf you have any questions or would like to test my knowledge of the number, I am here to help. Please go ahead and ask your questions. I"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r050-ruler-niah_single_1-16k-rep2-b676d1424a",
+  "schema_version": 1,
+  "slug": "perf-tova-r050-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T17:01:28+00:00",
+  "status": "ok",
+  "warnings": []
+}

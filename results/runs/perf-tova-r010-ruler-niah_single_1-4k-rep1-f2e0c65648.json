@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999908989603552,
+    "duration_s": 29.400267573000747,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.704158940504973,
+    "mean_watts": 211.2450747770283,
+    "net_joules_above_idle": null,
+    "peak_watts": 271.009,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 295,
+    "total_joules": 6210.661721923183
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "f0112403b8782b5ecf36ad502c7455e566ff6df8",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T16:57:07+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04149781708660816,
+    "itl_p50_s": 0.038869279000209644,
+    "itl_p95_s": 0.04971778199978871,
+    "throughput_tokens_per_s": 21.75879684688732,
+    "ttft_s": 0.6114035272024921,
+    "wall_s": 29.413391030007915
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 48496640,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 370,
+    "torch_peak_bytes": 16626105856
+  },
+  "method": {
+    "effective_compression_ratio": 0.90035,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrases, and the number 8090293 is mentioned only once, at the end of the text. It's not clear why the text is repeated multiple times, but I'm assuming it's just a way to make the text longer. If you have any questions about the number or its significance, I'll do my best to",
+      ": 4612365. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase multiple times, and the number 4612365 is mentioned at the end of the text, but it is not related to the repeated phrase. It seems to be an unrelated piece of information. \n\nIf you would like to quiz me about the number, I'm ready. Please go ahead and ask your questions. I'll do my best to answer them. \n\nAlso, I would like to ask, is there a specific context or meaning behind the number 461236",
+      ": 7374122. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 7374122 is actually mentioned in the text as a separate statement, not as a part of the repeated phrases. The repeated phrases do not seem to be related to the number 7374122. \n\nIf you would like to provide more context or clarify the relationship between the repeated phrases and the number 7374122, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be",
+      ": 5437923. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. I'm ready! \n\nAlso, I noticed that the provided text contains a repetitive pattern of sentences. The number 5437923 is mentioned in the middle of the text, and it seems to be unrelated to the repetitive pattern. If you'd like to share more context or information about the text, I'd be happy to hear it. \n\nPlease go ahead and ask your questions or provide further instructions. I'm here to help! \n\nAlso, I noticed that",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 3094235 is mentioned at the end of the text, not within the repeated phrases. If you are looking for a number hidden within the text, I couldn't find any. The number 3094235 seems to be a standalone piece of information. \n\nIf you could provide more context or clarify what you mean by \"special magic number for romantic-subsidy,\" I would be happy to try and assist you further. \n\nAlso, I"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r010-ruler-niah_single_1-4k-rep1-f2e0c65648",
+  "schema_version": 1,
+  "slug": "perf-tova-r010-ruler-niah_single_1-4k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T16:56:36+00:00",
+  "status": "ok",
+  "warnings": []
+}

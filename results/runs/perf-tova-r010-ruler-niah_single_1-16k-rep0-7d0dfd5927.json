@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999956860043467,
+    "duration_s": 42.10018162000051,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.602915379722683,
+    "mean_watts": 237.19293976343647,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.079,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 422,
+    "total_joules": 9985.865843022517
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "2abe595c244d840d04763b89ac21e2e1ffb33a3b",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T13:27:28+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04261754854960027,
+    "itl_p50_s": 0.041116106000117725,
+    "itl_p95_s": 0.048855768000066746,
+    "throughput_tokens_per_s": 15.256793791292575,
+    "ttft_s": 2.976315450399852,
+    "wall_s": 41.948525276999135
+  },
+  "memory": {
+    "driver_peak_bytes": 24069734400,
+    "kv_cache_bytes": 205651968,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 1569,
+    "torch_peak_bytes": 18373127168
+  },
+  "method": {
+    "effective_compression_ratio": 0.900127,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. \n\nHowever, I noticed that the text you provided is a repetition of the same phrases many times. It seems like the repetition is not random, but rather it's a way to encode the number 7700828. Each repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" can be seen as a single digit in a base-8 (octal) number system. \n\nIf we count the repetitions, we get:\n\n1. The grass is green. The sky is blue. The sun is yellow. Here we",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text seems to be a repetition of the same phrase, \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" It seems to be a deliberate attempt to make the text appear longer than it actually is, possibly to conceal the magic number. However, I was able to identify the number as requested. \n\nIf you have any other questions or if you would like",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text is a repetition of the same phrase many times. It seems like it was created to be annoying or to test my ability to memorize the magic number. Am I correct? \n\nPlease let me know if I'm right or not. I'm curious to know the purpose behind the provided text. \n\nAlso, I'd like to ask, is there a specific type of question you'd like me to answer about the number 283960",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase 50 times. It's a clever way to create a sense of monotony and make the number stand out. Well done! \n\nWhat would you like to ask about the number 8082668? Is it a specific property, a mathematical concept, or something else? I'm here to help. \n\nPlease go ahead and ask your questions. I'll do my best to provide accurate and",
+      ": 7402509. I have memorized it. I am ready to be quizzed about it. Please go ahead and ask your questions. I will do my best to answer them correctly. \n\nPlease note that the provided text is a repetition of the same sentence 100 times. The number 7402509 is mentioned in the middle of the text. It is not a magic number that is hidden within the text, but rather a number that is explicitly mentioned. If you are looking for a magic number that is hidden within the text, I would be happy to try and find it for you. However, I would need"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r010-ruler-niah_single_1-16k-rep0-7d0dfd5927",
+  "schema_version": 1,
+  "slug": "perf-tova-r010-ruler-niah_single_1-16k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T13:26:42+00:00",
+  "status": "ok",
+  "warnings": []
+}

@@ -1,0 +1,93 @@
+{
+  "energy": {
+    "achieved_hz": 0.0,
+    "duration_s": 0.0,
+    "idle_watts": null,
+    "joules_per_generated_token": null,
+    "mean_watts": 0.0,
+    "net_joules_above_idle": null,
+    "peak_watts": 0.0,
+    "read_errors": 0,
+    "requested_hz": 0.0,
+    "sample_count": 0,
+    "total_joules": 0.0
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "0eae1c7b13e4f44953113ac5d2c85de87c82714d",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": "ValueError: Couldn't find cache for simonjegou/ruler for config 'default-data_dir=32768'\nAvailable configs in the cache: ['default-72b38d3c8f608333']\nTraceback (most recent call last):\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 291, in run_one\n    samples = loader.load_samples(\n              ^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/src/kvbench/benchmarks/loader.py\", line 83, in load_samples\n    dataset = load_dataset(\n              ^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/datasets/load.py\", line 1696, in load_dataset\n    builder_instance = load_dataset_builder(\n                       ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/datasets/load.py\", line 1361, in load_dataset_builder\n    builder_instance: DatasetBuilder = builder_cls(\n                                       ^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py\", line 125, in __init__\n    config_name, version, hash = _find_hash_in_cache(\n                                 ^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/datasets/packaged_modules/cache/cache.py\", line 65, in _find_hash_in_cache\n    raise ValueError(\nValueError: Couldn't find cache for simonjegou/ruler for config 'default-data_dir=32768'\nAvailable configs in the cache: ['default-72b38d3c8f608333']\n",
+  "finished_at": "2026-09-05T12:14:40+00:00",
+  "latency": {
+    "generated_tokens": 0,
+    "itl_mean_s": null,
+    "itl_p50_s": null,
+    "itl_p95_s": null,
+    "throughput_tokens_per_s": null,
+    "ttft_s": null,
+    "wall_s": 0.0
+  },
+  "memory": {
+    "driver_peak_bytes": null,
+    "kv_cache_bytes": 0,
+    "kv_cache_bytes_uncompressed": 0,
+    "prompt_tokens": 0,
+    "retained_tokens": 0,
+    "torch_peak_bytes": null
+  },
+  "method": {
+    "effective_compression_ratio": null,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "primary_metric": "string_match",
+    "primary_score": null,
+    "samples_scored": 0,
+    "scores": {}
+  },
+  "run_id": "perf-full_cache-r100-ruler-niah_single_1-32k-rep0-5cbe74a7f8",
+  "schema_version": 1,
+  "slug": "perf-full_cache-r100-ruler-niah_single_1-32k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 32768,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 1.0,
+    "samples": 3,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T12:14:31+00:00",
+  "status": "failed",
+  "warnings": []
+}

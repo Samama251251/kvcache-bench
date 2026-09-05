@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 9.999919434843532,
+    "duration_s": 15.500124876998598,
+    "idle_watts": null,
+    "joules_per_generated_token": 22.945967327790473,
+    "mean_watts": 284.23162793181734,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.821,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 156,
+    "total_joules": 4405.625726935771
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "027c6134ed7b52c207ef471ba577c8e98bfeb0d1",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:14:01+00:00",
+  "latency": {
+    "generated_tokens": 192,
+    "itl_mean_s": 0.035420782195764354,
+    "itl_p50_s": 0.0353044889998273,
+    "itl_p95_s": 0.03595936900092056,
+    "throughput_tokens_per_s": 12.416851452368046,
+    "ttft_s": 2.922113493000021,
+    "wall_s": 15.46285712900135
+  },
+  "memory": {
+    "driver_peak_bytes": 38584123392,
+    "kv_cache_bytes": 2054422528,
+    "kv_cache_bytes_uncompressed": 2054553600,
+    "prompt_tokens": 15675,
+    "retained_tokens": 15674,
+    "torch_peak_bytes": 22060339200
+  },
+  "method": {
+    "effective_compression_ratio": 6.4e-05,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "samples_scored": 3,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-full_cache-r100-ruler-niah_single_1-16k-rep1-d16abd1edd",
+  "schema_version": 1,
+  "slug": "perf-full_cache-r100-ruler-niah_single_1-16k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 1.0,
+    "samples": 3,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T12:13:40+00:00",
+  "status": "ok",
+  "warnings": []
+}

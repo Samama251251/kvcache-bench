@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999950253168349,
+    "duration_s": 30.80015322100371,
+    "idle_watts": null,
+    "joules_per_generated_token": 10.09728581531363,
+    "mean_watts": 209.81268747045965,
+    "net_joules_above_idle": null,
+    "peak_watts": 268.765,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 309,
+    "total_joules": 6462.262921800723
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "10f70d88387934d99865f50b6eccbfe66cb39c60",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:36:32+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04353323557008953,
+    "itl_p50_s": 0.04727758900116896,
+    "itl_p95_s": 0.049527574999956414,
+    "throughput_tokens_per_s": 20.800367787155402,
+    "ttft_s": 0.6242463247996056,
+    "wall_s": 30.768686715011427
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 121503744,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 927,
+    "torch_peak_bytes": 16772120064
+  },
+  "method": {
+    "effective_compression_ratio": 0.750337,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrases, and the number 8090293 is mentioned only once, at the end of the text. It's not clear how this number is related to the rest of the text or what the concept of \"wandering-age\" refers to. If you could provide more context or information about the number and its significance, I would",
+      ": 4612365. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase multiple times, and the number 4612365 is mentioned at the end of the text, not within the repeated phrase. If you are looking for a number hidden within the repeated phrase, I couldn't find any. The number 4612365 seems to be an unrelated piece of information. \n\nIf you could provide more context or clarify what you mean by \"special magic number hidden within the text,\" I would be happy to try and assist you further. \n\nAlso",
+      ": 7374122. I was able to memorize it as I read the text. However, I noticed that the provided text is repetitive and contains a lot of unnecessary information. The actual special magic number is mentioned only once, and it is not directly related to the repetitive text. It seems to be a distraction or a red herring. Nevertheless, the answer to the question is 7374122. \n\nHowever, I noticed that the number 7374122 is not actually mentioned in the text. The text actually says \"One of the special magic numbers for capable-percent is: 7374122.\" This means that ",
+      ": 5437923. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 5437923 is mentioned only once, at the beginning of the text. It is not clear how this number is related to the rest of the text or to the concept of jittery-commitment. If you could provide more context or information about the significance of this number, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be a repetition of the same phrases, which might be",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 3094235 is mentioned at the end of the text, not within the repeated phrases. It appears to be a separate piece of information. \n\nIf you would like to quiz me about the number, I'm ready. Please go ahead and ask your questions. I'll do my best to answer them. \n\nAlso, I would like to note that the term \"romantic-subsidy\" is not a real concept, and the number "
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r025-ruler-niah_single_1-4k-rep1-a6aa742355",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r025-ruler-niah_single_1-4k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:36:00+00:00",
+  "status": "ok",
+  "warnings": []
+}

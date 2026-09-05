@@ -44,12 +44,11 @@ to a compiler error:
 uv pip install flash-attn --no-build-isolation
 ```
 
-Authenticate for the model download (Llama-3.1 is gated) and pre-fetch, so a
+The unsloth repo is an ungated re-upload of Meta's weights, so no token is needed. Pre-fetch, so a
 download failure happens now rather than at run 40:
 
 ```sh
-export HF_TOKEN=<your token>
-uv run huggingface-cli download meta-llama/Llama-3.1-8B-Instruct
+uv run huggingface-cli download unsloth/Llama-3.1-8B-Instruct
 ```
 
 Confirm the harness agrees with the machine:

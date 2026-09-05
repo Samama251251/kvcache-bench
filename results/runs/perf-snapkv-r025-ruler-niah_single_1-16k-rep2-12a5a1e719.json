@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999954722343215,
+    "duration_s": 40.20018201700441,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.485774872477796,
+    "mean_watts": 246.53858318834344,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.707,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 403,
+    "total_joules": 9910.89591838579
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "02acf0b29d3f66793180efeb315ce9c57c3195b4",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T18:13:30+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.039247501048813555,
+    "itl_p50_s": 0.0382327469997108,
+    "itl_p95_s": 0.048626506999426056,
+    "throughput_tokens_per_s": 15.977632740966675,
+    "ttft_s": 3.0260599255998386,
+    "wall_s": 40.05599642799643
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 514588672,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 3926,
+    "torch_peak_bytes": 18991131648
+  },
+  "method": {
+    "effective_compression_ratio": 0.750095,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. \n\nHowever, I noticed that the text you provided is repetitive and contains the same phrases multiple times. It seems that the text is designed to be a distraction, and the actual special magic number is hidden within the text. \n\nUpon closer inspection, I noticed that the text contains the phrase \"The grass is green. The sky is blue. The sun is yellow.\" repeated multiple times. If we count the number of times this phrase appears, we get a total of 17. \n\nHowever, if we look at the text more closely, we can see that the phrase \"The grass is green. The sky",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text is repetitive and contains the same phrases multiple times. It seems like the text is designed to help me memorize the number. Am I correct? \n\nIf you have any other questions or if you would like to know more about the number, please let me know. I'm here to help. \n\nAlso, I would like to ask, is there a specific context or meaning behind the number 9548432? Is",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it's a clever way to make the text longer and more annoying to read. The name \"annoying-decimal\" also suggests that the number might be related to a decimal representation of a large number. If you'd like to ask more about the context or significance of the number, I'd be happy to try and help. \n\nPlease go ahead and ask",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase 40 times. It seems like a clever way to create a sense of monotony and make the number stand out. Am I correct? \n\nPlease let me know if I'm right or not. I'm eager to learn more about the context and purpose of the text. \n\nAlso, I have a question for you. Is there a specific reason why you chose the number 8082668",
+      ": 7402509. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I would like to note that the provided text seems to be a repetition of the same phrase, which might be a red herring to distract from the actual task of finding the special magic number. However, I was able to identify the number as requested. \n\nIf you would like to provide more context or clarify the purpose of the special magic number, I would be happy to help. \n\nPlease let me know how I can assist you further. \n\n"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r025-ruler-niah_single_1-16k-rep2-12a5a1e719",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r025-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T18:12:43+00:00",
+  "status": "ok",
+  "warnings": []
+}

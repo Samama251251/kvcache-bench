@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999950527401982,
+    "duration_s": 39.40019492300053,
+    "idle_watts": null,
+    "joules_per_generated_token": 12.827781940016951,
+    "mean_watts": 208.369031108987,
+    "net_joules_above_idle": null,
+    "peak_watts": 293.33,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 395,
+    "total_joules": 8209.780441610848
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "1e4ad32056bcb4865d86b56941f410373ab3f502",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T21:39:09+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.051334030653545304,
+    "itl_p50_s": 0.04457801699754782,
+    "itl_p95_s": 0.10004907099937554,
+    "throughput_tokens_per_s": 16.293431240715574,
+    "ttft_s": 1.3355055431995424,
+    "wall_s": 39.279633033998834
+  },
+  "memory": {
+    "driver_peak_bytes": 41325101056,
+    "kv_cache_bytes": 121503744,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 927,
+    "torch_peak_bytes": 20964196352
+  },
+  "method": {
+    "effective_compression_ratio": 0.750337,
+    "kind": "eviction",
+    "name": "h2o",
+    "params": {},
+    "press_class": "ObservedAttentionPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 809. However, I noticed that the number 809 is not mentioned in the text. Instead, the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present, but the number 809 is not present",
+      ": 4611365. However, the text also mentions another number: 4611365 is not the number mentioned in the text. The text actually mentions: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365 is not the number, the number is: 4611365",
+      ": 737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373737373",
+      ": 543210. However, I noticed that the text also mentions another number: 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but ",
+      ": 309. However, I noticed that the number 309 is not mentioned in the text. Instead, the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present, but the number 309 is not present"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-h2o-r025-ruler-niah_single_1-4k-rep2-4acef2f6c6",
+  "schema_version": 1,
+  "slug": "perf-h2o-r025-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "h2o",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T21:38:27+00:00",
+  "status": "ok",
+  "warnings": []
+}

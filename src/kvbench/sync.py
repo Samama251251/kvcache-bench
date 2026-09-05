@@ -41,7 +41,11 @@ class ResultSync:
         return True, f"pushing each record to {self.remote}"
 
     def push(self, label: str = "") -> bool:
-        add = self._git("add", "--", str(self.root))
+        # Absolute, because git runs from inside the results directory and a
+        # relative "results" resolves to results/results, which does not exist.
+        # The CLI hands over a relative path from the config, so this is the
+        # normal case, not an edge.
+        add = self._git("add", "--", str(self.root.resolve()))
         if not add.ok:
             return self._fail(f"git add failed: {add.err}")
 

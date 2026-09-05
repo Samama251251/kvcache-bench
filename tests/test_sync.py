@@ -51,6 +51,19 @@ def test_a_record_is_pushed_to_the_remote(repo, record_factory):
     assert "run-a" in log.stdout
 
 
+def test_a_relative_results_path_still_pushes(repo, record_factory, monkeypatch):
+    # How the CLI actually calls it: cwd is the repo root and the config names
+    # "results". The sync runs git from inside that directory, so a relative
+    # path handed straight to git add never matched anything.
+    monkeypatch.chdir(repo)
+    store = ResultStore("results")
+    store.save(record_factory("run-rel"))
+
+    syncer = ResultSync("results")
+    assert syncer.push("run-rel") is True, syncer.failures
+    assert syncer.failures == []
+
+
 def test_pushing_with_nothing_new_is_a_no_op(repo, record_factory):
     store = ResultStore(repo / "results")
     store.save(record_factory("run-a"))

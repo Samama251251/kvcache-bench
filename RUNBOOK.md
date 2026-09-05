@@ -96,9 +96,9 @@ by more than a few percent, the differences this project wants to report between
 methods are not falsifiable — say so in the write-up, and consider raising
 repeats before the full sweep rather than after.
 
-**Does 32k fit?** The smoke config runs RULER at 32768 deliberately. If it OOMs,
-drop 32k from `full_sweep.yaml` now and run at 4k/8k/16k. Better a narrower
-claim than a hole in the table.
+**Does 16k fit?** The smoke config runs RULER at 16384 deliberately, and H2O at
+its 8k cap. If either OOMs, lower the cap or drop the length in `full_sweep.yaml`
+now. Better a narrower claim than a hole in the table.
 
 **Can the model still do the task uncompressed at 16k?** Check the `full_cache`
 RULER score. If the *uncompressed* baseline is already poor, compression-induced

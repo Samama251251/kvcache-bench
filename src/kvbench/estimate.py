@@ -31,6 +31,7 @@ class SweepEstimate:
     hourly_usd: float | None
     basis: str
     note: str
+
     @property
     def hours(self) -> float:
         return self.total_seconds / 3600.0

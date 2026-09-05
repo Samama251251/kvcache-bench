@@ -42,6 +42,11 @@ class QualityMetrics(BaseModel):
     primary_score: float | None
     scores: dict = Field(default_factory=dict)
     samples_scored: int
+    # What the model actually said, next to what the benchmark wanted. A score
+    # of 8 on qasper is a number; the predictions say whether the model rambled,
+    # refused, or answered a different question. Empty on older records.
+    predictions: list[str] = Field(default_factory=list)
+    references: list[list[str]] = Field(default_factory=list)
 
 
 class MethodInfo(BaseModel):

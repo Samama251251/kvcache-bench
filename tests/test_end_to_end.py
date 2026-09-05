@@ -82,6 +82,15 @@ def test_a_sweep_runs_end_to_end_and_writes_complete_records(tmp_path, experimen
         assert payload[axis], f"{axis} was not populated"
 
 
+def test_records_keep_what_the_model_said(tmp_path, experiment, offline_samples):
+    store = ResultStore(tmp_path / "results")
+    records = run_sweep(experiment, store, backend=FakeBackend())
+    for record in records:
+        assert record.status == "ok", record.error
+        assert len(record.quality.predictions) == record.quality.samples_scored
+        assert len(record.quality.references) == record.quality.samples_scored
+
+
 def test_the_baseline_really_is_uncompressed(tmp_path, experiment, offline_samples):
     store = ResultStore(tmp_path)
     records = by_method(run_sweep(experiment, store, backend=FakeBackend()))
@@ -171,8 +180,19 @@ def test_a_broken_method_fails_its_own_cell_only(tmp_path, experiment, offline_s
 
 
 def test_batched_quality_runs_disclaim_their_own_perf_numbers(tmp_path, experiment, offline_samples):
+    # Only a baseline-only sweep is allowed to batch, so build one from the
+    # laptop config rather than batching its eviction methods.
+    baseline_only = experiment.model_copy(
+        update={
+            "methods": [m for m in experiment.methods if m.kind == "full_cache"],
+            "passes": [
+                p.model_copy(update={"batch_size": 2}) if p.mode == "quality" else p
+                for p in experiment.passes
+            ],
+        }
+    )
     store = ResultStore(tmp_path)
-    records = run_sweep(experiment, store, backend=FakeBackend())
+    records = run_sweep(baseline_only, store, backend=FakeBackend())
 
     quality = [r for r in records if r.spec["mode"] == "quality"]
     assert quality and all(r.spec["batch_size"] > 1 for r in quality)

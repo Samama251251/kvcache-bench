@@ -1,0 +1,301 @@
+{
+  "energy": {
+    "achieved_hz": 9.999970647582206,
+    "duration_s": 69.90020517400262,
+    "idle_watts": null,
+    "joules_per_generated_token": 73.58020923762088,
+    "mean_watts": 288.4251524143797,
+    "net_joules_above_idle": null,
+    "peak_watts": 300.27,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 700,
+    "total_joules": 20160.97733110812
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "2435cbe27561e622d52303ba576dfa85cc55a357",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T21:11:31+00:00",
+  "latency": {
+    "generated_tokens": 274,
+    "itl_mean_s": 0.03854501478118826,
+    "itl_p50_s": 0.03733183199801715,
+    "itl_p95_s": 0.04550832299719332,
+    "throughput_tokens_per_s": 3.9867662508742097,
+    "ttft_s": 1.2010776446202363,
+    "wall_s": 68.72738022699923
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 632553472,
+    "kv_cache_bytes_uncompressed": 632684544,
+    "prompt_tokens": 4827,
+    "retained_tokens": 4826,
+    "torch_peak_bytes": 21217827840
+  },
+  "method": {
+    "effective_compression_ratio": 0.000207,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "predictions": [
+      " Gyulafeh\u00e9rv\u00e1r, Transylvania.",
+      " Elizabeth",
+      " The film Man At Bath is directed by Christophe Honor\u00e9.",
+      " No",
+      " c.\u20091532",
+      " Lewis Watson, 1st Earl of Rockingham",
+      " 1373",
+      " Alboin",
+      " St Patrick's College, Dublin",
+      " Bob Jones University.",
+      " The House Of The Seven Hawks",
+      " Marie of Brabant",
+      " Renaud I, Count of Soissons",
+      " 26 April 1872",
+      " United States",
+      " Barbara Hale",
+      " Indradhanura Chhai",
+      " No",
+      " No",
+      " Mysore.",
+      " Hamar",
+      " The Lee Strasberg Theatre and Film Institute",
+      " Hell Up In Harlem",
+      " Cipriano Castro",
+      " Monster On The Campus",
+      " Altu\u011f \u00c7elikbilek",
+      " Jugband Blues",
+      " No",
+      " Rathold R\u00e1t\u00f3t",
+      " Bhaktapur",
+      " Arthur Acheson, 1st Earl of Gosford",
+      " John Paul Getty",
+      " London",
+      " No",
+      " Wooden Crosses",
+      " Above Rubies",
+      " Blue Blood And Red",
+      " Perth, Western Australia",
+      " Paul De Scherff",
+      " Y\u0131ld\u0131z Palace.",
+      " Melun",
+      " Henry Goes Arizona",
+      " Wales",
+      " All-American Co-Ed",
+      " Buenos Aires",
+      " Charlotte Amalie of Hesse-Kassel",
+      " Tilleda.",
+      " Rupilia Faustina",
+      " Bajo Otro Sol",
+      " Marie Lafor\u00eat"
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 53.08,
+    "references": [
+      [
+        "Ozalj"
+      ],
+      [
+        "John the Baptist"
+      ],
+      [
+        "Cahiers du cin\u00e9ma"
+      ],
+      [
+        "no"
+      ],
+      [
+        "1510"
+      ],
+      [
+        "Edward Watson"
+      ],
+      [
+        "16 September 1360"
+      ],
+      [
+        "Cunimund"
+      ],
+      [
+        "St Patrick's College"
+      ],
+      [
+        "Bob Jones University"
+      ],
+      [
+        "The House Of The Seven Hawks"
+      ],
+      [
+        "Marie of Hohenstaufen"
+      ],
+      [
+        "Guy II, Count of Soissons"
+      ],
+      [
+        "26 April 1872"
+      ],
+      [
+        "America"
+      ],
+      [
+        "Ona Munson"
+      ],
+      [
+        "The Death Of Black King"
+      ],
+      [
+        "no"
+      ],
+      [
+        "no"
+      ],
+      [
+        "Mysore"
+      ],
+      [
+        "Kristiania"
+      ],
+      [
+        "Lee Strasberg Theatre and Film Institute"
+      ],
+      [
+        "Hell Up In Harlem"
+      ],
+      [
+        "Cipriano Castro"
+      ],
+      [
+        "Monster On The Campus"
+      ],
+      [
+        "Altu\u011f \u00c7elikbilek"
+      ],
+      [
+        "Jugband Blues"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Leustach R\u00e1t\u00f3t"
+      ],
+      [
+        "Nepal"
+      ],
+      [
+        "Archibald Acheson, 2nd Earl of Gosford"
+      ],
+      [
+        "Jean Paul Getty"
+      ],
+      [
+        "Goring-on-Thames, Oxfordshire"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Wooden Crosses"
+      ],
+      [
+        "Above Rubies"
+      ],
+      [
+        "Blue Blood And Red"
+      ],
+      [
+        "Castlemaine, Victoria, Australia"
+      ],
+      [
+        "Lyudmyla Olyanovska"
+      ],
+      [
+        "Constantinople"
+      ],
+      [
+        "East Francia"
+      ],
+      [
+        "Henry Goes Arizona"
+      ],
+      [
+        "United Kingdom"
+      ],
+      [
+        "All-American Co-Ed"
+      ],
+      [
+        "Buenos Aires"
+      ],
+      [
+        "Charlotte Amalie of Hesse-Kassel"
+      ],
+      [
+        "Brunswick"
+      ],
+      [
+        "Vibia Sabina"
+      ],
+      [
+        "Bajo Otro Sol"
+      ],
+      [
+        "Marie Lafor\u00eat"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 53.08
+    }
+  },
+  "run_id": "qual-full_cache-r100-longbench-2wikimqa-rep0-9b4e088bb7",
+  "schema_version": 1,
+  "slug": "qual-full_cache-r100-longbench-2wikimqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 1.0,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "2wikimqa"
+  },
+  "started_at": "2026-09-05T21:10:19+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

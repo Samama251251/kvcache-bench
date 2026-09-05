@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999937931432472,
+    "duration_s": 27.700171930999204,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.196839007254185,
+    "mean_watts": 212.48882423201474,
+    "net_joules_above_idle": null,
+    "peak_watts": 278.185,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 278,
+    "total_joules": 5885.9769646426785
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "c85361842b592e3636d966710f9ffe72b755bbac",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T15:52:38+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.0389368369527515,
+    "itl_p50_s": 0.03841426800136105,
+    "itl_p95_s": 0.042251388000295265,
+    "throughput_tokens_per_s": 23.11681804037553,
+    "ttft_s": 0.5912562671997875,
+    "wall_s": 27.685471196000435
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 48496640,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 370,
+    "torch_peak_bytes": 16626105856
+  },
+  "method": {
+    "effective_compression_ratio": 0.90035,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 42. However, I noticed that the text actually mentions the number 42 multiple times, but it's not explicitly stated as the \"special magic number for wandering-age\". The number 42 is actually a reference to Douglas Adams' science fiction series \"The Hitchhiker's Guide to the Galaxy\", where 42 is the \"Answer to the Ultimate Question of Life, the Universe, and Everything\". \n\nHowever, if I had to choose a number that is actually mentioned in the text as a \"special magic number\", I would say that there isn't one. The text doesn't explicitly mention a \"special magic number for wandering",
+      ": 461. However, I noticed that the text actually mentions the number 461 multiple times, but it's not explicitly stated as the \"special magic number for determined-consignment\". The text seems to be repeating the number 461 multiple times, but it's not clear what it's supposed to represent. If you could provide more context or clarify what you're looking for, I'd be happy to try and help further. \n\nHowever, if I had to choose a number that appears multiple times in the text, I would say that the number 461 is the most prominent one. But please note that this is just an interpretation,",
+      ": 50. However, the text actually mentions the number 50, but it's not explicitly stated as the special magic number for capable-percent. The text actually says \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 50 times. \n\nIf we look at the text, we can see that the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated 50 times. This repetition is likely the \"special magic number\" being referred to in the text. \n\nHowever,",
+      ": 42. However, it was not actually mentioned in the text. The text only mentioned \"jittery-commitment\" but did not provide a number. I made an incorrect assumption. The text actually mentioned the number 42 in a different context, but it was not related to jittery-commitment. The correct answer is that there is no special magic number for jittery-commitment mentioned in the text. The text only mentioned the phrase \"jittery-commitment\" but did not provide any further information. \n\nHowever, I can tell you that the number 42 is a reference to Douglas Adams' science fiction series \"",
+      ": 309. However, I noticed that the text actually mentions the number 309 multiple times, but it's not explicitly stated as the \"magic number\" for romantic-subsidy. The text seems to be repeating the number 309 multiple times, but it's not clear what it's supposed to represent. If you could provide more context or clarify what you're looking for, I'd be happy to try and help further. \n\nHowever, I did notice that the text does mention a \"special magic number\" for romantic-subsidy, but it's not the number 309. The text actually says: \"What is the"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r010-ruler-niah_single_1-4k-rep2-27f5c4a824",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r010-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T15:52:08+00:00",
+  "status": "ok",
+  "warnings": []
+}

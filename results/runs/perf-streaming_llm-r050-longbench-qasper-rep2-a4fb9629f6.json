@@ -1,0 +1,95 @@
+{
+  "energy": {
+    "achieved_hz": 9.999611921727116,
+    "duration_s": 6.000232856000366,
+    "idle_watts": null,
+    "joules_per_generated_token": 14.635887901753257,
+    "mean_watts": 219.52979872115029,
+    "net_joules_above_idle": null,
+    "peak_watts": 263.5,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 61,
+    "total_joules": 1317.2299111577931
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d2165e10f7b232cb2fa0027e91e6a42bed68163d",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:33:58+00:00",
+  "latency": {
+    "generated_tokens": 90,
+    "itl_mean_s": 0.0479021677470966,
+    "itl_p50_s": 0.04760735699892393,
+    "itl_p95_s": 0.05009176399835269,
+    "throughput_tokens_per_s": 14.875778972165234,
+    "ttft_s": 0.6266084983350689,
+    "wall_s": 6.050103337001929
+  },
+  "memory": {
+    "driver_peak_bytes": 27943174144,
+    "kv_cache_bytes": 287834112,
+    "kv_cache_bytes_uncompressed": 576061440,
+    "prompt_tokens": 4395,
+    "retained_tokens": 2196,
+    "torch_peak_bytes": 17130887680
+  },
+  "method": {
+    "effective_compression_ratio": 0.500341,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "primary_metric": "qa_f1",
+    "primary_score": 16.93,
+    "samples_scored": 3,
+    "scores": {
+      "qa_f1": 16.93
+    }
+  },
+  "run_id": "perf-streaming_llm-r050-longbench-qasper-rep2-a4fb9629f6",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r050-longbench-qasper-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 3,
+    "suite": "longbench",
+    "task": "qasper"
+  },
+  "started_at": "2026-09-05T12:33:51+00:00",
+  "status": "ok",
+  "warnings": []
+}

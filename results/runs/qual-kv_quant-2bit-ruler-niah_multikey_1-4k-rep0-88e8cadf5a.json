@@ -1,0 +1,305 @@
+{
+  "energy": {
+    "achieved_hz": 9.999957172775865,
+    "duration_s": 54.00023126800079,
+    "idle_watts": null,
+    "joules_per_generated_token": 30.8202687105505,
+    "mean_watts": 264.25413517517296,
+    "net_joules_above_idle": null,
+    "peak_watts": 283.575,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 541,
+    "total_joules": 14269.784412984882
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "916a2d9b572d120a33161d0f13c6dd2e3a9605b8",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:05:10+00:00",
+  "latency": {
+    "generated_tokens": 463,
+    "itl_mean_s": 0.05045415149152067,
+    "itl_p50_s": 0.04902064800262451,
+    "itl_p95_s": 0.06143854000401916,
+    "throughput_tokens_per_s": 8.694880751422435,
+    "ttft_s": 0.6467103311796382,
+    "wall_s": 53.2497239739896
+  },
+  "memory": {
+    "driver_peak_bytes": 24294129664,
+    "kv_cache_bytes": 62980096,
+    "kv_cache_bytes_uncompressed": 503971840,
+    "prompt_tokens": 3845,
+    "retained_tokens": 3844,
+    "torch_peak_bytes": 16702424576
+  },
+  "method": {
+    "effective_compression_ratio": 0.00026,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 9375710.",
+      " 7700828.",
+      ": 3684052.",
+      ": 6707197.",
+      ": 2785277.",
+      ": 9897858.",
+      ": 8973915.",
+      ": 4374754.",
+      ": 4694634.",
+      ": 5672073.",
+      ": 262, 2229.",
+      " 4078418.",
+      ": 264759.",
+      ": 8633773.",
+      ": 1981186.",
+      ": 2149594.",
+      ": 5374922.",
+      ": 6304573.",
+      ": 364655.",
+      ": 4533779.",
+      ": 6596150.",
+      ": 160445.",
+      ": 711,7837.",
+      ": 7907400.",
+      ": 6866294.",
+      ": 6891254.",
+      " 626263.",
+      ": 4188992.",
+      ": 6038571.",
+      " 7361002.",
+      ": 6406444.",
+      ": 2422633.",
+      ": 7953166.",
+      ": 109302.",
+      ": 6323376.",
+      ": 5652512.",
+      ": 5558623.",
+      ": 8044645.",
+      ": 4700025.",
+      " 3768991.",
+      ": 7360307.",
+      " 1327, but then it is stated as 8, then 5, then 1, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4, then 8, then 4",
+      ": 3117636.",
+      ": 6218367.",
+      ": 1689025.",
+      ": 7076506.",
+      " 5118725.",
+      ": 6452832.",
+      ": 5049282.",
+      ": 7787785."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 76.0,
+    "references": [
+      [
+        "9375710"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "3684052"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9897858"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "5672073"
+      ],
+      [
+        "2626229"
+      ],
+      [
+        "4078418"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "8633773"
+      ],
+      [
+        "1981186"
+      ],
+      [
+        "2149597"
+      ],
+      [
+        "5374922"
+      ],
+      [
+        "6304573"
+      ],
+      [
+        "3646552"
+      ],
+      [
+        "4533779"
+      ],
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 76.0
+      }
+    }
+  },
+  "run_id": "qual-kv_quant-2bit-ruler-niah_multikey_1-4k-rep0-88e8cadf5a",
+  "schema_version": 1,
+  "slug": "qual-kv_quant-2bit-ruler-niah_multikey_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 0,
+    "retention": null,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T20:04:13+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

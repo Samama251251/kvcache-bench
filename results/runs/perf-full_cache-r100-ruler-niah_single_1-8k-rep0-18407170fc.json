@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999964479718528,
+    "duration_s": 29.400104429998464,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.617435508532829,
+    "mean_watts": 252.89565699210678,
+    "net_joules_above_idle": null,
+    "peak_watts": 300.955,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 295,
+    "total_joules": 7435.15872546101
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d2c6ec08037897c998afa953517af434ccc88c58",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T13:22:57+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03594701592125824,
+    "itl_p50_s": 0.03571804099919973,
+    "itl_p95_s": 0.03764043000046513,
+    "throughput_tokens_per_s": 21.815203284603403,
+    "ttft_s": 1.3014002758005518,
+    "wall_s": 29.33733835300518
+  },
+  "memory": {
+    "driver_peak_bytes": 24069734400,
+    "kv_cache_bytes": 1037041664,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 7912,
+    "torch_peak_bytes": 19104472064
+  },
+  "method": {
+    "effective_compression_ratio": 0.000126,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. I'm ready for your quiz. Please go ahead and ask your questions. I'll do my best to answer them. \n\nHowever, I noticed that the provided text is a repetition of the same phrase many times. It seems like the repetition is not necessary for the purpose of the question. If you'd like, I can try to help you identify the actual purpose of the repetition or provide any insights related to the text. Just let me know. \n\nAlso, if you'd like to ask a specific question about the magic number, I'll be happy to help. For example",
+      ": 2338687. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the concept of harmonious-reduction or the magic number. The magic number is actually mentioned separately, outside of the repeated text. \n\nIf you have any questions or would like to clarify the context of the magic number, I am here to help. Please let me know how I can assist",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the number 5663623. However, according to the text, 5663623 is the special magic number for lovely-terrorist. \n\nIf you have any questions or need further clarification, please let me know. I am here to help. \n\nPlease go ahead and ask your questions. I am ready.",
+      ": 7210606. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the concept of discreet-barometer. The mention of the magic number 7210606 seems to be an isolated statement. If you could provide more context or information about discreet-barometer, I would be happy to help. \n\nAlso, I would like to clarify that I am a large language",
+      ": 5479144. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it does not seem to be related to the number 5479144. The number is mentioned in a separate sentence, and it seems to be an isolated piece of information. If you could provide more context or clarify the relationship between the text and the number, I would be happy to help further. \n\nAlso, I would like"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-full_cache-r100-ruler-niah_single_1-8k-rep0-18407170fc",
+  "schema_version": 1,
+  "slug": "perf-full_cache-r100-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 1.0,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T13:22:25+00:00",
+  "status": "ok",
+  "warnings": []
+}

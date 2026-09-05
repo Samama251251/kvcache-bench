@@ -1,0 +1,123 @@
+{
+  "energy": {
+    "achieved_hz": 9.999936229263767,
+    "duration_s": 35.000223199000175,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.471394065842741,
+    "mean_watts": 209.76129667507604,
+    "net_joules_above_idle": null,
+    "peak_watts": 278.611,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 351,
+    "total_joules": 7341.692202139355
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "0bbc0b3c3d142a31f50679746a2c178b1a7a4ea2",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T16:27:05+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.050296104935429374,
+    "itl_p50_s": 0.04814488799820538,
+    "itl_p95_s": 0.052533887999743456,
+    "throughput_tokens_per_s": 18.317595377484945,
+    "ttft_s": 0.5986473485994793,
+    "wall_s": 34.93908380499852
+  },
+  "memory": {
+    "driver_peak_bytes": 23937613824,
+    "kv_cache_bytes": 60817408,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 3712,
+    "torch_peak_bytes": 16681090560
+  },
+  "method": {
+    "effective_compression_ratio": 0.000269,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized the number as per your request. I have read the entire text to memorize the magic number. I am ready to answer your questions about the magic number. \nHowever, I must note that the magic number is repeated multiple times in the text, but it is not a unique or meaningful number in the context of the text. It appears to be a random number repeated multiple times. If you have any specific questions about the number or its significance, I'd be happy to help. \nThe magic number is 8090293. \nThe magic number is 8090293. \n",
+      ": 4612365. I have memorized the number. I am ready to answer your questions about the number. \n4612365. \nThe magic number is 4612365. I have memorized the number. I am ready to answer your questions about the number. \n4612365. \nThe magic number is 4612365. I have memorized the number. I am ready to answer your questions about the number. \n4612365. \nThe magic number is 4612365. I have memorized the number. I am ready to answer your questions about the number. \n4612365.",
+      ":  37. \nHowever, I noticed that the text contains a number 7374122. I will use this number for the quiz. \nThe number 7374122 is hidden within the text. The number is hidden within the text by repeating the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 37 times. The number 7374122 is hidden within the text by repeating the phrase 37 times. The number 7374122 is hidden within the text. The number 7374122 is hidden within the text. The number",
+      ": 5437923. I have memorized the magic number for you. I am ready to be quizzed about it. Go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I should note that the magic number was repeated 54 times in the provided text. The magic number itself is 5437923. I am ready to be quizzed about this magic number. Go ahead and ask your questions. I will do my best to answer them. \n\nAlso, I should note that the magic number was hidden in the provided text. The magic number was hidden in the repeated text",
+      ": 3094235. I have memorized the number. I am ready to be quizzed about it. Please go ahead with your questions. I will do my best to answer them. \n\nHowever, I noticed that the provided text is repetitive and does not seem to have any relevance to the magic number. The magic number is simply mentioned multiple times throughout the text. If you have any questions or would like to quiz me about the number, I am ready. \n\nAlso, I noticed that the text is a repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-kv_quant-2bit-ruler-niah_single_1-4k-rep2-fca48ad2c5",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-2bit-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 2,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T16:26:29+00:00",
+  "status": "ok",
+  "warnings": []
+}

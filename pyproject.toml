@@ -19,6 +19,9 @@ dependencies = [
     "kvpress>=0.5.4",
     # The Llama tokenizer reload on the eager-attention path imports it.
     "protobuf>=4.21",
+    # transformers' quantized KV cache backend. kvpress has no quantization
+    # press, so this is what the kv_quant method runs on.
+    "optimum-quanto>=0.2.7",
     # Pulled in by the vendored LongBench scorer (see benchmarks/vendored/).
     "rouge>=1.0.1,<2",
     "fuzzywuzzy>=0.18",

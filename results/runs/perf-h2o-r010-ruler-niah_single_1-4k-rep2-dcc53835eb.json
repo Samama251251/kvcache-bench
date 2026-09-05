@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.99996808638803,
+    "duration_s": 35.00011169799836,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.93943775324067,
+    "mean_watts": 218.3204507461908,
+    "net_joules_above_idle": null,
+    "peak_watts": 292.674,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 351,
+    "total_joules": 7641.240162074028
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "e5e5e8969f48755896ca96d5255bd8ae18ec4af4",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T21:23:01+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.044558793916534285,
+    "itl_p50_s": 0.044278597000811715,
+    "itl_p95_s": 0.04635821499687154,
+    "throughput_tokens_per_s": 18.304483214329583,
+    "ttft_s": 1.3329121756003588,
+    "wall_s": 34.96411193400854
+  },
+  "memory": {
+    "driver_peak_bytes": 41323003904,
+    "kv_cache_bytes": 48496640,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 370,
+    "torch_peak_bytes": 20820463616
+  },
+  "method": {
+    "effective_compression_ratio": 0.90035,
+    "kind": "eviction",
+    "name": "h2o",
+    "params": {},
+    "press_class": "ObservedAttentionPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 809. However, the text also mentions another number: 809 is not present in the text, but 809 is not the correct answer. The correct answer is 809 is not present in the text, but 809 is not the correct answer. The correct answer is 809 is not present in the text, but 809 is not the correct answer. The correct answer is 809 is not present in the text, but 809 is not the correct answer. The correct answer is 809 is not present in the text, but 809 is not the correct answer. The correct answer is 809 is not present",
+      ": 4611365. However, the text also mentions that one of the special magic numbers for determined-consignment is: 4611365. However, the text also mentions that one of the special magic numbers for determined-consignment is: 4611365. However, the text also mentions that one of the special magic numbers for determined-consignment is: 4611365. However, the text also mentions that one of the special magic numbers for determined-consignment is: 4611365. However, the text also mentions that one of the special magic numbers for determined-consignment is: 4611365. However,",
+      ": 7373737373. However, the number 7373737373 is not the only special magic number mentioned in the text. The text also mentions the number 7373737373 as 7373737373, and then it mentions the number 7373737373 as 7373737373, and then it mentions the number 7373737373 as 7373737373, and then it mentions the number 7373737373 as 7373737373, and then it mentions the number 7373737373 as 7373737373, and then it mentions the number 737373737",
+      ": 543210. However, the text also mentions another number: 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is not present in the text, but 543210 is",
+      ": 3099999. However, the number 3099999 is not present in the text. The number 3099999 is not present in the text, but the number 3099999 is not present in the text. The number 3099999 is not present in the text, but the number 3099999 is not present in the text. The number 3099999 is not present in the text, but the number 3099999 is not present in the text. The number 3099999 is not present in the text, but the number 3099999 is not present in the text"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-h2o-r010-ruler-niah_single_1-4k-rep2-dcc53835eb",
+  "schema_version": 1,
+  "slug": "perf-h2o-r010-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "h2o",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T21:22:23+00:00",
+  "status": "ok",
+  "warnings": []
+}

@@ -25,9 +25,9 @@ runtime:
   # not line up with method order.
   shuffle_seed: 1234
   lock_clocks_mhz: null
-  # Total prompt tokens per batch. Caps batch size as context grows: 8 at 8k,
-  # 4 at 16k. Sized for a single card with >=40GB, where the weights alone take
-  # 16.1GB and a 16k KV cache adds 2.1GB per sequence.
+  # Total prompt tokens per batch. Only matters for a batched pass, and both
+  # passes here run at batch 1; kept so a future full_cache-only quality pass
+  # can batch without touching the runner.
   max_batch_tokens: 65536
 
 generation:
@@ -37,10 +37,15 @@ generation:
 # Two passes over the same grid, because quality and performance want opposite
 # things from the same generation. See config.py for the reasoning.
 passes:
-  # Scores only, so prompts batch and the pass costs a fraction of batch-1.
+  # Batch 1, although scores would batch fine in principle. kvpress presses are
+  # not padding-aware: StreamingLLM's sinks are the first four positions, which
+  # under left padding are pad tokens, and SnapKV scores keys with no attention
+  # mask. Batched at 4, SnapKV at 50% scored 15.7 on qasper against a 49.9
+  # baseline; at batch 1 it scored 48.3. The config loader refuses batched
+  # quality passes for eviction methods for this reason.
   - mode: quality
     samples_per_task: 50
-    batch_size: 8
+    batch_size: 1
     repeats: 1
 
   # Energy and latency, at batch 1 and a controlled context length. Few samples,
@@ -62,9 +67,10 @@ methods:
   - name: streaming_llm
   - name: h2o
     # ObservedAttentionPress needs eager attention, whose score matrix is
-    # quadratic in context: ~17GB for one layer at 16k. Anything longer is
-    # dropped rather than attempted.
-    max_context_tokens: 16384
+    # quadratic in context. At 16k it asked for 29GB on top of the model and
+    # OOMed a 48GB card in the smoke session; at 8k it peaks at 37GB total.
+    # Longer cells are dropped rather than attempted.
+    max_context_tokens: 8192
   - name: snapkv
   - name: pyramidkv
   - name: tova

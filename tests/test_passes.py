@@ -19,7 +19,7 @@ def make_config(**overrides) -> ExperimentConfig:
         "budgets": [0.5],
         "runtime": {"max_batch_tokens": 65536},
         "passes": [
-            {"mode": "quality", "samples_per_task": 50, "batch_size": 8},
+            {"mode": "quality", "samples_per_task": 50, "batch_size": 1},
             {"mode": "performance", "samples_per_task": 5, "batch_size": 1, "repeats": 3},
         ],
     }
@@ -61,7 +61,7 @@ def test_a_batched_performance_pass_is_rejected():
 def test_a_pass_can_restrict_itself_to_its_own_benchmarks():
     config = make_config(
         passes=[
-            {"mode": "quality", "samples_per_task": 50, "batch_size": 8},
+            {"mode": "quality", "samples_per_task": 50, "batch_size": 1},
             {
                 "mode": "performance",
                 "samples_per_task": 5,
@@ -99,11 +99,28 @@ def test_batch_one_stays_one():
 
 
 def test_the_token_budget_reaches_the_specs():
+    # Only a baseline-only sweep may batch, so that is what this exercises.
     specs = make_config(
-        benchmarks=[{"suite": "ruler", "tasks": ["niah_single_1"], "context_lengths": [32768]}]
+        methods=[{"name": "full_cache", "kind": "full_cache"}],
+        passes=[{"mode": "quality", "samples_per_task": 50, "batch_size": 8}],
+        benchmarks=[{"suite": "ruler", "tasks": ["niah_single_1"], "context_lengths": [32768]}],
     ).expand()
     quality = [s for s in specs if s.mode == "quality"]
     assert {s.batch_size for s in quality} == {2}
+
+
+def test_eviction_methods_refuse_to_batch():
+    # kvpress presses are not padding-aware; batched at 4, SnapKV lost two
+    # thirds of its qasper score to evicting real tokens in favour of pads.
+    with pytest.raises(ValidationError, match="padding-aware"):
+        make_config(passes=[{"mode": "quality", "samples_per_task": 50, "batch_size": 8}])
+
+
+def test_a_baseline_only_sweep_may_batch():
+    make_config(
+        methods=[{"name": "full_cache", "kind": "full_cache"}],
+        passes=[{"mode": "quality", "samples_per_task": 50, "batch_size": 8}],
+    )
 
 
 # --- method context limits ----------------------------------------------------

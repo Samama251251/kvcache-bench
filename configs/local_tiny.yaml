@@ -29,7 +29,7 @@ generation:
 passes:
   - mode: quality
     samples_per_task: 4
-    batch_size: 2
+    batch_size: 1
   - mode: performance
     samples_per_task: 2
     batch_size: 1

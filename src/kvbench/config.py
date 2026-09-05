@@ -101,8 +101,8 @@ class MethodConfig(BaseModel):
     params: dict = Field(default_factory=dict)
     # Longest context this method can be run at. Cells above it are dropped from
     # the sweep rather than attempted and OOM'd. Observed-attention needs eager
-    # attention, whose score matrix is quadratic in context: at 32k that is ~69GB
-    # for a single layer, which no single card holds.
+    # attention, whose score matrix is quadratic in context: at 16k it asked a
+    # 48GB card for 29GB more than it had.
     max_context_tokens: int | None = None
 
 
@@ -187,6 +187,16 @@ class ExperimentConfig(BaseModel):
             raise ValueError("a quantization method is configured but quant_bits is empty")
         if not self.passes:
             raise ValueError("a sweep needs at least one pass")
+        if any(m.kind == "eviction" for m in self.methods):
+            batched = [p for p in self.passes if p.batch_size > 1]
+            if batched:
+                raise ValueError(
+                    "eviction methods must run at batch_size 1: kvpress presses are not "
+                    "padding-aware, so left-padded batches evict the wrong tokens "
+                    "(StreamingLLM's sinks become pad tokens; SnapKV scores keys without "
+                    "an attention mask). Batched at 4, SnapKV at 50% scored 15.7 on qasper "
+                    "against a 49.9 baseline; at batch 1 it scored 48.3."
+                )
         return self
 
     @classmethod

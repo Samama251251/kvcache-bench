@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.999988391152844,
+    "duration_s": 165.9001925909979,
+    "idle_watts": null,
+    "joules_per_generated_token": 144.9219246159116,
+    "mean_watts": 290.0182225291366,
+    "net_joules_above_idle": null,
+    "peak_watts": 300.192,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1660,
+    "total_joules": 48114.078972482646
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d2b02ccee4717515576e223068b9ab92fb1cf5b2",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T16:42:12+00:00",
+  "latency": {
+    "generated_tokens": 332,
+    "itl_mean_s": 0.04134523439364436,
+    "itl_p50_s": 0.03955624599620933,
+    "itl_p95_s": 0.05008501400152454,
+    "throughput_tokens_per_s": 2.0320978590946215,
+    "ttft_s": 3.0335020232599343,
+    "wall_s": 163.37795865201042
+  },
+  "memory": {
+    "driver_peak_bytes": 23937613824,
+    "kv_cache_bytes": 522321920,
+    "kv_cache_bytes_uncompressed": 2089811968,
+    "prompt_tokens": 15944,
+    "retained_tokens": 3985,
+    "torch_peak_bytes": 19018535936
+  },
+  "method": {
+    "effective_compression_ratio": 0.750063,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 6596150",
+      ": 1604451.",
+      ": 7117837.",
+      ": 7907400.",
+      ": 6866294",
+      ": 6891254.",
+      ": 6262632.",
+      ": 4188992.",
+      ": 6038571",
+      ": 7361002",
+      ": 6406444.",
+      ": 2422633",
+      ": 7953166.",
+      ": 1093026",
+      ": 6323376.",
+      ": 5652512.",
+      ": 5558623.",
+      ": 8048838",
+      ": 4700025",
+      ": 7523941.",
+      ": 7360307",
+      ": 8072684.",
+      ": 3117636",
+      ": 6218367.",
+      ": 1689025",
+      ": 7076506.",
+      ": 5118725",
+      ": 6452832",
+      ": 5049282.",
+      ": 7784725",
+      ": 9907391",
+      ": 4106298",
+      ": 4256752.",
+      ": 9235577.",
+      ": 9014965.",
+      ": 4786401.",
+      ": 2010496.",
+      ": 8558197.",
+      ": 2925626.",
+      ": 7752972.",
+      ": 5200476.",
+      ": 4044882.",
+      ": 7850944.",
+      ": 2477398.",
+      " 4415140.",
+      ": 9132114.",
+      ": 5896624",
+      ": 4197911.",
+      ": 6008935.",
+      ": 7425184."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ],
+      [
+        "9907391"
+      ],
+      [
+        "4106298"
+      ],
+      [
+        "4256752"
+      ],
+      [
+        "9235577"
+      ],
+      [
+        "9014965"
+      ],
+      [
+        "4786401"
+      ],
+      [
+        "2010496"
+      ],
+      [
+        "8558197"
+      ],
+      [
+        "2925626"
+      ],
+      [
+        "7752972"
+      ],
+      [
+        "5200476"
+      ],
+      [
+        "4044882"
+      ],
+      [
+        "7850944"
+      ],
+      [
+        "2477398"
+      ],
+      [
+        "4415140"
+      ],
+      [
+        "9132114"
+      ],
+      [
+        "5896624"
+      ],
+      [
+        "4197911"
+      ],
+      [
+        "6008935"
+      ],
+      [
+        "7425184"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "qual-tova-r025-ruler-niah_multikey_1-16k-rep0-3a7d1aa7cc",
+  "schema_version": 1,
+  "slug": "qual-tova-r025-ruler-niah_multikey_1-16k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T16:39:20+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

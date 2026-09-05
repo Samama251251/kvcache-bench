@@ -1,0 +1,123 @@
+{
+  "energy": {
+    "achieved_hz": 9.999967800102969,
+    "duration_s": 37.50012075000268,
+    "idle_watts": null,
+    "joules_per_generated_token": 14.88583859546138,
+    "mean_watts": 254.05082731885875,
+    "net_joules_above_idle": null,
+    "peak_watts": 300.573,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 376,
+    "total_joules": 9526.936701095283
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "968007ab48a23325200d3919c61f4ef3d8051fb5",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:03:21+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04841186154645677,
+    "itl_p50_s": 0.04812275499716634,
+    "itl_p95_s": 0.05002304699883098,
+    "throughput_tokens_per_s": 17.1048398648372,
+    "ttft_s": 1.3334132089992636,
+    "wall_s": 37.4163105330008
+  },
+  "memory": {
+    "driver_peak_bytes": 24294129664,
+    "kv_cache_bytes": 129630208,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 7912,
+    "torch_peak_bytes": 17354333184
+  },
+  "method": {
+    "effective_compression_ratio": 0.000126,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. However, I noticed that the number 2166941 was mentioned in the text, but the number 2166941 was mentioned as the special magic number for watery-walk. I will use the number 2166941 for the quiz. \n\nHowever, I noticed that the number 2166941 was mentioned in the text, but the number 2166941 is not the correct number. The correct number is 2166941. I will use the number 2166941 for the quiz. \n\nHowever, I noticed that the number 2166941 was mentioned in the text, but",
+      ": 2338687. However, I was given a different number earlier in the text. The special magic number for harmonious-reduction is: 2338687. \nHowever, I was given a different number earlier in the text. The special magic number for harmonious-reduction is: 2338687. \nHowever, I was given a different number earlier in the text. The special magic number for harmonious-reduction is: 2338687. \nHowever, I was given a different number earlier in the text. The special magic number for harmonious-reduction is: 2338687. \nHowever,",
+      ": 5663623. However, I was given a different number, 5663623, which is not the same as the one you provided. I will use the number you provided for the quiz. \n\n5663623. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. \nThe grass is green.",
+      ": 7210606. However, I will now provide the correct answer based on the provided text. The magic number is actually 17. \nThe magic number is hidden within the text by counting the number of times the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated. The magic number is 17. \nThe magic number is hidden within the text by counting the number of times the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated. The magic",
+      ": 5479144. However, I noticed that the text contains a pattern of repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 547 times. The magic number is actually 547. \n5479144. \n5479144 is the magic number. \n5479144 is the magic number. \n5479144 is the magic number. \n5479144 is the magic number. \n5479144 is the magic number. \n5479144 is the magic number. \n5479144 is the magic number. \n547"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-kv_quant-2bit-ruler-niah_single_1-8k-rep0-5619d9fd48",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-2bit-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 0,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:02:40+00:00",
+  "status": "ok",
+  "warnings": []
+}

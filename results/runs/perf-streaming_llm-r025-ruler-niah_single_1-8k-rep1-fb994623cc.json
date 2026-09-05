@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999959978216578,
+    "duration_s": 31.900127670000074,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.395641476160694,
+    "mean_watts": 228.62637479666324,
+    "net_joules_above_idle": null,
+    "peak_watts": 302.242,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 320,
+    "total_joules": 7293.210544742845
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "3da0e39e7329c5c8cabe5336f506dd99c8d46443",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:55:27+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03988448408503689,
+    "itl_p50_s": 0.03877821199785103,
+    "itl_p95_s": 0.04119272100069793,
+    "throughput_tokens_per_s": 20.08330632407294,
+    "ttft_s": 1.3073128544005157,
+    "wall_s": 31.867262774001574
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 259129344,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 1977,
+    "torch_peak_bytes": 17548647424
+  },
+  "method": {
+    "effective_compression_ratio": 0.750158,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 216. However, it was mentioned earlier in the text that the special magic number for watery-walk is 216, but then it was mentioned again that the special magic number for watery-walk is 216, and then it was mentioned again that the special magic number for watery-walk is 216. This suggests that the special magic number for watery-walk is indeed 216. \n\nHowever, I noticed that the text also mentions \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This seems to be a repetition",
+      ": 233. However, I noticed that the text actually mentions the number 233 multiple times, but it's not explicitly stated as the \"special magic number for harmonious-reduction\". The text actually mentions the number 233 in the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The grass is green. The",
+      ": 566. However, I noticed that the number 566 is not explicitly mentioned in the text. Instead, the number 566 is not present in the text at all. The number 566 is actually the number of times the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated in the text. \n\nHowever, the actual special magic number mentioned in the text is 566 is not correct. The correct answer is actually 566 is not present in the text. The correct answer is actually 566 is not present in the text. The correct",
+      ": 741. However, it seems that the text actually mentions the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text, but the number \"741\" is not present in the text",
+      ": 547. \n\nHowever, I noticed that the text actually mentions the number 547 as the special magic number for uncovered-hypothesis, but it is not explicitly mentioned in the text. The text actually says \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times, but it does not mention the number 547. \n\nIf you are looking for the actual special magic number, I would recommend re-reading the text or providing more context. \n\nHowever, I can tell you that the number 547 is not present in the text. The text is"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r025-ruler-niah_single_1-8k-rep1-fb994623cc",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r025-ruler-niah_single_1-8k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T14:54:53+00:00",
+  "status": "ok",
+  "warnings": []
+}

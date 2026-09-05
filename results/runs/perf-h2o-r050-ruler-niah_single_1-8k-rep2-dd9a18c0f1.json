@@ -1,0 +1,97 @@
+{
+  "energy": {
+    "achieved_hz": 9.999894372719496,
+    "duration_s": 16.20017111800189,
+    "idle_watts": null,
+    "joules_per_generated_token": 241.28199070027696,
+    "mean_watts": 282.9820617271783,
+    "net_joules_above_idle": null,
+    "peak_watts": 290.204,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 163,
+    "total_joules": 4584.357823305262
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "0c36da7cc799cdfeb4f30b62961bd15957fd7da6",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:51:54+00:00",
+  "latency": {
+    "generated_tokens": 19,
+    "itl_mean_s": 0.046554443812510726,
+    "itl_p50_s": 0.04563952199896448,
+    "itl_p95_s": 0.050654752001719316,
+    "throughput_tokens_per_s": 1.178049811859904,
+    "ttft_s": 5.126858734331715,
+    "wall_s": 16.128350268994836
+  },
+  "memory": {
+    "driver_peak_bytes": 42621140992,
+    "kv_cache_bytes": 518389760,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 3955,
+    "torch_peak_bytes": 37680453120
+  },
+  "method": {
+    "effective_compression_ratio": 0.50019,
+    "kind": "eviction",
+    "name": "h2o",
+    "params": {},
+    "press_class": "ObservedAttentionPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "samples_scored": 3,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-h2o-r050-ruler-niah_single_1-8k-rep2-dd9a18c0f1",
+  "schema_version": 1,
+  "slug": "perf-h2o-r050-ruler-niah_single_1-8k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "h2o",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 3,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T12:51:31+00:00",
+  "status": "ok",
+  "warnings": []
+}

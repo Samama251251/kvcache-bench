@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.99995906690753,
+    "duration_s": 44.8001833810049,
+    "idle_watts": null,
+    "joules_per_generated_token": 35.72748908219981,
+    "mean_watts": 276.72740993242894,
+    "net_joules_above_idle": null,
+    "peak_watts": 294.484,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 449,
+    "total_joules": 12397.438711523333
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "908df1d8575eb1d5a433fd417de254c3120e39d6",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T18:44:54+00:00",
+  "latency": {
+    "generated_tokens": 347,
+    "itl_mean_s": 0.03969025992936735,
+    "itl_p50_s": 0.03879853700345848,
+    "itl_p95_s": 0.040608793002320454,
+    "throughput_tokens_per_s": 7.865514869151306,
+    "ttft_s": 0.6457504778001748,
+    "wall_s": 44.11662882501696
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 125829120,
+    "kv_cache_bytes_uncompressed": 503971840,
+    "prompt_tokens": 3845,
+    "retained_tokens": 960,
+    "torch_peak_bytes": 16789184512
+  },
+  "method": {
+    "effective_compression_ratio": 0.750325,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 937",
+      " 8187926.",
+      ": 3684052.",
+      ": 2921859",
+      ": 278",
+      ": 9897858.",
+      ": 8973915.",
+      ": 437",
+      ": 469",
+      ": 3219824.",
+      ": 262",
+      " 4214348.",
+      ": 2642635.",
+      ": 8096887",
+      ": 1981186.",
+      ": 2149597.",
+      ": 537",
+      ": 6304573.",
+      ": 7199635",
+      ": 2936571",
+      ": 659",
+      ": 1604451.",
+      ": 711",
+      ": 790",
+      ": 686",
+      ": 689",
+      " 6262632.",
+      ": 4188992.",
+      ": 6539837",
+      " 7361002.",
+      ": 6406444.",
+      ": 242",
+      ": 7953166.",
+      ": 1093026.",
+      ": 6323376.",
+      ": 565656",
+      ": 555",
+      ": 8048838.",
+      ": 1098919",
+      " 7523941.",
+      ": 736383",
+      " 8.",
+      ": 2919136",
+      ": 621",
+      ": 168, but it is not explicitly mentioned in the text. However, the text does mention the following special magic numbers for shy-mutt: \n\n1. 168 is not mentioned, but 168 is not the correct answer. \n2. The correct answer is 168 is not the correct answer, but 168 is not the correct answer.",
+      ": 7075632",
+      " 511.",
+      ": 645",
+      ": 5049282.",
+      ": 778,111"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 36.0,
+    "references": [
+      [
+        "9375710"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "3684052"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9897858"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "5672073"
+      ],
+      [
+        "2626229"
+      ],
+      [
+        "4078418"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "8633773"
+      ],
+      [
+        "1981186"
+      ],
+      [
+        "2149597"
+      ],
+      [
+        "5374922"
+      ],
+      [
+        "6304573"
+      ],
+      [
+        "3646552"
+      ],
+      [
+        "4533779"
+      ],
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 36.0
+      }
+    }
+  },
+  "run_id": "qual-streaming_llm-r025-ruler-niah_multikey_1-4k-rep0-d0c7f4fc69",
+  "schema_version": 1,
+  "slug": "qual-streaming_llm-r025-ruler-niah_multikey_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T18:44:08+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

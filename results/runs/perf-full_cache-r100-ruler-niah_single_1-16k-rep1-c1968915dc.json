@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999949420519322,
+    "duration_s": 38.00019220299873,
+    "idle_watts": null,
+    "joules_per_generated_token": 16.208841635283836,
+    "mean_watts": 272.98963624091965,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.994,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 381,
+    "total_joules": 10373.658646581654
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "813622e8b76bf1305a6c5b8b72e4ce3c3435834c",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:57:10+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.036536959522838273,
+    "itl_p50_s": 0.03617025599669432,
+    "itl_p95_s": 0.039115849998779595,
+    "throughput_tokens_per_s": 16.92833345070422,
+    "ttft_s": 2.920037957598106,
+    "wall_s": 37.806438646999595
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 2059010048,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 15709,
+    "torch_peak_bytes": 22080498688
+  },
+  "method": {
+    "effective_compression_ratio": 6.4e-05,
+    "kind": "full_cache",
+    "name": "full_cache",
+    "params": {},
+    "press_class": null,
+    "quant_bits": null,
+    "requested_compression_ratio": 0.0
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text is a repetition of the same phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition is likely a deliberate attempt to make the text appear longer and more complex, but it doesn't actually contain any meaningful information or clues about the magic number. If you'd like, I can try to help you come up with a more creative and challenging",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text seems to be a repetition of the same phrase, \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" It seems to be a deliberate attempt to make the text appear long and repetitive, but it does not actually contain any meaningful information or clues about the special magic number. If you have any further information or context about the text, I would be happy",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it was intentionally written to be annoying or repetitive. The name \"annoying-decimal\" also suggests that the number might be related to a decimal representation of a repetitive or annoying sequence. If you'd like to explore this idea further, I'd be happy to help. \n\nPlease let me know how I can assist you. I'm ready to answer your questions",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase 50 times. It's a clever way to create a sense of monotony and make the number stand out. Well done! \n\nWhat would you like to ask about the number 8082668? Is it a specific property, a mathematical concept, or something else? I'm here to help. \n\nPlease go ahead and ask your questions. I'll do my best to provide a clear",
+      ": 7402509. I have memorized it. I am ready to be quizzed about it. Please go ahead and ask your questions. I will do my best to answer them correctly. \n\nPlease note that the provided text is a repetition of the same sentence 100 times. The number 7402509 is mentioned in the middle of the text. It is not a magic number that is hidden within the text in the classical sense, but rather a number that is explicitly mentioned. \n\nIf you would like to test my understanding of the text, I can try to answer questions about the text itself, such as the repetition"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-full_cache-r100-ruler-niah_single_1-16k-rep1-c1968915dc",
+  "schema_version": 1,
+  "slug": "perf-full_cache-r100-ruler-niah_single_1-16k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "full_cache",
+    "method_kind": "full_cache",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 1.0,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:56:28+00:00",
+  "status": "ok",
+  "warnings": []
+}

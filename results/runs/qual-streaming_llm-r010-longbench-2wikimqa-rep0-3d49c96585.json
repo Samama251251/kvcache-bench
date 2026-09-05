@@ -1,0 +1,301 @@
+{
+  "energy": {
+    "achieved_hz": 9.999972694307358,
+    "duration_s": 76.30020834300376,
+    "idle_watts": null,
+    "joules_per_generated_token": 51.9167266958335,
+    "mean_watts": 280.33595010025556,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.669,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 764,
+    "total_joules": 21389.691398683404
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "ad400269fd6857ed30724d7fa01a90dace87159d",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:14:01+00:00",
+  "latency": {
+    "generated_tokens": 412,
+    "itl_mean_s": 0.040085929991679495,
+    "itl_p50_s": 0.03938987699802965,
+    "itl_p95_s": 0.04510940899490379,
+    "throughput_tokens_per_s": 5.48655427496641,
+    "ttft_s": 1.2107802877794893,
+    "wall_s": 75.09266824896622
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 63045632,
+    "kv_cache_bytes_uncompressed": 632684544,
+    "prompt_tokens": 4827,
+    "retained_tokens": 481,
+    "torch_peak_bytes": 18325199872
+  },
+  "method": {
+    "effective_compression_ratio": 0.900352,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      " Gy\u00f6rgyfi, a village in the Kingdom of Hungary (now part of Romania)",
+      " Elizabeth Caroline of Great Britain",
+      " The director of film Man At Bath is not specified in the given passages.",
+      " No",
+      " c. 1492",
+      " Lewis Watson",
+      " 1275",
+      " Alas, the passages do not mention Helmichis's father-in-law.",
+      " St. Patrick's College, Maynooth",
+      " Bob Jones University",
+      " The House Of The Seven Hawks",
+      " Marie of Brabant's paternal grandmother is not mentioned in the passages. However, it is mentioned that Marie of Brabant's father is Henry VII, Holy Roman Emperor, and her paternal grandmother is not specified.",
+      " Renaud I, Count of Soissons's uncle is not explicitly mentioned in the passages. However, it is mentioned that Renaud I, Count of Soissons, had a brother named Guy I, Count of Soissons.",
+      " 26 April 1872",
+      " United States",
+      " Barbara Payton",
+      " Indradhanura Chhai",
+      " No",
+      " No",
+      " Mysore",
+      " Hamar",
+      " The Lee Strasberg Theatre & Film Institute",
+      " Hell Up In Harlem",
+      " Cipriano Castro",
+      " Monster On The Campus",
+      " Altu\u011f \u00c7elikbilek",
+      " Jugband Blues",
+      " No",
+      " Rathold",
+      " Bhaktapur",
+      " Arthur Acheson, 1st Earl of Gosford",
+      " John Westley",
+      " London",
+      " No",
+      " Wooden Crosses",
+      " Above Rubies",
+      " Blue Blood And Red",
+      " Perth, Australia",
+      " Paul De Scherff",
+      " Y\u0131ld\u0131z Palace, Istanbul, Turkey",
+      " Melun",
+      " Henry Goes Arizona",
+      " Wales",
+      " All-American Co-Ed",
+      " Buenos Aires",
+      " Charlotte Amalie's mother, Anna Sophie Reventlow, is the stepmother of Louise of Mecklenburg-G\u00fcstrow, but the mother-in-law of Louise of Mecklenburg-G\u00fcstrow is actually Charlotte Amalie's father, King Frederick",
+      " Tuscany",
+      " Rani of Jhansi",
+      " Bajo Otro Sol",
+      " Marie Curie"
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 46.63,
+    "references": [
+      [
+        "Ozalj"
+      ],
+      [
+        "John the Baptist"
+      ],
+      [
+        "Cahiers du cin\u00e9ma"
+      ],
+      [
+        "no"
+      ],
+      [
+        "1510"
+      ],
+      [
+        "Edward Watson"
+      ],
+      [
+        "16 September 1360"
+      ],
+      [
+        "Cunimund"
+      ],
+      [
+        "St Patrick's College"
+      ],
+      [
+        "Bob Jones University"
+      ],
+      [
+        "The House Of The Seven Hawks"
+      ],
+      [
+        "Marie of Hohenstaufen"
+      ],
+      [
+        "Guy II, Count of Soissons"
+      ],
+      [
+        "26 April 1872"
+      ],
+      [
+        "America"
+      ],
+      [
+        "Ona Munson"
+      ],
+      [
+        "The Death Of Black King"
+      ],
+      [
+        "no"
+      ],
+      [
+        "no"
+      ],
+      [
+        "Mysore"
+      ],
+      [
+        "Kristiania"
+      ],
+      [
+        "Lee Strasberg Theatre and Film Institute"
+      ],
+      [
+        "Hell Up In Harlem"
+      ],
+      [
+        "Cipriano Castro"
+      ],
+      [
+        "Monster On The Campus"
+      ],
+      [
+        "Altu\u011f \u00c7elikbilek"
+      ],
+      [
+        "Jugband Blues"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Leustach R\u00e1t\u00f3t"
+      ],
+      [
+        "Nepal"
+      ],
+      [
+        "Archibald Acheson, 2nd Earl of Gosford"
+      ],
+      [
+        "Jean Paul Getty"
+      ],
+      [
+        "Goring-on-Thames, Oxfordshire"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Wooden Crosses"
+      ],
+      [
+        "Above Rubies"
+      ],
+      [
+        "Blue Blood And Red"
+      ],
+      [
+        "Castlemaine, Victoria, Australia"
+      ],
+      [
+        "Lyudmyla Olyanovska"
+      ],
+      [
+        "Constantinople"
+      ],
+      [
+        "East Francia"
+      ],
+      [
+        "Henry Goes Arizona"
+      ],
+      [
+        "United Kingdom"
+      ],
+      [
+        "All-American Co-Ed"
+      ],
+      [
+        "Buenos Aires"
+      ],
+      [
+        "Charlotte Amalie of Hesse-Kassel"
+      ],
+      [
+        "Brunswick"
+      ],
+      [
+        "Vibia Sabina"
+      ],
+      [
+        "Bajo Otro Sol"
+      ],
+      [
+        "Marie Lafor\u00eat"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 46.63
+    }
+  },
+  "run_id": "qual-streaming_llm-r010-longbench-2wikimqa-rep0-3d49c96585",
+  "schema_version": 1,
+  "slug": "qual-streaming_llm-r010-longbench-2wikimqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "2wikimqa"
+  },
+  "started_at": "2026-09-05T20:12:43+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

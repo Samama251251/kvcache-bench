@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999936094854792,
+    "duration_s": 32.400207053993654,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.339362782845003,
+    "mean_watts": 223.98598159965397,
+    "net_joules_above_idle": null,
+    "peak_watts": 302.471,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 325,
+    "total_joules": 7257.192181020801
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "5ed1b5801d5f193f54a8e984badd03ca1124c573",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T16:55:47+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04043356964724894,
+    "itl_p50_s": 0.040177469003538135,
+    "itl_p95_s": 0.044481946002633777,
+    "throughput_tokens_per_s": 19.809687371416256,
+    "ttft_s": 1.325344914998277,
+    "wall_s": 32.307425553997746
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 103546880,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 790,
+    "torch_peak_bytes": 17237482496
+  },
+  "method": {
+    "effective_compression_ratio": 0.900164,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. Please proceed with your quiz. I'm ready to answer your questions. \n\nPlease go ahead and ask your questions about the number. I'll do my best to answer them. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. Here we go. There and back again.\" multiple times. This phrase is a reference to J.R.R. Tolkien's book \"The Hobbit\". The phrase is also a hint that the number might be related to the book or its themes. If you'd like to explore",
+      ": 2338687. I have memorized it. \n\nPlease go ahead and ask your questions about this number. I'll be happy to answer them. \n\nAlso, I noticed that the provided text contains a repetitive pattern of sentences. This pattern seems to be a deliberate attempt to distract from the actual content of the text, which is the mention of the special magic number. Am I correct? \n\nPlease let me know if I'm right or not. I'm curious to know the context behind this text. \n\nAlso, I'd like to ask, is there a specific context or application for the special magic number 2338687",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text seems to be a repetition of the same phrase, and the number 5663623 is mentioned at the end of the text. It is not clear how this number is related to the phrase or the concept of \"lovely-terrorist\". If you have any further information or context, I would be happy to try and help you understand the significance of this number. \n\nHowever, based on the information provided, I will",
+      ": 7210606. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nHowever, I would like to note that the provided text seems to be a repetition of the same phrase, and it's not clear how the number 7210606 is related to the text. If you could provide more context or clarify the connection between the text and the number, I would be happy to help. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky is blue. Here we go. There",
+      ": 5479144. I have memorized it. Please go ahead and ask your questions. I'll be happy to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and it doesn't seem to be related to the number 5479144. The number is mentioned in a separate sentence, which seems to be an isolated statement. If you could provide more context or clarify the relationship between the text and the number, I would be happy to help further. \n\nAlso, I would like to note that the text seems to be a repetition of"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r010-ruler-niah_single_1-8k-rep0-fa7413a903",
+  "schema_version": 1,
+  "slug": "perf-tova-r010-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T16:55:12+00:00",
+  "status": "ok",
+  "warnings": []
+}

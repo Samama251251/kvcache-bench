@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999936764551398,
+    "duration_s": 31.800201089998154,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.46850516099706,
+    "mean_watts": 230.81122293112344,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.945,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 319,
+    "total_joules": 7339.843303038118
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "925ce5e671af7766e7d450d8d700d146c47485b6",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:54:51+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.039234510992136214,
+    "itl_p50_s": 0.038922564999666065,
+    "itl_p95_s": 0.04101552000065567,
+    "throughput_tokens_per_s": 20.16362092248223,
+    "ttft_s": 1.3644561893997889,
+    "wall_s": 31.740330889002507
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 103546880,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 790,
+    "torch_peak_bytes": 17237482496
+  },
+  "method": {
+    "effective_compression_ratio": 0.900164,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. Please go ahead and ask your questions. I'm ready to be quizzed. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a deliberate attempt to distract or make the text appear longer than it actually is. However, I have successfully identified the special magic number for watery-walk despite this repetition. \n\nPlease go ahead and ask your questions. I'm ready to demonstrate my knowledge",
+      ": 2338687. I have memorized it for the quiz. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same lines multiple times, and the number 2338687 is mentioned only once, at the beginning of the text. It's not clear how this number is related to the rest of the text or what \"harmonious-reduction\" refers to. If you could provide more context or information about the topic, I would be happy to help further. \n\nBut based on the information provided, the answer to the question is: 2338687. \n\nPlease",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that I have memorized the number 5663623, not the text itself. If you have any questions about the text or its context, I'll be happy to help. However, my primary focus is on the magic number. \n\nGo ahead and ask your questions. I'm ready! \n\nAlso, I would like to clarify that I'm assuming \"lovely-terrorist\" is a fictional or humorous term, and I'm playing",
+      ": 7210606. However, I noticed that the text also contains a repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a distraction from the actual question. \n\nIf I had to guess, I would say that the special magic number is actually 7210606, but I'm not sure if there's another number hidden within the repeated phrase. If you could provide more context or clarify what you're looking for, I'd be happy to try and help further. \n\nHowever, I did notice",
+      ": 5479144. I have memorized it for the quiz. \n\nHowever, I noticed that the provided text contains a lot of repetition of the same phrase, and the number 5479144 is mentioned only once, at the beginning of the text. The rest of the text seems to be a repetition of the same phrase, and it does not provide any additional information about the magic number. \n\nIf you would like to ask a question about the magic number, I'll do my best to answer it based on the information provided in the text. \n\nPlease go ahead and ask your question. I'm ready to be quizz"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r010-ruler-niah_single_1-8k-rep1-c78c002340",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r010-ruler-niah_single_1-8k-rep1",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 1,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T14:54:16+00:00",
+  "status": "ok",
+  "warnings": []
+}

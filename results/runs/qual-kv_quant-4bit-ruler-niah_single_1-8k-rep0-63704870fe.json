@@ -1,16 +1,16 @@
 {
   "energy": {
-    "achieved_hz": 0.0,
-    "duration_s": 0.0,
+    "achieved_hz": 9.999980316072094,
+    "duration_s": 84.2001657389992,
     "idle_watts": null,
-    "joules_per_generated_token": null,
-    "mean_watts": 0.0,
+    "joules_per_generated_token": 68.39689964548869,
+    "mean_watts": 284.30959328662215,
     "net_joules_above_idle": null,
-    "peak_watts": 0.0,
+    "peak_watts": 301.841,
     "read_errors": 0,
-    "requested_hz": 0.0,
-    "sample_count": 0,
-    "total_joules": 0.0
+    "requested_hz": 10.0,
+    "sample_count": 843,
+    "total_joules": 23938.91487592104
   },
   "environment": {
     "clock_lock_applied": false,
@@ -24,34 +24,34 @@
       "power_limit_watts": 300.0,
       "total_memory_bytes": 51527024640
     },
-    "git_sha": "df5d44f3ee6551bdfca2ed07965629346647e120",
+    "git_sha": "04cdb85391944896f563a62d8db01a7e0f4061c7",
     "kvbench_version": "0.1.0",
     "kvpress_version": "0.5.4",
     "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
     "torch_version": "2.11.0+cu128",
     "transformers_version": "5.2.0"
   },
-  "error": "ImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\nTraceback (most recent call last):\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 322, in run_one\n    _warmup(model, tokenizer, method, samples[0], spec, config.runtime.device)\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 416, in _warmup\n    model.generate(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2631, in generate\n    self._prepare_cache_for_generation(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2034, in _prepare_cache_for_generation\n    model_kwargs[\"past_key_values\"] = QuantizedCache(backend=backend, **cache_config)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1143, in __init__\n    layers = [\n             ^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1144, in <listcomp>\n    layer_class(nbits, axis_key, axis_value, q_group_size, residual_length)\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 589, in __init__\n    raise ImportError(\nImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\n",
-  "finished_at": "2026-09-05T13:14:45+00:00",
+  "error": null,
+  "finished_at": "2026-09-05T20:23:02+00:00",
   "latency": {
-    "generated_tokens": 0,
-    "itl_mean_s": null,
-    "itl_p50_s": null,
-    "itl_p95_s": null,
-    "throughput_tokens_per_s": null,
-    "ttft_s": null,
-    "wall_s": 0.0
+    "generated_tokens": 350,
+    "itl_mean_s": 0.053725716659901085,
+    "itl_p50_s": 0.04916439200314926,
+    "itl_p95_s": 0.06492953899578424,
+    "throughput_tokens_per_s": 4.2148683953788995,
+    "ttft_s": 1.3369769788801205,
+    "wall_s": 83.039366159981
   },
   "memory": {
-    "driver_peak_bytes": null,
-    "kv_cache_bytes": 0,
-    "kv_cache_bytes_uncompressed": 0,
-    "prompt_tokens": 0,
-    "retained_tokens": 0,
-    "torch_peak_bytes": null
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 259457024,
+    "kv_cache_bytes_uncompressed": 1037959168,
+    "prompt_tokens": 7919,
+    "retained_tokens": 7918,
+    "torch_peak_bytes": 17598841856
   },
   "method": {
-    "effective_compression_ratio": null,
+    "effective_compression_ratio": 0.000126,
     "kind": "quantization",
     "name": "kv_quant",
     "params": {
@@ -62,12 +62,218 @@
     "requested_compression_ratio": null
   },
   "quality": {
-    "predictions": [],
+    "predictions": [
+      ": 2166941.",
+      ": 2338687.",
+      ": 5663623.",
+      ": 7210606.",
+      ": 5479144.",
+      ": 5107245.",
+      ": 5528972.",
+      ": 6440561.",
+      ": 6292423.",
+      ": 4539704.",
+      ": 9375710.",
+      ": 5443951.",
+      ": 5408072.",
+      ": 7700828.",
+      ": 9548432.",
+      ": 2839607.",
+      ": 8082668.",
+      ": 7402509.",
+      ": 5218028.",
+      ": 2921859.",
+      ": 6707197.",
+      ": 3653446.",
+      ": 5418934.",
+      ": 2785277.",
+      ": 9517169.",
+      ": 7273233.",
+      ": 6438436.",
+      ": 7089806.",
+      ": 5041154.",
+      ": 9153566.",
+      ": 8973915.",
+      ": 9852897.",
+      ": 4374754.",
+      ": 7264956.",
+      ": 5159166.",
+      ": 1352896.",
+      ": 4694634.",
+      ": 1987737.",
+      ": 6543670.",
+      ": 9143903.",
+      ": 8930103.",
+      ": 4194548.",
+      ": 8231838.",
+      ": 8835373.",
+      ": 7754864.",
+      ": 4214348.",
+      ": 8077999.",
+      ": 5191056.",
+      ": 2642635.",
+      ": 4965789."
+    ],
     "primary_metric": "string_match",
-    "primary_score": null,
-    "references": [],
-    "samples_scored": 0,
-    "scores": {}
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ],
+      [
+        "5107245"
+      ],
+      [
+        "5528972"
+      ],
+      [
+        "6440561"
+      ],
+      [
+        "6292423"
+      ],
+      [
+        "4539704"
+      ],
+      [
+        "9375710"
+      ],
+      [
+        "5443951"
+      ],
+      [
+        "5408072"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ],
+      [
+        "5218028"
+      ],
+      [
+        "2921859"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "3653446"
+      ],
+      [
+        "5418934"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9517169"
+      ],
+      [
+        "7273233"
+      ],
+      [
+        "6438436"
+      ],
+      [
+        "7089806"
+      ],
+      [
+        "5041154"
+      ],
+      [
+        "9153566"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "9852897"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "7264956"
+      ],
+      [
+        "5159166"
+      ],
+      [
+        "1352896"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "1987737"
+      ],
+      [
+        "6543670"
+      ],
+      [
+        "9143903"
+      ],
+      [
+        "8930103"
+      ],
+      [
+        "4194548"
+      ],
+      [
+        "8231838"
+      ],
+      [
+        "8835373"
+      ],
+      [
+        "7754864"
+      ],
+      [
+        "4214348"
+      ],
+      [
+        "8077999"
+      ],
+      [
+        "5191056"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "4965789"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
   },
   "run_id": "qual-kv_quant-4bit-ruler-niah_single_1-8k-rep0-63704870fe",
   "schema_version": 1,
@@ -91,7 +297,9 @@
     "suite": "ruler",
     "task": "niah_single_1"
   },
-  "started_at": "2026-09-05T13:14:44+00:00",
-  "status": "failed",
-  "warnings": []
+  "started_at": "2026-09-05T20:21:35+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
 }

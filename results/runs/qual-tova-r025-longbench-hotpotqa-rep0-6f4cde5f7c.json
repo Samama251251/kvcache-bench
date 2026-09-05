@@ -1,0 +1,301 @@
+{
+  "energy": {
+    "achieved_hz": 9.999984563374685,
+    "duration_s": 133.70020638799906,
+    "idle_watts": null,
+    "joules_per_generated_token": 139.87495365529284,
+    "mean_watts": 288.74665381463507,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.242,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1338,
+    "total_joules": 38605.487208860824
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "103993e0c1e051a6a6bb18217004cf1c9ee63598",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T13:04:56+00:00",
+  "latency": {
+    "generated_tokens": 276,
+    "itl_mean_s": 0.03934439069027286,
+    "itl_p50_s": 0.038620108000031905,
+    "itl_p95_s": 0.04258064199893852,
+    "throughput_tokens_per_s": 2.100256750134954,
+    "ttft_s": 2.449543708720084,
+    "wall_s": 131.412504676995
+  },
+  "memory": {
+    "driver_peak_bytes": 20433272832,
+    "kv_cache_bytes": 493355008,
+    "kv_cache_bytes_uncompressed": 1973944320,
+    "prompt_tokens": 15060,
+    "retained_tokens": 3764,
+    "torch_peak_bytes": 19096223744
+  },
+  "method": {
+    "effective_compression_ratio": 0.750066,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      " Miller v. California",
+      " Charles L. Clifford",
+      " Lowell",
+      " Jupiter",
+      " on film",
+      " Parliament",
+      " Mayiladuthurai",
+      " Pleiospilos",
+      " 2013",
+      " The Rebirth",
+      " October 13, 1980",
+      " Cartoon Network",
+      " Mary Astor",
+      " number five",
+      " The other areas that share a common deer species with the forests of Mara and Mondrem are the Forests of Macclesfield and Wirral.",
+      " 2000",
+      " Claudio L\u00f3pez",
+      " Ronald Reagan",
+      " Talk That Talk",
+      " The Traveling Wilburys",
+      " Cartoon Cartoon Fridays",
+      " Sydney, in the state of New South Wales, Australia.",
+      " Jones Beach Island and Fire Island",
+      " PewDiePie",
+      " It's Always Sunny in Philadelphia",
+      " 1,000",
+      " Ribosomes",
+      " Dracula",
+      " Band-e Amir National Park.",
+      " USC",
+      " 12,817",
+      " A123 Systems",
+      " Traverse City",
+      " Taoiseach",
+      " None of the given passages mention Vegepet being based in a city in Lincoln County, Montana.",
+      " Mika H\u00e4kkinen",
+      " Minority Report",
+      " Darci Kistler",
+      " Xcel Energy",
+      " Around the World in 80 Days",
+      " Nobel Prize in Physics",
+      " Seasonal television specials, usually Christmas-themed.",
+      " Eileen Atkins",
+      " Iran",
+      " Hakim Jamal",
+      " Both",
+      " YIVO",
+      " 1813",
+      " Tongshanjiabu is higher.",
+      " 1867"
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 52.36,
+    "references": [
+      [
+        "Miller v. California"
+      ],
+      [
+        "Charles L. Clifford"
+      ],
+      [
+        "Norman"
+      ],
+      [
+        "Sun"
+      ],
+      [
+        "erotic thriller film"
+      ],
+      [
+        "Parliament"
+      ],
+      [
+        "Tharangambadi"
+      ],
+      [
+        "Pleiospilos"
+      ],
+      [
+        "2013"
+      ],
+      [
+        "The Rebirth"
+      ],
+      [
+        "October 13, 1980"
+      ],
+      [
+        "Betty Cohen"
+      ],
+      [
+        "Mary Astor"
+      ],
+      [
+        "number five"
+      ],
+      [
+        "New Zealand, Canada, the United States, the Falkland Islands, and Peru."
+      ],
+      [
+        "2000 Summer Olympic Games"
+      ],
+      [
+        "Claudio Javier L\u00f3pez"
+      ],
+      [
+        "George H. W. Bush"
+      ],
+      [
+        "\"Talk That Talk\""
+      ],
+      [
+        "Bob Dylan"
+      ],
+      [
+        "Cartoon Cartoon Fridays"
+      ],
+      [
+        "on the Cumberland Plain"
+      ],
+      [
+        "Long Island"
+      ],
+      [
+        "PewDiePie"
+      ],
+      [
+        "It's Always Sunny in Philadelphia"
+      ],
+      [
+        "#364"
+      ],
+      [
+        "Ribosomes"
+      ],
+      [
+        "Dracula"
+      ],
+      [
+        "Band-e Amir National Park"
+      ],
+      [
+        "University of Southern California"
+      ],
+      [
+        "7.2 million"
+      ],
+      [
+        "A123 Systems, LLC"
+      ],
+      [
+        "143,372"
+      ],
+      [
+        "Taoiseach of Ireland"
+      ],
+      [
+        "Troy, Montana"
+      ],
+      [
+        "Mika H\u00e4kkinen"
+      ],
+      [
+        "Constantine"
+      ],
+      [
+        "George Balanchine"
+      ],
+      [
+        "Xcel Energy Inc."
+      ],
+      [
+        "Summer Magic"
+      ],
+      [
+        "Nobel Prize"
+      ],
+      [
+        "seasonal television specials, particularly its work in stop motion animation"
+      ],
+      [
+        "Dame Eileen June Atkins"
+      ],
+      [
+        "Iran"
+      ],
+      [
+        "Hakim Abdullah Jamal"
+      ],
+      [
+        "Keith Morris"
+      ],
+      [
+        "YIVO"
+      ],
+      [
+        "January 18, 1813"
+      ],
+      [
+        "Himalchuli has three main peaks: East (7893 m), West (7540 m) and North (7371 m)"
+      ],
+      [
+        "1763"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 52.36
+    }
+  },
+  "run_id": "qual-tova-r025-longbench-hotpotqa-rep0-6f4cde5f7c",
+  "schema_version": 1,
+  "slug": "qual-tova-r025-longbench-hotpotqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "hotpotqa"
+  },
+  "started_at": "2026-09-05T13:02:26+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

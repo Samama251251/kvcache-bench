@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999941490482724,
+    "duration_s": 28.400166168001306,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.42152864786847,
+    "mean_watts": 212.31489629203722,
+    "net_joules_above_idle": null,
+    "peak_watts": 288.287,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 285,
+    "total_joules": 6029.778334635821
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "e1ab38fda1eca01c019a5ac219c3c190781e68ca",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T18:48:17+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.039954375968496665,
+    "itl_p50_s": 0.03906570999970427,
+    "itl_p95_s": 0.04210118499759119,
+    "throughput_tokens_per_s": 22.58061486604336,
+    "ttft_s": 0.5933438662017579,
+    "wall_s": 28.342895169007534
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 121503744,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 927,
+    "torch_peak_bytes": 16772120064
+  },
+  "method": {
+    "effective_compression_ratio": 0.750337,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 42. However, I noticed that the text actually mentions the number 42, but it's not explicitly stated as the special magic number for wandering-age. The number 42 is actually a reference to Douglas Adams' science fiction series \"The Hitchhiker's Guide to the Galaxy,\" where 42 is the \"Answer to the Ultimate Question of Life, the Universe, and Everything.\" \n\nHowever, if I had to choose a special magic number from the text, I would say that the number 42 is the one mentioned. But if you're looking for a different number, I couldn't find any other special magic number mentioned",
+      ": 461. \n\nHowever, I noticed that the text you provided contains a large amount of repetitive text, and the number 461 is not explicitly mentioned. The text actually mentions \"461\" as part of a larger sequence of numbers, but it's not clear what the context is.\n\nIf you could provide more context or clarify what you're looking for, I'd be happy to try and assist you further. \n\nHowever, I did notice that the number 461 is not explicitly mentioned in the text as the \"special magic number for determined-consignment\". The text actually mentions \"461\" as part of a larger sequence of numbers,",
+      ": 50. However, it was not explicitly mentioned in the text. The text actually mentioned \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 50 times. The actual special magic number for capable-percent is not mentioned in the text. The text was trying to trick me. The original text mentioned \"The special magic number for capable-percent mentioned in the provided text is: 50\" but it was not in the text. I apologize for the confusion. The correct answer is that the special magic number for capable-percent is not mentioned in the text. However,",
+      ": 20. \n\nThis number is not explicitly mentioned in the text, but it is implied that the text is repeating the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 20 times. Therefore, the special magic number for jittery-commitment is 20. \n\nHowever, the text actually repeats the phrase 40 times, not 20. The correct answer is 40. \n\nThe text also mentions a special magic number for jittery-commitment, which is 20, but it is not explicitly mentioned in the text. The text actually mentions",
+      ": 309. However, I noticed that the text actually mentions the number \"309\" is not present in the text, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number \"309\" is not present, but the number"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r025-ruler-niah_single_1-4k-rep0-a053e7a1f6",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r025-ruler-niah_single_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T18:47:47+00:00",
+  "status": "ok",
+  "warnings": []
+}

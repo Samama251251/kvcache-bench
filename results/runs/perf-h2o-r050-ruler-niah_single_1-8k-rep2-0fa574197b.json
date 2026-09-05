@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999949605986997,
+    "duration_s": 59.30029883800307,
+    "idle_watts": null,
+    "joules_per_generated_token": 23.255402743202325,
+    "mean_watts": 250.98453207307116,
+    "net_joules_above_idle": null,
+    "peak_watts": 290.315,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 594,
+    "total_joules": 14883.457755649488
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "5e8763134d2c69a7f90836ab2a1a2fd9733048da",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T21:18:03+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.053423445475598026,
+    "itl_p50_s": 0.045890881003288087,
+    "itl_p95_s": 0.12573300499934703,
+    "throughput_tokens_per_s": 10.830220002617514,
+    "ttft_s": 5.032535107001604,
+    "wall_s": 59.09390574201825
+  },
+  "memory": {
+    "driver_peak_bytes": 41323003904,
+    "kv_cache_bytes": 518389760,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 3955,
+    "torch_peak_bytes": 37694593024
+  },
+  "method": {
+    "effective_compression_ratio": 0.50019,
+    "kind": "eviction",
+    "name": "h2o",
+    "params": {},
+    "press_class": "ObservedAttentionPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. However, I was given a different number, 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number I was given. I was given 2166941 is not the number",
+      ": 2338687. However, I was given a different number: 2338687 is not the number I was given. I was given the number: 2338687 is not the number I was given. I was given the number: 2338687 is not the number I was given. I was given the number: 2338687 is not the number I was given. I was given the number: 2338687 is not the number I was given. I was given the number: 2338687 is not the number I was given. I was given the number: 2338687 is",
+      ": 5663623. However, I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623. I was given a different number: 5663623.",
+      ": 721060606. However, the text also mentions another number: 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is not present in the text, but 721060606 is",
+      ": 547914. However, the text also mentions 547914 as 547914, and then 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914. Then it mentions 547914 as 547914."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 80.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 80.0
+      }
+    }
+  },
+  "run_id": "perf-h2o-r050-ruler-niah_single_1-8k-rep2-0fa574197b",
+  "schema_version": 1,
+  "slug": "perf-h2o-r050-ruler-niah_single_1-8k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "h2o",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T21:16:57+00:00",
+  "status": "ok",
+  "warnings": []
+}

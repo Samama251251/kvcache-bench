@@ -1,0 +1,301 @@
+{
+  "energy": {
+    "achieved_hz": 9.999978688741763,
+    "duration_s": 75.20016026100348,
+    "idle_watts": null,
+    "joules_per_generated_token": 63.87884519012103,
+    "mean_watts": 284.5660576309653,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.889,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 753,
+    "total_joules": 21399.413138690543
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "b129dcf034fcae196243f5f05c6a5cd0723caa76",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T19:25:09+00:00",
+  "latency": {
+    "generated_tokens": 335,
+    "itl_mean_s": 0.03899284028777497,
+    "itl_p50_s": 0.0387870769991423,
+    "itl_p95_s": 0.04094942300434923,
+    "throughput_tokens_per_s": 4.520049886818691,
+    "ttft_s": 1.2592555871802324,
+    "wall_s": 74.11422625598061
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 63045632,
+    "kv_cache_bytes_uncompressed": 632684544,
+    "prompt_tokens": 4827,
+    "retained_tokens": 481,
+    "torch_peak_bytes": 18325462016
+  },
+  "method": {
+    "effective_compression_ratio": 0.900352,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      " Gyulafeh\u00e9rv\u00e1r",
+      " Elizabeth",
+      " The director of film Man At Bath is Christophe Honor\u00e9, and he works at the French film industry.",
+      " No",
+      " c. 1532",
+      " Lewis Watson, 1st Earl of Rockingham",
+      " 1373",
+      " Alboin",
+      " St Patrick's College, Dublin.",
+      " Bob Jones University.",
+      " The House Of The Seven Hawks",
+      " Marie of Brabant",
+      " Renaud I, Count of Soissons's father is Renaud I, Count of Soissons's father's brother is Renaud I, Count of Soissons's uncle.",
+      " 26 April 1872",
+      " United States",
+      " Barbara Hale",
+      " Indradhanura Chhai",
+      " No",
+      " No",
+      " Mysore",
+      " Hamar",
+      " The Lee Strasberg Theatre & Film Institute",
+      " Hell Up In Harlem",
+      " Cipriano Castro",
+      " Monster On The Campus",
+      " Altu\u011f \u00c7elikbilek",
+      " Jugband Blues",
+      " No",
+      " Rathold R\u00e1t\u00f3t",
+      " Bhaktapur",
+      " Arthur Acheson, 1st Earl of Gosford",
+      " John Paul Getty Jr.",
+      " London",
+      " No",
+      " Wooden Crosses",
+      " Above Rubies",
+      " Blue Blood And Red",
+      " Perth, Western Australia is not mentioned in the passage, however, the passage does mention that the film was shot on location in Perth, Western Australia.",
+      " Paul De Scherff",
+      " Y\u0131ld\u0131z Palace",
+      " Melun",
+      " Henry Goes Arizona",
+      " Wales",
+      " All-American Co-Ed",
+      " Buenos Aires",
+      " Charlotte Amalie of Denmark",
+      " Tilleda",
+      " Rupilia Fundania Fabia",
+      " Bajo Otro Sol",
+      " Marie-Claude Cintas"
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 48.81,
+    "references": [
+      [
+        "Ozalj"
+      ],
+      [
+        "John the Baptist"
+      ],
+      [
+        "Cahiers du cin\u00e9ma"
+      ],
+      [
+        "no"
+      ],
+      [
+        "1510"
+      ],
+      [
+        "Edward Watson"
+      ],
+      [
+        "16 September 1360"
+      ],
+      [
+        "Cunimund"
+      ],
+      [
+        "St Patrick's College"
+      ],
+      [
+        "Bob Jones University"
+      ],
+      [
+        "The House Of The Seven Hawks"
+      ],
+      [
+        "Marie of Hohenstaufen"
+      ],
+      [
+        "Guy II, Count of Soissons"
+      ],
+      [
+        "26 April 1872"
+      ],
+      [
+        "America"
+      ],
+      [
+        "Ona Munson"
+      ],
+      [
+        "The Death Of Black King"
+      ],
+      [
+        "no"
+      ],
+      [
+        "no"
+      ],
+      [
+        "Mysore"
+      ],
+      [
+        "Kristiania"
+      ],
+      [
+        "Lee Strasberg Theatre and Film Institute"
+      ],
+      [
+        "Hell Up In Harlem"
+      ],
+      [
+        "Cipriano Castro"
+      ],
+      [
+        "Monster On The Campus"
+      ],
+      [
+        "Altu\u011f \u00c7elikbilek"
+      ],
+      [
+        "Jugband Blues"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Leustach R\u00e1t\u00f3t"
+      ],
+      [
+        "Nepal"
+      ],
+      [
+        "Archibald Acheson, 2nd Earl of Gosford"
+      ],
+      [
+        "Jean Paul Getty"
+      ],
+      [
+        "Goring-on-Thames, Oxfordshire"
+      ],
+      [
+        "yes"
+      ],
+      [
+        "Wooden Crosses"
+      ],
+      [
+        "Above Rubies"
+      ],
+      [
+        "Blue Blood And Red"
+      ],
+      [
+        "Castlemaine, Victoria, Australia"
+      ],
+      [
+        "Lyudmyla Olyanovska"
+      ],
+      [
+        "Constantinople"
+      ],
+      [
+        "East Francia"
+      ],
+      [
+        "Henry Goes Arizona"
+      ],
+      [
+        "United Kingdom"
+      ],
+      [
+        "All-American Co-Ed"
+      ],
+      [
+        "Buenos Aires"
+      ],
+      [
+        "Charlotte Amalie of Hesse-Kassel"
+      ],
+      [
+        "Brunswick"
+      ],
+      [
+        "Vibia Sabina"
+      ],
+      [
+        "Bajo Otro Sol"
+      ],
+      [
+        "Marie Lafor\u00eat"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 48.81
+    }
+  },
+  "run_id": "qual-snapkv-r010-longbench-2wikimqa-rep0-6ecae39ea6",
+  "schema_version": 1,
+  "slug": "qual-snapkv-r010-longbench-2wikimqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "2wikimqa"
+  },
+  "started_at": "2026-09-05T19:23:51+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

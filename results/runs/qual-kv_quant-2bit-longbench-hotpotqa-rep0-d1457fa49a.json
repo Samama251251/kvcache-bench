@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.999993258417051,
+    "duration_s": 147.40009937099967,
+    "idle_watts": null,
+    "joules_per_generated_token": 99.10170582404396,
+    "mean_watts": 291.1194687447653,
+    "net_joules_above_idle": null,
+    "peak_watts": 302.275,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1475,
+    "total_joules": 42911.038621811036
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "419bc33337f0528417216db45e77d8832fd9f032",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:43:18+00:00",
+  "latency": {
+    "generated_tokens": 433,
+    "itl_mean_s": 0.051404189044363766,
+    "itl_p50_s": 0.05124473899923032,
+    "itl_p95_s": 0.05959877200075425,
+    "throughput_tokens_per_s": 2.981432703586912,
+    "ttft_s": 2.5092824592999388,
+    "wall_s": 145.23218970499147
+  },
+  "memory": {
+    "driver_peak_bytes": 23920836608,
+    "kv_cache_bytes": 246726656,
+    "kv_cache_bytes_uncompressed": 1973944320,
+    "prompt_tokens": 15060,
+    "retained_tokens": 15059,
+    "torch_peak_bytes": 18694586368
+  },
+  "method": {
+    "effective_compression_ratio": 6.6e-05,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      " Miller v. California was brought to court first.",
+      " Charles L. Clifford.",
+      " Lowell, Michigan.",
+      " Jupiter",
+      " on film",
+      " Parliament.",
+      " Mayiladuthurai",
+      " Pleiospilos is a flowering plant, as native to the family Aizoaceae.",
+      " 2013 is not correct, the correct answer is 2013 is not correct, the correct answer is 2013 is not correct, the correct answer is 2013 is not correct, the correct answer is 2013 is not correct, the",
+      " The Rebirth",
+      " October 13, 1980",
+      " Cartoon Network",
+      " Mary Astor",
+      " number 5",
+      " The forests of Mara and Mondrem shared a common deer species with red, fallow, and roe deer.",
+      " 2000 Summer Olympics",
+      " Claudio L\u00f3pez, Mariano Campod\u00f3nico, and Claudio L\u00f3pez.",
+      " Ronald Reagan",
+      " Talk That Talk",
+      " The Traveling Wilburys",
+      " Cartoon Cartoons",
+      " Sydney, New South Wales, Australia",
+      " Jones Beach Island and Fire Island.",
+      " PewDiePie and the Tupac Shakur hologram.",
+      " It's Always Sunny in Philadelphia.",
+      " 1,200",
+      " Ribosomes.",
+      " Dracula has 118 species, but Dracula has 118 species as well.",
+      " Band-e-Amir",
+      " USC.",
+      " 12,817",
+      " A123 Systems",
+      " Traverse City",
+      " Taoiseach",
+      " None of the passages provided information about a product called Vegepet, however, Passage 8 mentions Vegepet as a line of dietary supplement products for dogs and cats being sold by Compassion Circle, but it does not mention the city it is based in",
+      " Mika H\u00e4kkinen",
+      " Minority Report",
+      " Darci Kistler",
+      " Xcel Energy.",
+      " Around the World in 80 Days was released first, but the release year of Summer Magic is not specified in the passages.",
+      " Nobel Prize in Physics",
+      " Seasonal television specials, usually stop motion animated productions.",
+      " Eileen Atkins",
+      " Iran",
+      " Hakim Abdullah",
+      " Both.",
+      " YIVO Institute for Jewish History",
+      " 1826",
+      " Tongshanjiabu",
+      " 1867."
+    ],
+    "primary_metric": "qa_f1",
+    "primary_score": 38.45,
+    "references": [
+      [
+        "Miller v. California"
+      ],
+      [
+        "Charles L. Clifford"
+      ],
+      [
+        "Norman"
+      ],
+      [
+        "Sun"
+      ],
+      [
+        "erotic thriller film"
+      ],
+      [
+        "Parliament"
+      ],
+      [
+        "Tharangambadi"
+      ],
+      [
+        "Pleiospilos"
+      ],
+      [
+        "2013"
+      ],
+      [
+        "The Rebirth"
+      ],
+      [
+        "October 13, 1980"
+      ],
+      [
+        "Betty Cohen"
+      ],
+      [
+        "Mary Astor"
+      ],
+      [
+        "number five"
+      ],
+      [
+        "New Zealand, Canada, the United States, the Falkland Islands, and Peru."
+      ],
+      [
+        "2000 Summer Olympic Games"
+      ],
+      [
+        "Claudio Javier L\u00f3pez"
+      ],
+      [
+        "George H. W. Bush"
+      ],
+      [
+        "\"Talk That Talk\""
+      ],
+      [
+        "Bob Dylan"
+      ],
+      [
+        "Cartoon Cartoon Fridays"
+      ],
+      [
+        "on the Cumberland Plain"
+      ],
+      [
+        "Long Island"
+      ],
+      [
+        "PewDiePie"
+      ],
+      [
+        "It's Always Sunny in Philadelphia"
+      ],
+      [
+        "#364"
+      ],
+      [
+        "Ribosomes"
+      ],
+      [
+        "Dracula"
+      ],
+      [
+        "Band-e Amir National Park"
+      ],
+      [
+        "University of Southern California"
+      ],
+      [
+        "7.2 million"
+      ],
+      [
+        "A123 Systems, LLC"
+      ],
+      [
+        "143,372"
+      ],
+      [
+        "Taoiseach of Ireland"
+      ],
+      [
+        "Troy, Montana"
+      ],
+      [
+        "Mika H\u00e4kkinen"
+      ],
+      [
+        "Constantine"
+      ],
+      [
+        "George Balanchine"
+      ],
+      [
+        "Xcel Energy Inc."
+      ],
+      [
+        "Summer Magic"
+      ],
+      [
+        "Nobel Prize"
+      ],
+      [
+        "seasonal television specials, particularly its work in stop motion animation"
+      ],
+      [
+        "Dame Eileen June Atkins"
+      ],
+      [
+        "Iran"
+      ],
+      [
+        "Hakim Abdullah Jamal"
+      ],
+      [
+        "Keith Morris"
+      ],
+      [
+        "YIVO"
+      ],
+      [
+        "January 18, 1813"
+      ],
+      [
+        "Himalchuli has three main peaks: East (7893 m), West (7540 m) and North (7371 m)"
+      ],
+      [
+        "1763"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "qa_f1": 38.45
+    }
+  },
+  "run_id": "qual-kv_quant-2bit-longbench-hotpotqa-rep0-d1457fa49a",
+  "schema_version": 1,
+  "slug": "qual-kv_quant-2bit-longbench-hotpotqa-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": null,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 0,
+    "retention": null,
+    "samples": 50,
+    "suite": "longbench",
+    "task": "hotpotqa"
+  },
+  "started_at": "2026-09-05T14:40:48+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

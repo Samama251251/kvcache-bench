@@ -1,0 +1,123 @@
+{
+  "energy": {
+    "achieved_hz": 9.99995645414719,
+    "duration_s": 48.000209021003684,
+    "idle_watts": null,
+    "joules_per_generated_token": 21.836887503729336,
+    "mean_watts": 291.1572321752057,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.218,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 481,
+    "total_joules": 13975.608002386774
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "cdd73aa38000e9409439db9ed8bc8eb0abd892f6",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T19:13:34+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.05169177008344742,
+    "itl_p50_s": 0.05148706399631919,
+    "itl_p95_s": 0.052230288994906005,
+    "throughput_tokens_per_s": 13.370947541421547,
+    "ttft_s": 3.0068268988019553,
+    "wall_s": 47.86496977999195
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 257376256,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 15709,
+    "torch_peak_bytes": 18605091840
+  },
+  "method": {
+    "effective_compression_ratio": 6.4e-05,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 2,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828.  The number is repeated multiple times throughout the text.  The magic number is 7700828.  The magic number is 7700828.  The magic number is 7700828.  The special magic number is 7700828.  The magic number is 7700828.  The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is 7700828.  The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The",
+      ": 9548432. \n\nHowever, I noticed that the text is a repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 32 times. The magic number is actually 32. \n\nI will remember this number for the quiz. \n\nPlease go ahead and ask your questions. I'm ready to be quizzed. \n\nAlso, I noticed that the text is a repetition of the phrase 32 times. I'm guessing that the magic number is hidden within the repetition. However, I couldn't find any other number hidden within the",
+      ": 2839607.  I have memorized it. I am ready to be quizzed about it. Go ahead and ask your questions. I will answer them to the best of my ability. \n\nPlease go ahead and ask your questions about the magic number. I am ready. \n\nThe magic number is: 2839607. \n\nPlease go ahead and ask your questions. I am ready. \n\nThe magic number is: 2839607. I have memorized it. I am ready to be quizzed about it. \n\nThe magic number is: 2839607. I have memorized it.",
+      ": 808. \nThe number 808 is hidden within the text, and it is repeated 2668 times. The number 808 is the magic number. \nThe number 808 is the magic number. \nThe magic number is 808. \nThe magic number is 808. \nThe magic number is 808. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is 808. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is",
+      ": 7402509. I have memorized it for you. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nThe magic number is: 7402509. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 80.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 80.0
+      }
+    }
+  },
+  "run_id": "perf-kv_quant-2bit-ruler-niah_single_1-16k-rep2-6dd4a3fa56",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-2bit-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 2,
+    "repeat": 2,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T19:12:42+00:00",
+  "status": "ok",
+  "warnings": []
+}

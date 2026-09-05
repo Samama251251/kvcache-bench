@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999937656895037,
+    "duration_s": 29.200182043001405,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.655089023901082,
+    "mean_watts": 211.61707027020796,
+    "net_joules_above_idle": null,
+    "peak_watts": 279.258,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 293,
+    "total_joules": 6179.256975296693
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "c131c72e830271f20ccdb357d8cf11c8afa148f9",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:21:33+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04098825193228893,
+    "itl_p50_s": 0.040443835001497064,
+    "itl_p95_s": 0.04810202799853869,
+    "throughput_tokens_per_s": 21.961963256242893,
+    "ttft_s": 0.6217273148009553,
+    "wall_s": 29.1412927220008
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 48496640,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 370,
+    "torch_peak_bytes": 16626105856
+  },
+  "method": {
+    "effective_compression_ratio": 0.90035,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. \n\nHowever, I would like to note that the provided text seems to be a repetition of the same phrases, and the number 8090293 is mentioned as one of the special magic numbers for wandering-age, but it is not explicitly stated as the only or the main magic number. If you have any further clarification or context, I would be happy to help. \n\nAlso, I would like to ask if you would like me to quiz you about the number, as you mentioned earlier. I can ask you questions about the number, and you can try to",
+      ": 4612365. However, I noticed that the text also contains a phrase that seems to be a reference to a special magic number: \"One of the special magic numbers for determined-consignment is: 4612365.\" This suggests that the actual special magic number is indeed 4612365. \n\nHowever, I also noticed that the text contains a phrase that seems to be a reference to a different special magic number: \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" This phrase seems to be a reference to the number 4612365, but",
+      ": 7374122. I was able to memorize it as it was explicitly stated in the text. However, I noticed that the provided text contains a lot of repetitive phrases, which might be a distraction. The actual magic number is indeed 7374122. \n\nHowever, I did notice that the text also contains a mention of \"One of the special magic numbers for capable-percent is: 7374122.\" This implies that there might be other magic numbers for capable-percent, but 7374122 is the one explicitly mentioned in the text. \n\nIf you'd like to quiz me further, I'd be happy to try",
+      ": 5437923. This number was mentioned in the text before the repetition of the description of the sky, sun, and grass. It was also mentioned after the repetition of the description of the sky, sun, and grass. The number was not repeated again in the text. \n\nHowever, it is worth noting that the number 5437923 is not actually a special magic number for jittery-commitment. It appears to be a random number that was inserted into the text. The text does not provide any context or explanation for why this number is special or what it has to do with jittery-commitment. \n\nIf you",
+      ": 3094235. I have memorized it as per your request. \n\nHowever, I would like to note that the provided text seems to be a repetition of the same phrases and does not contain any other special magic numbers related to romantic-subsidy. The number 3094235 is the only one mentioned in the text. \n\nIf you have any further questions or would like to quiz me on this number, please let me know. I'm ready to assist you. \n\nAlso, I would like to clarify that the term \"romantic-subsidy\" is not a real concept and seems to be a made-up term"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r010-ruler-niah_single_1-4k-rep0-39aaa03c2d",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r010-ruler-niah_single_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:21:02+00:00",
+  "status": "ok",
+  "warnings": []
+}

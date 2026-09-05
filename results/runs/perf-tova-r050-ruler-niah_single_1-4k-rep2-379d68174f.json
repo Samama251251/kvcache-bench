@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999937661598723,
+    "duration_s": 28.10017517199958,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.895493571676298,
+    "mean_watts": 225.37638456373267,
+    "net_joules_above_idle": null,
+    "peak_watts": 283.416,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 282,
+    "total_joules": 6333.11588587283
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "259427dd2ce28043b35f910d791a38764d33874a",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:02:42+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03938164231180068,
+    "itl_p50_s": 0.03904831999898306,
+    "itl_p95_s": 0.04176865900080884,
+    "throughput_tokens_per_s": 22.79298315018276,
+    "ttft_s": 0.6135306139993191,
+    "wall_s": 28.078816878994985
+  },
+  "memory": {
+    "driver_peak_bytes": 21439905792,
+    "kv_cache_bytes": 243138560,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 1855,
+    "torch_peak_bytes": 17015389696
+  },
+  "method": {
+    "effective_compression_ratio": 0.500404,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrase many times, and the number 8090293 is mentioned only once, at the end of the text. It's not clear how the repetition of the phrase is related to the number, but I've memorized the number as per your request. \n\nIf you have any questions or would like to test my knowledge of the",
+      ": 4612365. I have memorized it. Please proceed with your quiz. I'm ready to answer your questions. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not contain any other special magic number. The number 4612365 is the only one mentioned in the text. If you have any further questions or if you'd like to clarify anything, please let me know. I'm here to help. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky",
+      ": 7374122. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not seem to be related to the number 7374122. The number 7374122 is actually mentioned separately in the text, and it is not derived from the repeated phrases. \n\nIf you would like to provide more context or clarify the relationship between the repeated phrases and the number 7374122, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be a repetition of the",
+      ": 5437923. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 5437923 is mentioned only once, at the beginning of the text. The rest of the text appears to be a filler, and the number is not actually hidden within it. Nevertheless, I have memorized the number as per your request. \n\nIf you would like to test my memory, I am ready to answer any questions you may have about the number. \n\nAlso, I would like to note that the text seems to be a reference",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase many times, and the number 3094235 is mentioned in the middle of the text. It is not clear how this number is related to the romantic-subsidy or the repetition of the phrase. If you could provide more context or information about the significance of this number, I would be happy to help further. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky is blue."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r050-ruler-niah_single_1-4k-rep2-379d68174f",
+  "schema_version": 1,
+  "slug": "perf-tova-r050-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T14:02:12+00:00",
+  "status": "ok",
+  "warnings": []
+}

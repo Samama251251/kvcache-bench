@@ -1,0 +1,123 @@
+{
+  "energy": {
+    "achieved_hz": 9.999956311040222,
+    "duration_s": 34.10014898000372,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.362624503663536,
+    "mean_watts": 213.25653699076213,
+    "net_joules_above_idle": null,
+    "peak_watts": 278.865,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 342,
+    "total_joules": 7272.0796823446635
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "9765ce2a91c1b910e7b57e5275fd08b6d743aa5f",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T19:17:27+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.048936707039368726,
+    "itl_p50_s": 0.04848801900516264,
+    "itl_p95_s": 0.051908412999182474,
+    "throughput_tokens_per_s": 18.786132368047287,
+    "ttft_s": 0.5972138117998839,
+    "wall_s": 34.06768287700106
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 121634816,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 3712,
+    "torch_peak_bytes": 16802725376
+  },
+  "method": {
+    "effective_compression_ratio": 0.000269,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 4,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrase 50 times, and the number 8090293 is mentioned only once at the end of the text. It's not clear how this number is related to the repeated phrase or the concept of \"wandering-age\". If you could provide more context or clarify the connection, I would be happy to learn more. \n\nPlease",
+      ": 4612365. I have memorized it. Please proceed with your quiz. I'm ready to answer your questions. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not contain any other special magic number. The number 4612365 is the only one mentioned in the text. If you have any further questions or need help with anything else, please let me know. I'm here to assist you. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky is",
+      ": 7374122. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not seem to be related to the number 7374122. The number 7374122 is actually mentioned separately in the text, and it is not derived from the repeated phrases. \n\nIf you would like to provide more context or clarify the relationship between the repeated phrases and the number 7374122, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be a repetition of the",
+      ": 5437923. I have memorized it. \n\nPlease let me know if I'm correct and if you'd like to ask any follow-up questions. I'm ready to help. \n\nAlso, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition seems to be a deliberate attempt to make the text appear longer and more complex, but it doesn't actually contain any meaningful information. If you'd like to provide more context or clarify the purpose of this text, I'd",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase 100 times, and the number 3094235 is mentioned in the middle of the text. It is not clear how this number is related to the romantic-subsidy or the repetition of the phrase. If you could provide more context or information about the significance of this number, I would be happy to help further. \n\nAlso, I would like to note that the text seems to be a repetition of the phrase \"The grass is green. The sky is blue"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-kv_quant-4bit-ruler-niah_single_1-4k-rep2-13987d927f",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-4bit-ruler-niah_single_1-4k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 4,
+    "repeat": 2,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T19:16:52+00:00",
+  "status": "ok",
+  "warnings": []
+}

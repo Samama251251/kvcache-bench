@@ -1,16 +1,16 @@
 {
   "energy": {
-    "achieved_hz": 0.0,
-    "duration_s": 0.0,
+    "achieved_hz": 9.999966248122446,
+    "duration_s": 47.70016099699933,
     "idle_watts": null,
-    "joules_per_generated_token": null,
-    "mean_watts": 0.0,
+    "joules_per_generated_token": 19.831737526946473,
+    "mean_watts": 266.08530772137595,
     "net_joules_above_idle": null,
-    "peak_watts": 0.0,
+    "peak_watts": 298.986,
     "read_errors": 0,
-    "requested_hz": 0.0,
-    "sample_count": 0,
-    "total_joules": 0.0
+    "requested_hz": 10.0,
+    "sample_count": 478,
+    "total_joules": 12692.312017245742
   },
   "environment": {
     "clock_lock_applied": false,
@@ -24,34 +24,34 @@
       "power_limit_watts": 300.0,
       "total_memory_bytes": 51527024640
     },
-    "git_sha": "37055204505af258ebdf5ab8443a1984cb50b612",
+    "git_sha": "f738ec2e401e66f67dbd42b3fca97920cbc49138",
     "kvbench_version": "0.1.0",
     "kvpress_version": "0.5.4",
     "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
     "torch_version": "2.11.0+cu128",
     "transformers_version": "5.2.0"
   },
-  "error": "ImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\nTraceback (most recent call last):\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 322, in run_one\n    _warmup(model, tokenizer, method, samples[0], spec, config.runtime.device)\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 416, in _warmup\n    model.generate(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2631, in generate\n    self._prepare_cache_for_generation(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2034, in _prepare_cache_for_generation\n    model_kwargs[\"past_key_values\"] = QuantizedCache(backend=backend, **cache_config)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1143, in __init__\n    layers = [\n             ^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1144, in <listcomp>\n    layer_class(nbits, axis_key, axis_value, q_group_size, residual_length)\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 589, in __init__\n    raise ImportError(\nImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\n",
-  "finished_at": "2026-09-05T13:27:32+00:00",
+  "error": null,
+  "finished_at": "2026-09-05T13:33:10+00:00",
   "latency": {
-    "generated_tokens": 0,
-    "itl_mean_s": null,
-    "itl_p50_s": null,
-    "itl_p95_s": null,
-    "throughput_tokens_per_s": null,
-    "ttft_s": null,
-    "wall_s": 0.0
+    "generated_tokens": 640,
+    "itl_mean_s": 0.05176137088975359,
+    "itl_p50_s": 0.0515324519983551,
+    "itl_p95_s": 0.052358431999891764,
+    "throughput_tokens_per_s": 13.475534745854882,
+    "ttft_s": 2.9232295549998524,
+    "wall_s": 47.49347703599415
   },
   "memory": {
-    "driver_peak_bytes": null,
-    "kv_cache_bytes": 0,
-    "kv_cache_bytes_uncompressed": 0,
-    "prompt_tokens": 0,
-    "retained_tokens": 0,
-    "torch_peak_bytes": null
+    "driver_peak_bytes": 21167276032,
+    "kv_cache_bytes": 257376256,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 15709,
+    "torch_peak_bytes": 18605091840
   },
   "method": {
-    "effective_compression_ratio": null,
+    "effective_compression_ratio": 6.4e-05,
     "kind": "quantization",
     "name": "kv_quant",
     "params": {
@@ -62,12 +62,38 @@
     "requested_compression_ratio": null
   },
   "quality": {
-    "predictions": [],
+    "predictions": [
+      ": 7700828.  The number is repeated multiple times throughout the text.  The magic number is 7700828.  The magic number is 7700828.  The magic number is 7700828.  The special magic number is 7700828.  The magic number is 7700828.  The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is 7700828.  The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The",
+      ": 9548432. \n\nHowever, I noticed that the text is a repetition of the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" 32 times. The magic number is actually 32. \n\nI will remember this number for the quiz. \n\nPlease go ahead and ask your questions. I'm ready to be quizzed. \n\nAlso, I noticed that the text is a repetition of the phrase 32 times. I'm guessing that the magic number is hidden within the repetition. However, I couldn't find any other number hidden within the",
+      ": 2839607.  I have memorized it. I am ready to be quizzed about it. Go ahead and ask your questions. I will answer them to the best of my ability. \n\nPlease go ahead and ask your questions about the magic number. I am ready. \n\nThe magic number is: 2839607. \n\nPlease go ahead and ask your questions. I am ready. \n\nThe magic number is: 2839607. I have memorized it. I am ready to be quizzed about it. \n\nThe magic number is: 2839607. I have memorized it.",
+      ": 808. \nThe number 808 is hidden within the text, and it is repeated 2668 times. The number 808 is the magic number. \nThe number 808 is the magic number. \nThe magic number is 808. \nThe magic number is 808. \nThe magic number is 808. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is 808. \nThe grass is green. The sky is blue. The sun is yellow. Here we go. There and back again. The magic number is",
+      ": 7402509. I have memorized it for you. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nThe magic number is: 7402509. \n\nPlease go ahead and ask your questions about the magic number. I am ready to answer. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe magic number is: 7402509. \n\nThe"
+    ],
     "primary_metric": "string_match",
-    "primary_score": null,
-    "references": [],
-    "samples_scored": 0,
-    "scores": {}
+    "primary_score": 80.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 80.0
+      }
+    }
   },
   "run_id": "perf-kv_quant-2bit-ruler-niah_single_1-16k-rep0-81a6390533",
   "schema_version": 1,
@@ -91,7 +117,7 @@
     "suite": "ruler",
     "task": "niah_single_1"
   },
-  "started_at": "2026-09-05T13:27:30+00:00",
-  "status": "failed",
+  "started_at": "2026-09-05T13:30:43+00:00",
+  "status": "ok",
   "warnings": []
 }

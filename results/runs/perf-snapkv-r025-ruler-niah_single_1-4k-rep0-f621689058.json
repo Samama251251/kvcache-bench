@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999956142724516,
+    "duration_s": 30.800135081000917,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.707644779407014,
+    "mean_watts": 201.71640944045456,
+    "net_joules_above_idle": null,
+    "peak_watts": 281.368,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 309,
+    "total_joules": 6212.892658820489
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "b081fed5ee3acae030ab92485299d7ad3a40c50f",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T15:00:43+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04358738628661239,
+    "itl_p50_s": 0.040621871001349064,
+    "itl_p95_s": 0.04954954499771702,
+    "throughput_tokens_per_s": 20.80617984971871,
+    "ttft_s": 0.6157164690004719,
+    "wall_s": 30.760091694999574
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 121503744,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 927,
+    "torch_peak_bytes": 16772120064
+  },
+  "method": {
+    "effective_compression_ratio": 0.750337,
+    "kind": "eviction",
+    "name": "snapkv",
+    "params": {},
+    "press_class": "SnapKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same lines multiple times, and the number 8090293 is mentioned only once, at the end of the text. It's not clear how this number is related to the rest of the text or what the \"wandering-age\" refers to. If you could provide more context or information about the number and its significance",
+      ": 4612365. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase multiple times, and the number 4612365 is actually mentioned in the text as \"One of the special magic numbers for determined-consignment is: 4612365.\" It is not hidden within the text itself. \n\nIf you would like to provide a different text where the number is actually hidden, I would be happy to try and find it. \n\nAlso, I would like to clarify that the term \"determined-consignment\" is not a standard term in",
+      ": 7374122. I was able to memorize it as it was explicitly mentioned in the text. However, I noticed that the provided text is repetitive and contains a lot of unnecessary information. The magic number was hidden within the text, but it was not actually hidden, as it was clearly stated. If you're looking for a more challenging puzzle, I'd be happy to help with that. \n\nHowever, I did notice that the text contains a repetitive phrase: \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" This phrase is repeated 20 times.",
+      ": 5437923. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 5437923 is mentioned only once, at the beginning of the text. It is not clear how this number is related to the rest of the text or to the concept of jittery-commitment. If you could provide more context or information about the significance of this number, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be a repetition of the same phrases, which might be",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 3094235 is mentioned at the end of the text, not within the repeated phrases. It appears to be a separate piece of information. \n\nIf you would like to quiz me about the number, I'm ready. Please go ahead and ask your questions. I'll do my best to answer them. \n\nAlso, I would like to note that the term \"romantic-subsidy\" is not a real concept, and the number "
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-snapkv-r025-ruler-niah_single_1-4k-rep0-f621689058",
+  "schema_version": 1,
+  "slug": "perf-snapkv-r025-ruler-niah_single_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "snapkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T15:00:10+00:00",
+  "status": "ok",
+  "warnings": []
+}

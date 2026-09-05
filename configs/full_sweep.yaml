@@ -11,6 +11,9 @@ name: full_sweep
 model:
   id: unsloth/Llama-3.1-8B-Instruct
   dtype: bfloat16
+  # No flash-attn wheel exists for the cu128 torch that 570-series drivers
+  # allow, and a source build takes an hour on a rented box. sdpa applies to
+  # every method alike, so the comparison holds.
   attn_implementation: sdpa
 
 runtime:
@@ -23,8 +26,8 @@ runtime:
   shuffle_seed: 1234
   lock_clocks_mhz: null
   # Total prompt tokens per batch. Caps batch size as context grows: 8 at 8k,
-  # 4 at 16k, 2 at 32k. Sized for a single card with >=40GB, where the weights
-  # alone take 16.1GB and a 32k KV cache adds 4.3GB per sequence.
+  # 4 at 16k. Sized for a single card with >=40GB, where the weights alone take
+  # 16.1GB and a 16k KV cache adds 2.1GB per sequence.
   max_batch_tokens: 65536
 
 generation:
@@ -51,7 +54,7 @@ passes:
     benchmarks:
       - suite: ruler
         tasks: [niah_single_1]
-        context_lengths: [4096, 16384, 32768]
+        context_lengths: [4096, 8192, 16384]
 
 methods:
   - name: full_cache
@@ -59,8 +62,8 @@ methods:
   - name: streaming_llm
   - name: h2o
     # ObservedAttentionPress needs eager attention, whose score matrix is
-    # quadratic in context: ~17GB for one layer at 16k, ~69GB at 32k. The 32k
-    # cells are dropped rather than attempted -- no single card holds that.
+    # quadratic in context: ~17GB for one layer at 16k. Anything longer is
+    # dropped rather than attempted.
     max_context_tokens: 16384
   - name: snapkv
   - name: pyramidkv
@@ -76,10 +79,11 @@ benchmarks:
   - suite: longbench
     tasks: [narrativeqa, qasper, hotpotqa, 2wikimqa, gov_report, triviaqa]
     max_context_tokens: 16384
-  # Retrieval is where eviction methods break down most sharply.
+  # Retrieval is where eviction methods break down most sharply. kvpress's RULER
+  # copy stops at 16k; there is no 32k split to run.
   - suite: ruler
     tasks: [niah_single_1, niah_multikey_1]
-    context_lengths: [4096, 16384, 32768]
+    context_lengths: [4096, 8192, 16384]
 
 estimate:
   # A single >=40GB card running an 8B model in bf16. Replaced by measured

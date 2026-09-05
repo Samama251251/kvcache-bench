@@ -1,16 +1,16 @@
 {
   "energy": {
-    "achieved_hz": 0.0,
-    "duration_s": 0.0,
+    "achieved_hz": 9.999979818333186,
+    "duration_s": 49.20009929400112,
     "idle_watts": null,
-    "joules_per_generated_token": null,
-    "mean_watts": 0.0,
+    "joules_per_generated_token": 31.35883404324115,
+    "mean_watts": 268.3341969152129,
     "net_joules_above_idle": null,
-    "peak_watts": 0.0,
+    "peak_watts": 284.667,
     "read_errors": 0,
-    "requested_hz": 0.0,
-    "sample_count": 0,
-    "total_joules": 0.0
+    "requested_hz": 10.0,
+    "sample_count": 493,
+    "total_joules": 13202.069132204524
   },
   "environment": {
     "clock_lock_applied": false,
@@ -24,34 +24,34 @@
       "power_limit_watts": 300.0,
       "total_memory_bytes": 51527024640
     },
-    "git_sha": "827f4ff8a424ffe143abce2edd3cdd548c11655d",
+    "git_sha": "ff739ab55109cf288d0cad513a28dda1cbb8dd45",
     "kvbench_version": "0.1.0",
     "kvpress_version": "0.5.4",
     "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
     "torch_version": "2.11.0+cu128",
     "transformers_version": "5.2.0"
   },
-  "error": "ImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\nTraceback (most recent call last):\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 322, in run_one\n    _warmup(model, tokenizer, method, samples[0], spec, config.runtime.device)\n  File \"/root/kvcache-bench/src/kvbench/runner.py\", line 416, in _warmup\n    model.generate(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/torch/utils/_contextlib.py\", line 124, in decorate_context\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2631, in generate\n    self._prepare_cache_for_generation(\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/generation/utils.py\", line 2034, in _prepare_cache_for_generation\n    model_kwargs[\"past_key_values\"] = QuantizedCache(backend=backend, **cache_config)\n                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1143, in __init__\n    layers = [\n             ^\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 1144, in <listcomp>\n    layer_class(nbits, axis_key, axis_value, q_group_size, residual_length)\n  File \"/root/kvcache-bench/.venv/lib/python3.11/site-packages/transformers/cache_utils.py\", line 589, in __init__\n    raise ImportError(\nImportError: You need to install optimum-quanto in order to use KV cache quantization with optimum-quanto backend. Please install it via  with `pip install optimum-quanto`\n",
-  "finished_at": "2026-09-05T13:21:04+00:00",
+  "error": null,
+  "finished_at": "2026-09-05T15:27:21+00:00",
   "latency": {
-    "generated_tokens": 0,
-    "itl_mean_s": null,
-    "itl_p50_s": null,
-    "itl_p95_s": null,
-    "throughput_tokens_per_s": null,
-    "ttft_s": null,
-    "wall_s": 0.0
+    "generated_tokens": 421,
+    "itl_mean_s": 0.04935354009972612,
+    "itl_p50_s": 0.04884531300194794,
+    "itl_p95_s": 0.05293099200207507,
+    "throughput_tokens_per_s": 8.648755655714412,
+    "ttft_s": 0.6060405275200901,
+    "wall_s": 48.67752272800499
   },
   "memory": {
-    "driver_peak_bytes": null,
-    "kv_cache_bytes": 0,
-    "kv_cache_bytes_uncompressed": 0,
-    "prompt_tokens": 0,
-    "retained_tokens": 0,
-    "torch_peak_bytes": null
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 60915712,
+    "kv_cache_bytes_uncompressed": 487456768,
+    "prompt_tokens": 3719,
+    "retained_tokens": 3718,
+    "torch_peak_bytes": 16671421952
   },
   "method": {
-    "effective_compression_ratio": null,
+    "effective_compression_ratio": 0.000269,
     "kind": "quantization",
     "name": "kv_quant",
     "params": {
@@ -62,12 +62,218 @@
     "requested_compression_ratio": null
   },
   "quality": {
-    "predictions": [],
+    "predictions": [
+      ": 8090293.",
+      ": 4612365.",
+      ":  37.",
+      ": 5437923.",
+      ": 3094235.",
+      ": 5918715.",
+      " 2166941.",
+      ": 2338687.",
+      ": 5663623.",
+      ": 7210606.",
+      ": 5479144.",
+      ": 5107245.",
+      ": 5528972.",
+      " 6440561.",
+      ": 6292423.",
+      ": 4539704.",
+      ": 9375710.",
+      ": 5443951.",
+      ":   The magic number is hidden within the text, but it is not actually hidden. The magic number is actually the number of times the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" is repeated.",
+      ": 7700828.",
+      ": 9548432",
+      ": 2839607.",
+      ":   The number is not actually hidden within the text, but rather mentioned in the text before the repetition of the description of the scene.",
+      ": 8852574.",
+      " 1192619.",
+      ": 6707197.",
+      ": 3653446.",
+      ": 5418934.",
+      ": 2785277.",
+      ": 7273233.",
+      ": 6438436.",
+      ": 7089806.",
+      ": 5041154.",
+      ": 9153566.",
+      ": 8973915.",
+      ": 9852897.",
+      ": 4374754.",
+      ": 7264956.",
+      ": 5159166.",
+      ": 1352896.",
+      ": 4694634.",
+      ": 1987737.",
+      ": 6543670.",
+      ": 9143903.",
+      ": 8930103.",
+      ": 4194548.",
+      ": 8231838.",
+      ":  8835373.",
+      ": 7754864.",
+      ": 4214348."
+    ],
     "primary_metric": "string_match",
-    "primary_score": null,
-    "references": [],
-    "samples_scored": 0,
-    "scores": {}
+    "primary_score": 94.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ],
+      [
+        "5918715"
+      ],
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ],
+      [
+        "5107245"
+      ],
+      [
+        "5528972"
+      ],
+      [
+        "6440561"
+      ],
+      [
+        "6292423"
+      ],
+      [
+        "4539704"
+      ],
+      [
+        "9375710"
+      ],
+      [
+        "5443951"
+      ],
+      [
+        "5408072"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "8852574"
+      ],
+      [
+        "1192619"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "3653446"
+      ],
+      [
+        "5418934"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "7273233"
+      ],
+      [
+        "6438436"
+      ],
+      [
+        "7089806"
+      ],
+      [
+        "5041154"
+      ],
+      [
+        "9153566"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "9852897"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "7264956"
+      ],
+      [
+        "5159166"
+      ],
+      [
+        "1352896"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "1987737"
+      ],
+      [
+        "6543670"
+      ],
+      [
+        "9143903"
+      ],
+      [
+        "8930103"
+      ],
+      [
+        "4194548"
+      ],
+      [
+        "8231838"
+      ],
+      [
+        "8835373"
+      ],
+      [
+        "7754864"
+      ],
+      [
+        "4214348"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 94.0
+      }
+    }
   },
   "run_id": "qual-kv_quant-2bit-ruler-niah_single_1-4k-rep0-67daa04d86",
   "schema_version": 1,
@@ -91,7 +297,9 @@
     "suite": "ruler",
     "task": "niah_single_1"
   },
-  "started_at": "2026-09-05T13:21:03+00:00",
-  "status": "failed",
-  "warnings": []
+  "started_at": "2026-09-05T15:26:30+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
 }

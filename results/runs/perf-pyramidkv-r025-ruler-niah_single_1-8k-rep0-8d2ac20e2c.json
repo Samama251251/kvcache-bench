@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999970088205925,
+    "duration_s": 34.500103195998236,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.701525277353237,
+    "mean_watts": 217.07112396042743,
+    "net_joules_above_idle": null,
+    "peak_watts": 298.808,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 346,
+    "total_joules": 7488.9761775060715
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "b5e1e0a01bbb4837766d4725699ae08bf9a96951",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T19:39:50+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.043144673774798956,
+    "itl_p50_s": 0.03922502799832728,
+    "itl_p95_s": 0.07615238799917279,
+    "throughput_tokens_per_s": 18.636403835140037,
+    "ttft_s": 1.3877075923999656,
+    "wall_s": 34.341389339999296
+  },
+  "memory": {
+    "driver_peak_bytes": 24294129664,
+    "kv_cache_bytes": 505544704,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 3857,
+    "torch_peak_bytes": 17548712960
+  },
+  "method": {
+    "effective_compression_ratio": 0.512574,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 2166941. I have memorized it. Please go ahead and ask your questions. I'll be happy to answer them. \n\nHowever, I noticed that the provided text is repetitive and contains the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This phrase seems to be a distraction and is not relevant to the question about the special magic number. If you have any further questions or would like to clarify anything, please let me know. \n\nAlso, I'd like to note that the provided text does not seem to be related to",
+      ": 2338687. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and the number 2338687 is mentioned only once, at the beginning of the text. It is not clear how this number is related to the rest of the text or to the concept of \"harmonious-reduction\". If you could provide more context or information about what you are looking for, I would be happy to try and help",
+      ": 5663623. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text seems to be a repetition of the same phrase, and the number 5663623 is mentioned at the end of the text. It is not clear how this number is related to the rest of the text, but it is mentioned as a special magic number for lovely-terrorist. \n\nIf you have any questions or need further clarification, please let me know. I am here to help. \n\nPlease go ahead and ask",
+      ": 7210606. I have memorized this number. Please proceed with your quiz. I am ready to answer your questions. \n\nPlease go ahead and ask your questions about the number 7210606. I will do my best to provide accurate and helpful responses. \n\nAlso, I noticed that the provided text contains a repetitive pattern of sentences. This pattern seems to be a reference to J.R.R. Tolkien's novel \"The Hobbit,\" where the character Bilbo Baggins says, \"There and back again.\" This repetition is likely a stylistic choice to emphasize the theme of the text, which is not explicitly stated",
+      ": 5479144. I have memorized it. Please go ahead and ask your questions. I'll be happy to answer them. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it's not clear how the number 5479144 is related to the text. If you could provide more context or clarify the connection between the text and the number, I would be happy to help further. \n\nAlso, I'm ready to be quizzed about the number. Go ahead and ask your questions. I'll do my best to answer them. \n\nPlease note"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r025-ruler-niah_single_1-8k-rep0-8d2ac20e2c",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r025-ruler-niah_single_1-8k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T19:39:13+00:00",
+  "status": "ok",
+  "warnings": []
+}

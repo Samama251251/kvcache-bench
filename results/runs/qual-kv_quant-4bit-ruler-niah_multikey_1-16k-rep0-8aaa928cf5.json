@@ -1,0 +1,305 @@
+{
+  "energy": {
+    "achieved_hz": 9.999992865042879,
+    "duration_s": 171.9001226500004,
+    "idle_watts": null,
+    "joules_per_generated_token": 145.0266624256643,
+    "mean_watts": 294.4401923994597,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.244,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 1720,
+    "total_joules": 50614.30518655684
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "c633593cc2434ba0705fdb3c4c51afb1c21cbca1",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:02:10+00:00",
+  "latency": {
+    "generated_tokens": 349,
+    "itl_mean_s": 0.05466141082279228,
+    "itl_p50_s": 0.05280769700038945,
+    "itl_p95_s": 0.061450507997506065,
+    "throughput_tokens_per_s": 2.0573573737415662,
+    "ttft_s": 3.064393283099853,
+    "wall_s": 169.6350884169915
+  },
+  "memory": {
+    "driver_peak_bytes": 21439905792,
+    "kv_cache_bytes": 522420224,
+    "kv_cache_bytes_uncompressed": 2089811968,
+    "prompt_tokens": 15944,
+    "retained_tokens": 15943,
+    "torch_peak_bytes": 19149313024
+  },
+  "method": {
+    "effective_compression_ratio": 6.3e-05,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 4,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 6596150.",
+      ": 1604451.",
+      ": 7117837.",
+      ": 7907400.",
+      ": 6866294.",
+      ": 6891254.",
+      ": 6262632.",
+      ": 4188992.",
+      ": 6038571.",
+      ": 7361002.",
+      ": 6406444.",
+      ": 2422633.",
+      ": 7953166.",
+      ": 1093026.",
+      ": 6323376.",
+      ": 5652512.",
+      ": 5558623.",
+      ": 8048838.",
+      ": 4700025.",
+      ": 7523941.",
+      ": 7360307.",
+      ": 8072684.",
+      ": 3117636.",
+      ": 6218367.",
+      ": 1689025.",
+      ": 7076506.",
+      ": 5118725.",
+      ": 6452832.",
+      ": 5049282.",
+      ": 7784725.",
+      ": 9907391.",
+      ": 4106298.",
+      ": 4256752.",
+      ": 9235577.",
+      ": 9014965.",
+      ": 4786401.",
+      ": 2010496.",
+      ": 8558197.",
+      ": 2925626.",
+      ": 7752972.",
+      ": 5200476.",
+      ": 4044882.",
+      ": 7850944.",
+      ": 2477398.",
+      " 4415140.",
+      ": 9132114.",
+      ": 5896624.",
+      ": 4197911.",
+      ": 6008935.",
+      ": 7425184."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ],
+      [
+        "9907391"
+      ],
+      [
+        "4106298"
+      ],
+      [
+        "4256752"
+      ],
+      [
+        "9235577"
+      ],
+      [
+        "9014965"
+      ],
+      [
+        "4786401"
+      ],
+      [
+        "2010496"
+      ],
+      [
+        "8558197"
+      ],
+      [
+        "2925626"
+      ],
+      [
+        "7752972"
+      ],
+      [
+        "5200476"
+      ],
+      [
+        "4044882"
+      ],
+      [
+        "7850944"
+      ],
+      [
+        "2477398"
+      ],
+      [
+        "4415140"
+      ],
+      [
+        "9132114"
+      ],
+      [
+        "5896624"
+      ],
+      [
+        "4197911"
+      ],
+      [
+        "6008935"
+      ],
+      [
+        "7425184"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "qual-kv_quant-4bit-ruler-niah_multikey_1-16k-rep0-8aaa928cf5",
+  "schema_version": 1,
+  "slug": "qual-kv_quant-4bit-ruler-niah_multikey_1-16k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 4,
+    "repeat": 0,
+    "retention": null,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T13:59:14+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

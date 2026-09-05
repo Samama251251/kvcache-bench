@@ -151,9 +151,7 @@ def dataset_files(suite: str, data_dir: str) -> list[str]:
     try:
         local = snapshot_download(repo, repo_type="dataset", allow_patterns=patterns)
     except Exception:  # offline, rate-limited, or the Hub is down: use what we have
-        local = snapshot_download(
-            repo, repo_type="dataset", allow_patterns=patterns, local_files_only=True
-        )
+        local = snapshot_download(repo, repo_type="dataset", allow_patterns=patterns, local_files_only=True)
     files = sorted(glob.glob(os.path.join(local, data_dir, "*.parquet")))
     if not files:
         raise FileNotFoundError(f"{repo} has no parquet files under '{data_dir}/'")

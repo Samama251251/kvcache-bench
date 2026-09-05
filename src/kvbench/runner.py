@@ -157,9 +157,9 @@ def build_batch(tokenizer, samples: list[loader.Sample], device: str, max_contex
     add_special = not loader.uses_chat_template(tokenizer)
     sequences = [
         truncate_ids(
-            tokenizer(s.prompt(tokenizer), return_tensors="pt", add_special_tokens=add_special)[
-                "input_ids"
-            ][0],
+            tokenizer(s.prompt(tokenizer), return_tensors="pt", add_special_tokens=add_special)["input_ids"][
+                0
+            ],
             max_context_tokens,
         )
         for s in samples
@@ -217,7 +217,7 @@ def generate_samples(
         with torch.no_grad(), method.apply(model):
             output = model.generate(
                 **inputs,
-                max_new_tokens=_new_tokens_for(chunk, spec),
+                **generation_length(chunk, spec),
                 do_sample=False,
                 logits_processor=processors,
                 return_dict_in_generate=True,
@@ -233,6 +233,22 @@ def generate_samples(
         retained_tokens = _retained_tokens(output, int(generated.shape[-1]))
 
     return GenerationOutcome(predictions, prompt_tokens, retained_tokens, generated_tokens)
+
+
+def generation_length(chunk: list[loader.Sample], spec: RunSpec) -> dict:
+    """How many tokens to generate, and whether that number is fixed.
+
+    A quality run stops at end-of-turn like any deployment would. A performance
+    run does not: it measures what a method costs per token, and an instruct
+    model that answers a needle question in 7 tokens would have its prefill
+    energy amortised over 7 tokens where a rambling method's is spread over 64.
+    Pinning min to max makes every performance cell generate the same count, so
+    J/token compares methods rather than answer lengths.
+    """
+    count = _new_tokens_for(chunk, spec)
+    if spec.mode == "performance":
+        return {"max_new_tokens": count, "min_new_tokens": count}
+    return {"max_new_tokens": count}
 
 
 def _new_tokens_for(chunk: list[loader.Sample], spec: RunSpec) -> int:

@@ -217,3 +217,28 @@ def test_the_benchmarks_budget_wins_but_the_config_caps_it():
     # sweep's cost estimate.
     assert _new_tokens_for(long, spec) == spec.max_new_tokens
     assert _new_tokens_for(silent, spec) == spec.max_new_tokens
+
+
+def _spec_in_mode(mode):
+    return next(s for s in make_config().expand() if s.mode == mode)
+
+
+def test_performance_runs_generate_a_fixed_number_of_tokens():
+    # Otherwise J/token measures how tersely a method answers, not what a
+    # token costs it.
+    from kvbench.benchmarks.loader import Sample
+    from kvbench.runner import generation_length
+
+    chunk = [Sample("c", "q", "a", ["x"], "niah_single_1", max_new_tokens=32)]
+    assert generation_length(chunk, _spec_in_mode("performance")) == {
+        "max_new_tokens": 32,
+        "min_new_tokens": 32,
+    }
+
+
+def test_quality_runs_may_stop_early():
+    from kvbench.benchmarks.loader import Sample
+    from kvbench.runner import generation_length
+
+    chunk = [Sample("c", "q", "a", ["x"], "niah_single_1", max_new_tokens=32)]
+    assert generation_length(chunk, _spec_in_mode("quality")) == {"max_new_tokens": 32}

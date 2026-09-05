@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999957427104817,
+    "duration_s": 31.20013282799846,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.325440835653833,
+    "mean_watts": 232.3157460507338,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.359,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 313,
+    "total_joules": 7248.2821348184525
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "69c8a4607a4850bbe1e14b2d025b861dc09887de",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T13:14:42+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.03873768709763824,
+    "itl_p50_s": 0.03840472499723546,
+    "itl_p95_s": 0.04180408100000932,
+    "throughput_tokens_per_s": 20.53102593482805,
+    "ttft_s": 1.3140108043997316,
+    "wall_s": 31.172334107002825
+  },
+  "memory": {
+    "driver_peak_bytes": 21628649472,
+    "kv_cache_bytes": 103546880,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 790,
+    "torch_peak_bytes": 17237482496
+  },
+  "method": {
+    "effective_compression_ratio": 0.900164,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.9
+  },
+  "quality": {
+    "predictions": [
+      ": 216. However, I noticed that the text actually mentions the number 216 multiple times, but it's not explicitly stated as the \"magic number\" for watery-walk. The text actually says \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times, and the number 216 is not explicitly mentioned as the magic number. \n\nHowever, I did notice that the text does mention the number 216 in the following sentence: \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again",
+      ": 233. However, I noticed that the text actually mentions the number 233 multiple times, but it also mentions the number 233 as the special magic number for harmonious-reduction. \n\nHowever, I also noticed that the text actually mentions the number 233 multiple times, but it also mentions the number 233 as the special magic number for harmonious-reduction. \n\nThe correct answer is: 233. \n\nHowever, I also noticed that the text actually mentions the number 233 multiple times, but it also mentions the number 233 as the special magic number for harmonious-reduction. \n\nThe correct answer is:",
+      ": 566. However, I couldn't find any information about a person or entity named \"lovely-terrorist.\" It's possible that this is a fictional or made-up term. If you could provide more context or clarify what you are referring to, I'll do my best to assist you. \n\nHowever, I noticed that the text you provided contains a large amount of repetitive text, which seems to be a pattern of \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" This pattern is repeated many times, but it doesn't seem to be related to the",
+      ": 721. However, I noticed that the text actually mentions the number 721 multiple times, but it's not explicitly stated as the \"magic number\" for discreet-barometer. The text seems to be repeating the number 721 multiple times, but it's not clear what it's supposed to represent. If you could provide more context or clarify what you're looking for, I'd be happy to try and help further. \n\nHowever, if I had to choose a number that is mentioned multiple times in the text, I would say that the number 721 is the most prominent one. But please note that this is just an interpretation",
+      ": 547. However, I noticed that the text actually mentions \"547\" is not present in the text, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but \"547\" is not present, but"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 0.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 0.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r010-ruler-niah_single_1-8k-rep2-de39bf4f31",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r010-ruler-niah_single_1-8k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.1,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T13:14:08+00:00",
+  "status": "ok",
+  "warnings": []
+}

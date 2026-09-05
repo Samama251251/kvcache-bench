@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999964938153921,
+    "duration_s": 30.50010693900549,
+    "idle_watts": null,
+    "joules_per_generated_token": 9.985868404245291,
+    "mean_watts": 209.53879904413785,
+    "net_joules_above_idle": null,
+    "peak_watts": 283.787,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 306,
+    "total_joules": 6390.955778716986
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "6c7a036f531a4779c38f37887b782df8290ba7c2",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:30:49+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04314164104723641,
+    "itl_p50_s": 0.03811953700642334,
+    "itl_p95_s": 0.08182998900156235,
+    "throughput_tokens_per_s": 21.014327485406604,
+    "ttft_s": 0.611355093200109,
+    "wall_s": 30.45541193000099
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 121503744,
+    "kv_cache_bytes_uncompressed": 486670336,
+    "prompt_tokens": 3713,
+    "retained_tokens": 927,
+    "torch_peak_bytes": 16772120064
+  },
+  "method": {
+    "effective_compression_ratio": 0.750337,
+    "kind": "eviction",
+    "name": "tova",
+    "params": {},
+    "press_class": "TOVAPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 8090293. I have memorized it as per your request. I'm ready to be quizzed about it. Go ahead and ask your questions. I'll do my best to answer them correctly. \n\nHowever, I must note that the provided text seems to be a repetition of the same phrases, and the number 8090293 is mentioned at the end of the text. It's not clear how the number is related to the rest of the text or what the \"wandering-age\" refers to. If you could provide more context or information about the number and its significance, I would be happy to help further",
+      ": 4612365. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and it does not seem to be related to the number 4612365. The number 4612365 is actually mentioned separately in the text, not as a part of the repeated phrases. \n\nIf you would like to quiz me about the number, I'm ready. Please go ahead and ask your questions. I'll do my best to answer them. \n\nAlso, I would like to ask, is there a specific context or meaning behind the number 461",
+      ": 7374122. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrase, and it does not seem to be related to the number 7374122. The number 7374122 is actually mentioned separately in the text, and it is not derived from the repeated phrases. \n\nIf you would like to provide more context or clarify the relationship between the repeated phrases and the number 7374122, I would be happy to try and help further. \n\nAlso, I would like to note that the text seems to be a repetition of the",
+      ": 5437923. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and the number 5437923 is mentioned only once, at the beginning of the text. The rest of the text appears to be a filler, and the number is not actually hidden within it. Nevertheless, I have memorized the number as per your request. \n\nIf you would like to test my memory, I am ready to answer any questions you may have about the number. \n\nAlso, I would like to note that the text seems to be a reference",
+      ": 3094235. I have memorized it. \n\nHowever, I would like to point out that the provided text seems to be a repetition of the same phrases, and it does not seem to be related to the number 3094235. The number 3094235 is mentioned as one of the special magic numbers for romantic-subsidy, but it is not derived from the text itself. \n\nIf you would like to quiz me on the number, I am ready. Please go ahead and ask your questions. I will do my best to answer them. \n\nAlso, I would like to ask, what is the context"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "8090293"
+      ],
+      [
+        "4612365"
+      ],
+      [
+        "7374122"
+      ],
+      [
+        "5437923"
+      ],
+      [
+        "3094235"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-tova-r025-ruler-niah_single_1-4k-rep0-28aa44da7f",
+  "schema_version": 1,
+  "slug": "perf-tova-r025-ruler-niah_single_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "tova",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:30:17+00:00",
+  "status": "ok",
+  "warnings": []
+}

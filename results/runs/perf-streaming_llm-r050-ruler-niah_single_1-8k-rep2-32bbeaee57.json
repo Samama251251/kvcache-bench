@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999969603938526,
+    "duration_s": 31.200094836000062,
+    "idle_watts": null,
+    "joules_per_generated_token": 11.71481696975454,
+    "mean_watts": 240.3032074117921,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.886,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 313,
+    "total_joules": 7497.482860642906
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "24e071b211c3178be7d1f570c1fc371293a9d089",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T14:58:58+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.0386351124062966,
+    "itl_p50_s": 0.038509867001266684,
+    "itl_p95_s": 0.03957916999934241,
+    "throughput_tokens_per_s": 20.558665982138418,
+    "ttft_s": 1.31872649500001,
+    "wall_s": 31.130424539998785
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 518389760,
+    "kv_cache_bytes_uncompressed": 1037172736,
+    "prompt_tokens": 7913,
+    "retained_tokens": 3955,
+    "torch_peak_bytes": 18067168256
+  },
+  "method": {
+    "effective_compression_ratio": 0.50019,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 2160. \n\nHowever, I noticed that the text contains a large amount of repetitive phrases and sentences, which seems to be a pattern of repeating the same phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" over and over again. This repetition is not related to the special magic number for watery-walk. \n\nThe actual special magic number for watery-walk is mentioned at the beginning of the text, which is: 2160. \n\nBut, I also noticed that the text mentions another number, which is: 2160. \n\n",
+      ": 233. However, I noticed that the text actually mentions the number 233 multiple times, but it's not explicitly stated as the \"special magic number for harmonious-reduction\" until the very end. The text seems to be a repetition of the number 233, and it's not clear what the significance of this number is or how it relates to \"harmonious-reduction.\" If you could provide more context or information about what \"harmonious-reduction\" refers to, I may be able to help you better. \n\nHowever, if I had to choose a number from the text that seems to be the \"",
+      ": 5663623. However, I noticed that the text contains a lot of repetitive phrases and seems to be trying to distract from the actual answer. The number 5663623 is indeed mentioned, but it's not clear if it's the correct answer or just a red herring. If you could provide more context or clarify what you're looking for, I'd be happy to try and assist you further. \n\nHowever, I did notice that the text contains a lot of repetitive phrases and seems to be trying to distract from the actual answer. If I had to guess, I would say that the special magic number is actually ",
+      ": 7210606. However, it seems that the text is repeating the phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times, which is not relevant to the question. The number 7210606 is the only relevant information provided in the text. \n\nHowever, I must note that the text does not provide any context or explanation about what \"discreet-barometer\" is or what the special magic number is for. It seems that the text is just repeating the phrase and the number without any additional information. If you could provide more context",
+      ": 547. \n\nHowever, I noticed that the text contains a large amount of repetitive phrases and sentences, which seems to be a pattern of repetition. This repetition is not related to the special magic number. \n\nIf you are looking for a specific number that is not mentioned in the text, I would be happy to help you with that. Please let me know what you are looking for. \n\nAlso, I would like to point out that the text seems to be a generated text with a repetitive pattern, and it does not seem to be a real text from a specific source. If you could provide more context or information about the text"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 40.0,
+    "references": [
+      [
+        "2166941"
+      ],
+      [
+        "2338687"
+      ],
+      [
+        "5663623"
+      ],
+      [
+        "7210606"
+      ],
+      [
+        "5479144"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 40.0
+      }
+    }
+  },
+  "run_id": "perf-streaming_llm-r050-ruler-niah_single_1-8k-rep2-32bbeaee57",
+  "schema_version": 1,
+  "slug": "perf-streaming_llm-r050-ruler-niah_single_1-8k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 8192,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 2,
+    "retention": 0.5,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T14:58:25+00:00",
+  "status": "ok",
+  "warnings": []
+}

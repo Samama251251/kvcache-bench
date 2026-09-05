@@ -1,0 +1,99 @@
+{
+  "energy": {
+    "achieved_hz": 9.99997389863505,
+    "duration_s": 62.800163916999736,
+    "idle_watts": null,
+    "joules_per_generated_token": 58.85933486047328,
+    "mean_watts": 294.29590614787645,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.403,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 629,
+    "total_joules": 18481.83114618861
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "d0ada96d147e39c906b3909ec1606d859f906d07",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T12:49:21+00:00",
+  "latency": {
+    "generated_tokens": 0,
+    "itl_mean_s": null,
+    "itl_p50_s": null,
+    "itl_p95_s": null,
+    "throughput_tokens_per_s": null,
+    "ttft_s": null,
+    "wall_s": 0.0
+  },
+  "memory": {
+    "driver_peak_bytes": 48684007424,
+    "kv_cache_bytes": 1029832704,
+    "kv_cache_bytes_uncompressed": 2059927552,
+    "prompt_tokens": 15716,
+    "retained_tokens": 7857,
+    "torch_peak_bytes": 32833812480
+  },
+  "method": {
+    "effective_compression_ratio": 0.500064,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "primary_metric": "string_match",
+    "primary_score": 60.0,
+    "samples_scored": 10,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 60.0
+      }
+    }
+  },
+  "run_id": "qual-streaming_llm-r050-ruler-niah_single_1-16k-rep0-7fb5508612",
+  "schema_version": 1,
+  "slug": "qual-streaming_llm-r050-ruler-niah_single_1-16k-rep0",
+  "spec": {
+    "batch_size": 4,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "smoke",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 64,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.5,
+    "samples": 10,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T12:48:14+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 4; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

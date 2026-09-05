@@ -347,6 +347,8 @@ def run_one(
             primary_score=primary,
             scores=scores,
             samples_scored=len(samples),
+            predictions=list(outcome.predictions),
+            references=[list(s.answers) for s in samples],
         )
         status, error = "ok", None
         warnings = audit_measurement(trace, outcome.generated_tokens, spec)

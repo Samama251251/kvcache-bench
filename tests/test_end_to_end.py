@@ -82,6 +82,15 @@ def test_a_sweep_runs_end_to_end_and_writes_complete_records(tmp_path, experimen
         assert payload[axis], f"{axis} was not populated"
 
 
+def test_records_keep_what_the_model_said(tmp_path, experiment, offline_samples):
+    store = ResultStore(tmp_path / "results")
+    records = run_sweep(experiment, store, backend=FakeBackend())
+    for record in records:
+        assert record.status == "ok", record.error
+        assert len(record.quality.predictions) == record.quality.samples_scored
+        assert len(record.quality.references) == record.quality.samples_scored
+
+
 def test_the_baseline_really_is_uncompressed(tmp_path, experiment, offline_samples):
     store = ResultStore(tmp_path)
     records = by_method(run_sweep(experiment, store, backend=FakeBackend()))

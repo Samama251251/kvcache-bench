@@ -1,0 +1,303 @@
+{
+  "energy": {
+    "achieved_hz": 9.999955932921997,
+    "duration_s": 44.000193895997654,
+    "idle_watts": null,
+    "joules_per_generated_token": 36.8467918573042,
+    "mean_watts": 278.86199132405187,
+    "net_joules_above_idle": null,
+    "peak_watts": 294.304,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 441,
+    "total_joules": 12269.981688482298
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "59b5c69f48f909571c4f32061319b7ffe261ada8",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T18:03:16+00:00",
+  "latency": {
+    "generated_tokens": 333,
+    "itl_mean_s": 0.039436692515941,
+    "itl_p50_s": 0.03911471799801802,
+    "itl_p95_s": 0.04119322299811756,
+    "throughput_tokens_per_s": 7.681874887624615,
+    "ttft_s": 0.6430108901801578,
+    "wall_s": 43.34879243301111
+  },
+  "memory": {
+    "driver_peak_bytes": 24189272064,
+    "kv_cache_bytes": 251789312,
+    "kv_cache_bytes_uncompressed": 503971840,
+    "prompt_tokens": 3845,
+    "retained_tokens": 1921,
+    "torch_peak_bytes": 17034908160
+  },
+  "method": {
+    "effective_compression_ratio": 0.50039,
+    "kind": "eviction",
+    "name": "streaming_llm",
+    "params": {},
+    "press_class": "StreamingLLMPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.5
+  },
+  "quality": {
+    "predictions": [
+      ": 937",
+      " 8187926.",
+      ": 3684052.",
+      ": 5924115",
+      ": 9517169.",
+      ": 9897858.",
+      ": 8973915.",
+      ": 4374754.",
+      ": 469",
+      ": 5672073.",
+      ": 2626229.",
+      " 4214348.",
+      ": 2642635.",
+      ": 7358113",
+      ": 1981186.",
+      ": 2149597.",
+      ": 2375453",
+      ": 6304573.",
+      ": 9874152",
+      ": 4533779.",
+      ": 1852264",
+      ": 1604451.",
+      ": 7117837.",
+      ": 790",
+      ": 686",
+      ": 2164686",
+      " 6262632.",
+      ": 4188992.",
+      ": 6038571.",
+      " 7361002.",
+      ": 6406444.",
+      ": 3846949",
+      ": 7953166.",
+      ": 1093026.",
+      ": 6323376.",
+      ": 565656",
+      ": 5558623.",
+      ": 8048838.",
+      ": 4700025.",
+      " 7523941.",
+      ": 7360307.",
+      " 8072684.",
+      ": 2919136",
+      ": 7296605.",
+      ": 3030966",
+      ": 8713146",
+      " 5x, which refers to steep revenue growth, but the actual magic number is 5.",
+      ": 7358385",
+      ": 5049282.",
+      ": 7784725."
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 58.0,
+    "references": [
+      [
+        "9375710"
+      ],
+      [
+        "7700828"
+      ],
+      [
+        "3684052"
+      ],
+      [
+        "6707197"
+      ],
+      [
+        "2785277"
+      ],
+      [
+        "9897858"
+      ],
+      [
+        "8973915"
+      ],
+      [
+        "4374754"
+      ],
+      [
+        "4694634"
+      ],
+      [
+        "5672073"
+      ],
+      [
+        "2626229"
+      ],
+      [
+        "4078418"
+      ],
+      [
+        "2642635"
+      ],
+      [
+        "8633773"
+      ],
+      [
+        "1981186"
+      ],
+      [
+        "2149597"
+      ],
+      [
+        "5374922"
+      ],
+      [
+        "6304573"
+      ],
+      [
+        "3646552"
+      ],
+      [
+        "4533779"
+      ],
+      [
+        "6596150"
+      ],
+      [
+        "1604451"
+      ],
+      [
+        "7117837"
+      ],
+      [
+        "7907400"
+      ],
+      [
+        "6866294"
+      ],
+      [
+        "6891254"
+      ],
+      [
+        "6262632"
+      ],
+      [
+        "4188992"
+      ],
+      [
+        "6038571"
+      ],
+      [
+        "7361002"
+      ],
+      [
+        "6406444"
+      ],
+      [
+        "2422633"
+      ],
+      [
+        "7953166"
+      ],
+      [
+        "1093026"
+      ],
+      [
+        "6323376"
+      ],
+      [
+        "5652512"
+      ],
+      [
+        "5558623"
+      ],
+      [
+        "8048838"
+      ],
+      [
+        "4700025"
+      ],
+      [
+        "7523941"
+      ],
+      [
+        "7360307"
+      ],
+      [
+        "8072684"
+      ],
+      [
+        "3117636"
+      ],
+      [
+        "6218367"
+      ],
+      [
+        "1689025"
+      ],
+      [
+        "7076506"
+      ],
+      [
+        "5118725"
+      ],
+      [
+        "6452832"
+      ],
+      [
+        "5049282"
+      ],
+      [
+        "7784725"
+      ]
+    ],
+    "samples_scored": 50,
+    "scores": {
+      "niah_multikey_1": {
+        "string_match": 58.0
+      }
+    }
+  },
+  "run_id": "qual-streaming_llm-r050-ruler-niah_multikey_1-4k-rep0-4632beb5ae",
+  "schema_version": 1,
+  "slug": "qual-streaming_llm-r050-ruler-niah_multikey_1-4k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 4096,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "streaming_llm",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "quality",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.5,
+    "samples": 50,
+    "suite": "ruler",
+    "task": "niah_multikey_1"
+  },
+  "started_at": "2026-09-05T18:02:30+00:00",
+  "status": "ok",
+  "warnings": [
+    "quality pass at batch size 1; latency and energy here are not comparable to batch-1 measurements and belong in no performance plot"
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "energy": {
+    "achieved_hz": 9.999972807653206,
+    "duration_s": 40.90011121700081,
+    "idle_watts": null,
+    "joules_per_generated_token": 15.957508897669703,
+    "mean_watts": 249.70117172354992,
+    "net_joules_above_idle": null,
+    "peak_watts": 301.262,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 410,
+    "total_joules": 10212.80569450861
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "1df47ad0d34dc0f53029d7602e908318d0096c28",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T15:56:52+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.04004657493857713,
+    "itl_p50_s": 0.03966839799977606,
+    "itl_p95_s": 0.04303384899685625,
+    "throughput_tokens_per_s": 15.727986885002904,
+    "ttft_s": 3.0516536937997443,
+    "wall_s": 40.69179384999734
+  },
+  "memory": {
+    "driver_peak_bytes": 23927128064,
+    "kv_cache_bytes": 1003749376,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 7658,
+    "torch_peak_bytes": 18991197184
+  },
+  "method": {
+    "effective_compression_ratio": 0.51254,
+    "kind": "eviction",
+    "name": "pyramidkv",
+    "params": {},
+    "press_class": "PyramidKVPress",
+    "quant_bits": null,
+    "requested_compression_ratio": 0.75
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. \n\nHowever, I noticed that the text you provided is repetitive and contains the same phrase multiple times. It seems that the text is designed to be a distraction, and the actual special magic number is hidden within the text. \n\nUpon closer inspection, I noticed that the text contains the phrase \"The grass is green. The sky is blue. The sun is yellow.\" repeated multiple times. If we count the number of times this phrase appears, we get a total of 20. \n\nHowever, if we look at the text more closely, we can see that the phrase \"The grass is green. The sky",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to quiz me about the number. \n\nAlso, I noticed that the provided text is a repetition of the same phrase, \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" It seems like this repetition is used to fill the text with a large amount of characters, but it does not provide any meaningful information. If you could provide more context or clarify the purpose of this repetition, I would be happy to help. \n\nPlease let",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it's designed to be annoying or distracting. The mention of \"annoying-decimal\" in the text suggests that the number 2839607 might be related to this concept. If you'd like to know more about it, I can try to help. \n\nPlease let me know how I can assist you further. I'm ready to answer your questions about",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase 50 times. It's a clever way to create a sense of monotony and make the number stand out. Well done! \n\nWhat would you like to ask about the number 8082668? Is it a specific property, a mathematical concept, or something else? I'm here to help. \n\nPlease go ahead and ask your questions. I'll do my best to provide a clear",
+      ": 7402509. I have memorized it. I am ready to be quizzed about it. Please go ahead and ask your questions. I will do my best to answer them correctly. \n\nPlease note that the provided text is repetitive and seems to be a form of spam. However, I have extracted the special magic number from it as per your request. If you have any further questions or need assistance with anything else, feel free to ask. \n\nAlso, please note that the number 7402509 is not a real magic number and is likely a random number generated for the purpose of this exercise. It does not"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-pyramidkv-r025-ruler-niah_single_1-16k-rep0-a1d4c0985f",
+  "schema_version": 1,
+  "slug": "perf-pyramidkv-r025-ruler-niah_single_1-16k-rep0",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "pyramidkv",
+    "method_kind": "eviction",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": null,
+    "repeat": 0,
+    "retention": 0.25,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T15:56:06+00:00",
+  "status": "ok",
+  "warnings": []
+}

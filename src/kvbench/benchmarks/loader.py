@@ -14,6 +14,8 @@ plainly too.
 
 from __future__ import annotations
 
+import glob
+import os
 from dataclasses import dataclass, field
 
 DATASET_IDS = {
@@ -48,8 +50,44 @@ class Sample:
     max_new_tokens: int | None = None
     extra: dict = field(default_factory=dict)
 
-    def prompt(self) -> str:
-        return f"{self.context}{self.question}{self.answer_prefix}"
+    def prompt(self, tokenizer=None) -> str:
+        """The text the model sees, formatted the way kvpress formats it.
+
+        With a chat tokenizer the context and question sit inside the user
+        turn, then the assistant header, then the answer prefix. Without one it
+        is plain concatenation. Instruct models without their template ramble,
+        and the score they get is a fact about the prompt, not the method.
+        """
+        head, tail = _template_parts(tokenizer)
+        return f"{head}{self.context}{self.question}{tail}{self.answer_prefix}"
+
+
+def uses_chat_template(tokenizer) -> bool:
+    return tokenizer is not None and getattr(tokenizer, "chat_template", None) is not None
+
+
+_TEMPLATE_CACHE: dict[int, tuple[str, str]] = {}
+
+
+def _template_parts(tokenizer) -> tuple[str, str]:
+    """(prefix before the context, suffix after the question) for a tokenizer.
+
+    Mirrors kvpress's pipeline: render one user turn containing a marker, split
+    on the marker, and the two halves are what goes around context + question.
+    For Llama-3.1 the suffix is the eot token plus the assistant header. The
+    prefix already carries the BOS token, so callers must not add another.
+    """
+    if not uses_chat_template(tokenizer):
+        return "", ""
+    key = id(tokenizer)
+    if key not in _TEMPLATE_CACHE:
+        marker = "#" * 64
+        rendered = tokenizer.apply_chat_template(
+            [{"role": "user", "content": marker}], add_generation_prompt=True, tokenize=False
+        )
+        head, tail = rendered.split(marker)
+        _TEMPLATE_CACHE[key] = (head, tail)
+    return _TEMPLATE_CACHE[key]
 
 
 def data_dir_for(suite: str, task: str, context_length: int | None) -> str:
@@ -80,9 +118,8 @@ def load_samples(
 
     from datasets import load_dataset
 
-    dataset = load_dataset(
-        DATASET_IDS[suite], data_dir=data_dir_for(suite, task, context_length), split=split
-    )
+    files = dataset_files(suite, data_dir_for(suite, task, context_length))
+    dataset = load_dataset("parquet", data_files=files, split="train")
     frame = dataset.to_pandas()
 
     if suite == "ruler":
@@ -96,6 +133,31 @@ def load_samples(
         frame = frame.head(limit)
 
     return [_to_sample(row, suite, task) for _, row in frame.iterrows()]
+
+
+def dataset_files(suite: str, data_dir: str) -> list[str]:
+    """Local parquet files for one task, fetched once and then read from disk.
+
+    `load_dataset(repo, data_dir=...)` asks the Hub on every call. Unauthenticated
+    the Hub rate-limits after a few dozen, and the datasets library then falls
+    back to its cache under a config name that does not match, so cell 40 of a
+    sweep fails on data cell 1 loaded fine. Snapshotting the task's directory
+    makes the Hub a one-time dependency; after that it is a glob.
+    """
+    from huggingface_hub import snapshot_download
+
+    repo = DATASET_IDS[suite]
+    patterns = [f"{data_dir}/*"]
+    try:
+        local = snapshot_download(repo, repo_type="dataset", allow_patterns=patterns)
+    except Exception:  # offline, rate-limited, or the Hub is down: use what we have
+        local = snapshot_download(
+            repo, repo_type="dataset", allow_patterns=patterns, local_files_only=True
+        )
+    files = sorted(glob.glob(os.path.join(local, data_dir, "*.parquet")))
+    if not files:
+        raise FileNotFoundError(f"{repo} has no parquet files under '{data_dir}/'")
+    return files
 
 
 def _to_sample(row, suite: str, task: str) -> Sample:

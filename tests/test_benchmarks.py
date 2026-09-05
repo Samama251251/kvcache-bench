@@ -29,6 +29,29 @@ def test_prompt_is_context_question_and_prefix_in_order():
     assert sample(["x"]).prompt() == "ctx q?\nAnswer:"
 
 
+class ChatTokenizer:
+    """Enough of a tokenizer to render a one-turn template."""
+
+    chat_template = "not none"
+
+    def apply_chat_template(self, messages, add_generation_prompt, tokenize):
+        assert not tokenize and add_generation_prompt
+        return f"<bos><user>{messages[0]['content']}<eot><assistant>"
+
+
+def test_chat_prompt_puts_context_and_question_in_the_user_turn():
+    # The question stays inside the user turn and the answer prefix comes after
+    # the assistant header, which is how kvpress lays it out.
+    assert sample(["x"]).prompt(ChatTokenizer()) == "<bos><user>ctx q?<eot><assistant>\nAnswer:"
+
+
+def test_prompt_without_a_tokenizer_or_template_is_plain_text():
+    class Plain:
+        chat_template = None
+
+    assert sample(["x"]).prompt(Plain()) == "ctx q?\nAnswer:"
+
+
 def test_a_perfect_longbench_answer_scores_full_marks():
     name, primary, scores = score("longbench", "qasper", [sample(["blue whale"])], ["blue whale"])
     assert name == "qa_f1"

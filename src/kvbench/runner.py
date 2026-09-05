@@ -152,8 +152,16 @@ def build_batch(tokenizer, samples: list[loader.Sample], device: str, max_contex
     """
     import torch
 
+    # A chat template already carries the BOS token; adding another shifts every
+    # position and the model notices.
+    add_special = not loader.uses_chat_template(tokenizer)
     sequences = [
-        truncate_ids(tokenizer(s.prompt(), return_tensors="pt")["input_ids"][0], max_context_tokens)
+        truncate_ids(
+            tokenizer(s.prompt(tokenizer), return_tensors="pt", add_special_tokens=add_special)[
+                "input_ids"
+            ][0],
+            max_context_tokens,
+        )
         for s in samples
     ]
     width = max(int(s.shape[0]) for s in sequences)

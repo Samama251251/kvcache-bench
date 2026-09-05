@@ -5,7 +5,8 @@
 # What it is checking:
 #   - NVML power sampling works and returns plausible watts
 #   - every configured press runs against the real model
-#   - a 32k prompt does not OOM this card, at batch 1 and batched
+#   - a 16k prompt does not OOM this card, at batch 1 and batched (the RULER
+#     copy kvpress publishes has no 32k split)
 #   - the baseline can still do the task at 16k. If uncompressed RULER accuracy
 #     is already poor, compression-induced degradation is unmeasurable and the
 #     headline result of the whole project is floor-limited. Better to find that
@@ -18,7 +19,7 @@ name: smoke
 model:
   id: unsloth/Llama-3.1-8B-Instruct
   dtype: bfloat16
-  attn_implementation: flash_attention_2
+  attn_implementation: sdpa
 
 runtime:
   device: cuda
@@ -59,7 +60,7 @@ benchmarks:
   # Both the OOM check and the baseline-competence check.
   - suite: ruler
     tasks: [niah_single_1]
-    context_lengths: [16384, 32768]
+    context_lengths: [8192, 16384]
 
 estimate:
   prefill_tokens_per_s: 9000

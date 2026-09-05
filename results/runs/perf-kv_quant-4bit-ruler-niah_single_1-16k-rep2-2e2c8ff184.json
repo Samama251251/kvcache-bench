@@ -1,0 +1,123 @@
+{
+  "energy": {
+    "achieved_hz": 9.999949836752794,
+    "duration_s": 52.600263860003906,
+    "idle_watts": null,
+    "joules_per_generated_token": 22.744516090214034,
+    "mean_watts": 276.73797105807716,
+    "net_joules_above_idle": null,
+    "peak_watts": 299.189,
+    "read_errors": 0,
+    "requested_hz": 10.0,
+    "sample_count": 527,
+    "total_joules": 14556.490297736982
+  },
+  "environment": {
+    "clock_lock_applied": false,
+    "clocks_locked_mhz": null,
+    "device": "cuda",
+    "device_info": {
+      "backend": "nvml",
+      "driver_version": "570.181",
+      "index": 0,
+      "name": "NVIDIA RTX A6000",
+      "power_limit_watts": 300.0,
+      "total_memory_bytes": 51527024640
+    },
+    "git_sha": "0741935724f92dfb2cb10dc4e55c5de723b84304",
+    "kvbench_version": "0.1.0",
+    "kvpress_version": "0.5.4",
+    "platform": "Linux-5.15.0-139-generic-x86_64-with-glibc2.39",
+    "torch_version": "2.11.0+cu128",
+    "transformers_version": "5.2.0"
+  },
+  "error": null,
+  "finished_at": "2026-09-05T20:58:09+00:00",
+  "latency": {
+    "generated_tokens": 640,
+    "itl_mean_s": 0.05890782510236824,
+    "itl_p50_s": 0.052317157002107706,
+    "itl_p95_s": 0.12805995600501774,
+    "throughput_tokens_per_s": 12.204377490648794,
+    "ttft_s": 3.004978177198791,
+    "wall_s": 52.440200288001506
+  },
+  "memory": {
+    "driver_peak_bytes": 24378015744,
+    "kv_cache_bytes": 514752512,
+    "kv_cache_bytes_uncompressed": 2059141120,
+    "prompt_tokens": 15710,
+    "retained_tokens": 15709,
+    "torch_peak_bytes": 19119975424
+  },
+  "method": {
+    "effective_compression_ratio": 6.4e-05,
+    "kind": "quantization",
+    "name": "kv_quant",
+    "params": {
+      "backend": "quanto"
+    },
+    "press_class": null,
+    "quant_bits": 4,
+    "requested_compression_ratio": null
+  },
+  "quality": {
+    "predictions": [
+      ": 7700828. I have memorized it. \n\nPlease let me know if you would like to ask any questions or if you would like to test my knowledge of the number. \n\nAlso, I would like to note that the provided text seems to be a repetition of the same phrase, and it's not clear what the connection is between the text and the number 7700828. If you could provide more context or information about the number and its significance, I would be happy to learn more. \n\nPlease let me know how I can assist you further. \n\nAlso, I would like to note that the number 770",
+      ": 9548432. I have memorized it. \n\nPlease let me know if you have any further questions or if you would like to ask any follow-up questions. I'm ready to help. \n\nAlso, I noticed that the provided text is a repetition of the same phrase \"The grass is green. The sky is blue. The sun is yellow. Here we go. There and back again.\" multiple times. This repetition is likely a deliberate attempt to make the text appear longer and more complex, but it does not actually contain any meaningful information or the special magic number. The special magic number is actually mentioned outside of this repetitive",
+      ": 2839607. I have memorized it. \n\nPlease go ahead and ask your questions about this number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like this repetition is the source of the magic number. Is that correct? \n\nIf you'd like, I can try to find a pattern or a mathematical relationship between the repetition and the magic number. Just let me know! \n\nPlease go ahead and ask your questions about the magic number. I'm ready to help! \n\nAlso, I noticed that the text you provided",
+      ": 8082668. I have memorized it. \n\nPlease go ahead and ask your questions about the number. I'll be happy to answer them. \n\nAlso, I noticed that the text you provided is a repetition of the same phrase many times. It seems like it was used to create a large block of text to hide the magic number. Am I correct? \n\nPlease let me know if I'm right or not. I'm curious to know the reasoning behind it. \n\nAlso, I'd like to ask, is there a specific type of magic number or a specific context for this number? I'm curious to know more",
+      ": 7402509. I have memorized it. I am ready for your quiz. Please go ahead and ask your questions. I will do my best to answer them. \n\nPlease note that the provided text is a repetition of the same sentence 100 times. The magic number is hidden within the text, but I couldn't find any specific pattern or mathematical operation that leads to the number 7402509. If you could provide more context or information about how the number was derived, I would be happy to learn from it. \n\nHowever, I have memorized the number as per your request. I am ready to answer any"
+    ],
+    "primary_metric": "string_match",
+    "primary_score": 100.0,
+    "references": [
+      [
+        "7700828"
+      ],
+      [
+        "9548432"
+      ],
+      [
+        "2839607"
+      ],
+      [
+        "8082668"
+      ],
+      [
+        "7402509"
+      ]
+    ],
+    "samples_scored": 5,
+    "scores": {
+      "niah_single_1": {
+        "string_match": 100.0
+      }
+    }
+  },
+  "run_id": "perf-kv_quant-4bit-ruler-niah_single_1-16k-rep2-2e2c8ff184",
+  "schema_version": 1,
+  "slug": "perf-kv_quant-4bit-ruler-niah_single_1-16k-rep2",
+  "spec": {
+    "batch_size": 1,
+    "context_length": 16384,
+    "dtype": "bfloat16",
+    "experiment": "full_sweep",
+    "max_context_tokens": 16384,
+    "max_new_tokens": 128,
+    "method": "kv_quant",
+    "method_kind": "quantization",
+    "method_params": {},
+    "mode": "performance",
+    "model_id": "unsloth/Llama-3.1-8B-Instruct",
+    "quant_bits": 4,
+    "repeat": 2,
+    "retention": null,
+    "samples": 5,
+    "suite": "ruler",
+    "task": "niah_single_1"
+  },
+  "started_at": "2026-09-05T20:57:12+00:00",
+  "status": "ok",
+  "warnings": []
+}
